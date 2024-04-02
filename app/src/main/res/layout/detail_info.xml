@@ -6,4 +6,86 @@
     android:layout_height="match_parent"
     tools:context=".DetailInfoActivity">
 
+    <TextView
+        android:id="@+id/workoutTitle"
+        android:layout_width="309dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="바벨 벤치 프레스"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/shortInfo"
+        android:layout_width="309dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/inter_medium"
+        android:text="전반적인 가슴 자극"
+        android:textColor="#409FB4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textSize="15sp" />
+
+    <ImageView
+        android:id="@+id/workoutImage"
+        android:layout_width="320dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/BenchPressImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/detailInfoPanel"
+        android:fillViewport="true"
+        android:layout_width="382dp"
+        android:layout_height="312dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="336dp"
+        android:background="@drawable/rounded_blue_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/workoutGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="56dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="운동 가이드"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/startPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="88dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="시작 자세"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
