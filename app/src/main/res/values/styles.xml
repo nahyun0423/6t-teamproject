@@ -6,6 +6,17 @@
     </style>
     <style name="button_1_text">
         <item name="android:textSize">15sp</item>
+    </style>
+    <style name="button_2_text">
+        <item name="android:textSize">15sp</item>
         <item name="android:textColor">#494D50</item>
+    </style>
+    <style name="routine_name">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
+    <style name="routine_detail">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000000</item>
     </style>
 </resources>

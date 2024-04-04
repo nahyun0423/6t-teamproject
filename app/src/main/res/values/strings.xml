@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">RoutineApp</string>
     <string name="user_">User님께 \n적합한 루틴을 찾았습니다!</string>
-    <string name="button_1_text">내 루틴에 추가하기</string>
+    <string name="button_1_text">필요 없음</string>
+    <string name="button_2_text">내 루틴에 추가하기</string>
+    <string name="routine_1_name">오버헤드 프레스</string>
+    <string name="routine_1_detail">10회, 3세트</string>
 </resources>

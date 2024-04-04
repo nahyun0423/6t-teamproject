@@ -38,51 +38,124 @@
                 android:textAppearance="@style/user_"
                 app:lineHeight="24sp" />
         </RelativeLayout>
-
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/bottom"
             android:layout_width="360dp"
             android:layout_height="180dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="800dp"
-            android:background="#66F0F0F0"
-            android:clipToOutline="true">
-
-            <View
+            android:layout_marginTop="620dp"
+            android:clipToOutline="true"
+            android:background="#66F0F0F0" >
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/button_1"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
                 android:layout_marginLeft="60dp"
-                android:layout_marginTop="100dp"
-                android:elevation="4dp">
-
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="80dp" >
                 <View
                     android:id="@+id/button_1_background"
                     android:layout_width="240dp"
                     android:layout_height="50dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="100dp"
-                    android:background="@drawable/button_1_background" />
-
+                    android:background="@drawable/button_1_background"
+                    />
                 <TextView
                     android:id="@+id/button_1_text"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@string/button_1_text"
+                    android:textAppearance="@style/button_1_text"
+                    android:gravity="center_horizontal|center_vertical"
+                    />
+            </RelativeLayout>
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/button_2"
+                android:layout_width="240dp"
+                android:layout_height="50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="150dp" >
+                <View
+                    android:id="@+id/button_2_background"
+                    android:layout_width="240dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/button_2_background"
+                    />
+                <TextView
+                    android:id="@+id/button_2_text"
                     android:layout_width="240dp"
                     android:layout_height="20dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginLeft="60dp"
-                    android:layout_marginTop="115dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/button_2_text"
+                    android:textAppearance="@style/button_2_text"
                     android:gravity="center_horizontal|center_vertical"
-                    android:text="@string/button_1_text"
-                    android:textAppearance="@style/button_1_text" />
-            </View>
-
-
+                    />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/middle"
+            android:layout_width="360dp"
+            android:layout_height="460dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="160dp"
+            android:background="#FCFCFC" >
+            <RelativeLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/routine_1"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp" >
+                <ImageView
+                    android:id="@+id/routine_1_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/routine_1_icon"
+                    />
+                <TextView
+                    android:id="@+id/routine_1_title"
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/routine_1_name"
+                    android:textAppearance="@style/routine_name"
+                    android:gravity="center_vertical"
+                    />
+                <TextView
+                    android:id="@+id/routine_1_detail"
+                    android:layout_width="200dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/routine_1_detail"
+                    android:textAppearance="@style/routine_detail"
+                    android:gravity="center_vertical"
+                    />
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 
