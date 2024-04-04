@@ -1,1 +1,1 @@
-# 6t-teamproject
+# 생성한 루틴 목록 UI
