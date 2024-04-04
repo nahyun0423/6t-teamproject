@@ -45,12 +45,12 @@
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detailInfoPanel"
-        android:fillViewport="true"
-        android:layout_width="382dp"
-        android:layout_height="312dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="336dp"
+        android:layout_width="390dp"
+        android:layout_height="390dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="320dp"
         android:background="@drawable/rounded_blue_background"
+        android:fillViewport="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -63,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="56dp"
+                android:layout_marginTop="28dp"
                 android:fontFamily="@font/inter_semibold"
                 android:text="운동 가이드"
                 android:textColor="#000000"
@@ -76,13 +76,91 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="88dp"
+                android:layout_marginTop="68dp"
                 android:fontFamily="@font/inter_semibold"
                 android:text="시작 자세"
                 android:textColor="#000000"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/breathing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="360dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="호흡법"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="430dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="영상"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/movement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="252dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="운동 동작"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/startInfo"
+                android:layout_width="334dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="96dp"
+                android:text="1. 벤치에 누워 두 발을 바닥에 고정해주세요. \n2. 어깨를 뒤로 당긴 후 고정해 어깨가 가슴보다 뒤에 위치하게 합니다.\n3. 허리는 자연스러운 아치 모양이 되게 해주세요.\n4. 어깨너비보다 약간 넓게 두 손으로 바벨을 잡아주세요.\n5. 허리와 어깨를 고정한채로 바벨을 들어 가슴 위에 위치하게 합니다."
+                android:textColor="#000000"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:fontFamily="@font/inter_medium" />
+
+            <TextView
+                android:id="@+id/moveInfo"
+                android:layout_width="334dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="280dp"
+                android:text="1. 가슴 아래쪽에 바벨이 닿도록 천천히 바벨을 내려주세요.\n2. 이때, 팔뚝(전완)은 바닥과 수직이 되어야 합니다.\n3. 천천히 바벨을 들어 올려 시작 자세로 돌아오세요."
+                android:textColor="#000000"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:fontFamily="@font/inter_medium" />
+
+            <TextView
+                android:id="@+id/breathingInfo"
+                android:layout_width="334dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="390dp"
+                android:text="팔을 구부릴 때 숨을 들이쉬고, 팔을 밀 때 숨을 내쉬세요."
+                android:textColor="#000000"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:fontFamily="@font/inter_medium" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
