@@ -6,48 +6,60 @@
     android:layout_height="match_parent"
     tools:context=".DetailInfoActivity">
 
-    <TextView
-        android:id="@+id/workoutTitle"
-        android:layout_width="309dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="바벨 벤치 프레스"
-        android:textColor="#000000"
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="353dp"
+        android:layout_height="340dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="25dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/shortInfo"
-        android:layout_width="309dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="100dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="전반적인 가슴 자극"
-        android:textColor="#409FB4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:textSize="15sp" />
+        <TextView
+            android:id="@+id/workoutTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="바벨 벤치 프레스"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textSize="25sp" />
 
-    <ImageView
-        android:id="@+id/workoutImage"
-        android:layout_width="320dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/BenchPressImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/shortInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="전반적인 가슴 자극"
+            android:textColor="#409FB4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:textSize="15sp" />
 
+        <ImageView
+            android:id="@+id/workoutImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="72dp"
+            android:contentDescription="@null"
+            android:src="@drawable/benchpressimage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </RelativeLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detailInfoPanel"
         android:layout_width="390dp"
         android:layout_height="390dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="320dp"
         android:background="@drawable/rounded_blue_background"
         android:fillViewport="true"
