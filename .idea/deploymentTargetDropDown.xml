@@ -2,20 +2,7 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-<<<<<<< HEAD
       <entry key="app">
-=======
-      <entry key="All Tests">
-        <State />
-      </entry>
-      <entry key="ExplainRoutine">
-        <State />
-      </entry>
-      <entry key="MainActivity">
-        <State />
-      </entry>
-      <entry key="RoutineList">
->>>>>>> 47b2a37116481d54ac8b11dc746170c41e010bd1
         <State />
       </entry>
     </value>
