@@ -6,63 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".DetailInfoActivity">
 
-    <RelativeLayout
-        android:id="@+id/relativelayout"
-        android:layout_width="353dp"
-        android:layout_height="340dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+    <TextView
+        android:id="@+id/workoutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/inter_semibold"
+        android:text="바벨 벤치 프레스"
+        android:textColor="#000000"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/workoutTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/inter_semibold"
-            android:text="바벨 벤치 프레스"
-            android:textColor="#000000"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:textSize="25sp" />
-
-        <TextView
+    <TextView
             android:id="@+id/shortInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="95dp"
             android:fontFamily="@font/inter_medium"
             android:text="전반적인 가슴 자극"
+            android:textSize="15sp"
             android:textColor="#409FB4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:textSize="15sp" />
-
-        <ImageView
-            android:id="@+id/workoutImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="72dp"
-            android:contentDescription="@null"
-            android:src="@drawable/benchpressimage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/workoutImage"
+        android:layout_width="352dp"
+        android:layout_height="281dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="68dp"
+        android:contentDescription="@null"
+        android:src="@drawable/benchpressimage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/detailInfoPanel"
-        android:layout_width="390dp"
+        android:layout_width="380dp"
         android:layout_height="390dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="320dp"
         android:background="@drawable/rounded_blue_background"
-        android:fillViewport="true"
+        android:layout_marginTop="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -137,6 +131,7 @@
 
             <TextView
                 android:id="@+id/startInfo"
+                :fontFamily="@font/inter_medium"
                 android:layout_width="334dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="28dp"
@@ -145,8 +140,7 @@
                 android:textColor="#000000"
                 android:textSize="13sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:fontFamily="@font/inter_medium" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/moveInfo"
