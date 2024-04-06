@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -106,57 +107,60 @@
                     />
             </RelativeLayout>
         </RelativeLayout>
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/middle"
-            android:layout_width="360dp"
+        <ScrollView
+            android:layout_width="match_parent"
             android:layout_height="460dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="160dp"
-            android:background="#FCFCFC" >
-            <RelativeLayout
+            android:layout_marginTop="160dp" >
+            <LinearLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/routine_1"
-                android:layout_width="300dp"
-                android:layout_height="80dp"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="30dp" >
-                <ImageView
-                    android:id="@+id/routine_1_icon"
-                    android:layout_width="80dp"
+                android:id="@+id/middle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FCFCFC" >
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/exercise_1"
+                    android:layout_width="300dp"
                     android:layout_height="80dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/routine_1_icon"
-                    />
-                <TextView
-                    android:id="@+id/routine_1_title"
-                    android:layout_width="200dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="100dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/routine_1_name"
-                    android:textAppearance="@style/routine_name"
-                    android:gravity="center_vertical"
-                    />
-                <TextView
-                    android:id="@+id/routine_1_detail"
-                    android:layout_width="200dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="100dp"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="40dp"
-                    android:text="@string/routine_1_detail"
-                    android:textAppearance="@style/routine_detail"
-                    android:gravity="center_vertical"
-                    />
-            </RelativeLayout>
-        </RelativeLayout>
+                    android:layout_marginTop="30dp" >
+                    <ImageView
+                        android:id="@+id/exercise_1_icon"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/routine_1_icon"
+                        />
+                    <TextView
+                        android:id="@+id/exercise_1_name"
+                        android:layout_width="200dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="100dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/exercise_1_name"
+                        android:textAppearance="@style/exercise_name"
+                        android:gravity="center_vertical"
+                        />
+                    <TextView
+                        android:id="@+id/routine_1_detail"
+                        android:layout_width="200dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="100dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="40dp"
+                        android:text="@string/exercise_1_detail"
+                        android:textAppearance="@style/exercise_detail"
+                        android:gravity="center_vertical"
+                        />
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
