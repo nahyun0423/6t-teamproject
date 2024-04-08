@@ -9,12 +9,5 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val buttonToRecommendationResult = findViewById<Button>(R.id.buttonToRecommendationResult)
-
-        buttonToRecommendationResult.setOnClickListener{
-            val intent = Intent(this, RecommendationResultActivity::class.java)
-            startActivity(intent)
-        }
     }
 }

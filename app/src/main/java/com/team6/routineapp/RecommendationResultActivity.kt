@@ -33,8 +33,7 @@ class RecommendationResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
 
-
-
+        //이미지도 추가?
         val exercise1 = WeightTraining("오버헤드 프레스", 4, 10, 40)
         val exercise2 = Exercise("행잉 레그레이즈", 4, 10)
         val exercise3 = Exercise("행잉 레그레이즈", 4, 10)
@@ -49,11 +48,11 @@ class RecommendationResultActivity : AppCompatActivity() {
         var name: TextView
         var detail: TextView
         var parameter: RelativeLayout.LayoutParams
-        var resource: int
+        var resource: String
 
         for (i in routine) {
             when(i.name) {
-                "오버헤드 프레스" -> resource = overhead_press
+                "오버헤드 프레스" -> resource = "overhead_press"
                 "행잉 레그레이즈" -> resource = "hanging_leg_raise"
                 else -> resource = "none"
             }
@@ -69,7 +68,7 @@ class RecommendationResultActivity : AppCompatActivity() {
 
             parameter = RelativeLayout.LayoutParams(convertFromDpToPx(80), convertFromDpToPx(80))
             icon.layoutParams = parameter
-            icon.setImageResource(R.drawable.resource)
+            //icon.setImageResource(R.drawable.resource)
 
             parameter = RelativeLayout.LayoutParams(convertFromDpToPx(200), convertFromDpToPx(20))
             parameter.setMargins(convertFromDpToPx(100), convertFromDpToPx(10), 0, 0)
