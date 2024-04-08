@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Material3.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".ChoiceTap"
+            android:exported="true" />
+        <activity
             android:name=".DetailInfoActivity"
             android:exported="true" />
         <activity
