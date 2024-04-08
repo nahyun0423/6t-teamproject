@@ -16,6 +16,22 @@
             android:name=".ChoiceTap"
             android:exported="true" />
         <activity
+            android:name=".DetailInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ExplainRoutine"
+            android:exported="true" />
+        <activity
+            android:name=".RoutineList"
+            android:exported="true"
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".DislikeexerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PreferexerciseActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -26,6 +42,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

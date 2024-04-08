@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PreferexerciseActivity">
+
+    <CheckBox
+        android:id="@+id/checkBoxcardio"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="유산소"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxShoulder"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <CheckBox
+        android:id="@+id/checkBoxLeg"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="하체"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxcardio"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxArm"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxBack"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBack"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="등"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/checkBoxShoulder"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxChest"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <CheckBox
+        android:id="@+id/checkBoxShoulder"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="어깨"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <CheckBox
+        android:id="@+id/checkBoxArm"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="팔"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxChest"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <CheckBox
+        android:id="@+id/checkBoxChest"
+        android:layout_width="106dp"
+        android:layout_height="54dp"
+        android:background="@drawable/solid_button"
+        android:capitalize="characters"
+        android:shadowColor="#FFFFFF"
+        android:text="가슴"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.111"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="282dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:background="#FAFAFA"
+        android:text="원하는 키워드를 고르세요"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="91dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        android:text="다음"
+        android:textColor="#0067E4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
