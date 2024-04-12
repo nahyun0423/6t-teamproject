@@ -2,32 +2,8 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-<<<<<<< HEAD
-      <entry key="app">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="3433515654383498" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-04T05:38:34.741712500Z" />
-        </State>
-=======
-<<<<<<< HEAD
-      <entry key="PreferexerciseActivity">
+      <entry key="RecommendationResultActivity">
         <State />
-      </entry>
-=======
->>>>>>> 30d813be3c7e6a102931981955055efb3e560412
-      <entry key="app">
-        <State />
->>>>>>> 030080557dc0d9673851ad058739e01f75cdf5e8
       </entry>
     </value>
   </component>
