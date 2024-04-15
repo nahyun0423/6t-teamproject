@@ -35,11 +35,11 @@ class RecommendationResultActivity : AppCompatActivity() {
 
         //이미지도 추가?
         val exercise1 = WeightTraining("오버헤드 프레스", 4, 10, 40)
-        val exercise2 = Exercise("행잉 레그레이즈", 4, 10)
-        val exercise3 = Exercise("행잉 레그레이즈", 4, 10)
-        val exercise4 = Exercise("행잉 레그레이즈", 4, 10)
-        val exercise5 = Exercise("행잉 레그레이즈", 4, 10)
-        val exercise6 = Exercise("행잉 레그레이즈", 4, 10)
+        val exercise2 = Exercise("행잉 레그 레이즈", 4, 10)
+        val exercise3 = Exercise("행잉 레그 레이즈", 4, 10)
+        val exercise4 = Exercise("행잉 레그 레이즈", 4, 10)
+        val exercise5 = Exercise("행잉 레그 레이즈", 4, 10)
+        val exercise6 = Exercise("행잉 레그 레이즈", 4, 10)
         val routine = arrayOf(exercise1, exercise2, exercise3, exercise4, exercise5, exercise6)
 
         val middle = findViewById<LinearLayout>(R.id.middle)
@@ -53,7 +53,7 @@ class RecommendationResultActivity : AppCompatActivity() {
         for (i in routine) {
             when(i.name) {
                 "오버헤드 프레스" -> resource = "overhead_press"
-                "행잉 레그레이즈" -> resource = "hanging_leg_raise"
+                "행잉 레그 레이즈" -> resource = "hanging_leg_raise"
                 else -> resource = "none"
             }
 
