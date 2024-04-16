@@ -35,7 +35,7 @@ public class ClovaCreateService {
         this.timestamps = String.valueOf(System.currentTimeMillis());
         try {
             MultiValueMap<String, Object> formData = new LinkedMultiValueMap<>();
-            formData.add("name", "exRoutine_create");
+            formData.add("name", "exRoutine2_create");
             formData.add("model", "HCX-003");
             formData.add("method", "LoRA");
             formData.add("taskType", "GENERATION");

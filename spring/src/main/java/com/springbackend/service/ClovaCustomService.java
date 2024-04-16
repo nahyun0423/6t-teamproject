@@ -24,11 +24,12 @@ public class ClovaCustomService {
     //api 부분
     public Mono<String> getCompletion(String userQuery) {
         return webClient.post()
-                .uri("https://clovastudio.stream.ntruss.com/testapp/v1/chat-completions/HCX-003")
+                .uri("https://clovastudio.stream.ntruss.com/testapp/v1/tasks/ef9swe3v/chat-completions")
                 .header("X-NCP-CLOVASTUDIO-API-KEY", "NTA0MjU2MWZlZTcxNDJiY/bEfwpnZM0oOSzn0mYVKIkfhLLCWaDuoNPeCXVrFfK/")
-                .header("X-NCP-APIGW-API-KEY", "MBqGVTV8LYwW20beQ3DiCUijR7OCFWJ2oMREEygI")
-                .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "f4c0d72e-7e43-4cd1-bfc1-86eb085a1769")
+                .header("X-NCP-APIGW-API-KEY", "fcV1oaDqNuVmEwluCqce5nROIUj0O1gK8vOWWqRA")
+                .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "1ebeea9d-94d6-4486-ada4-f2b3e274e75d")
                 .header("Content-Type","application/json")
+                .header("Accept","")
                 .bodyValue(buildRequestData(userQuery))
                 .retrieve()
                 .bodyToMono(String.class)
@@ -67,4 +68,3 @@ public class ClovaCustomService {
     }
 
 }
-

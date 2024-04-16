@@ -43,6 +43,8 @@ public class ClovaViewService {
 
     }
 
+
+
     public String makeSignature(String query) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         String space = " ";					// one space
         String newLine = "\n";					// new line
