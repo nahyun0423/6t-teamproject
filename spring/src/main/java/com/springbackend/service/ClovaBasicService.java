@@ -31,6 +31,7 @@ public class ClovaBasicService {
                 .header("X-NCP-APIGW-API-KEY", "fcV1oaDqNuVmEwluCqce5nROIUj0O1gK8vOWWqRA")
                 .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "905ee286-20db-43a2-8371-9a0dce56bdd9")
                 .header("Content-Type","application/json")
+                .header("Accept","")
                 .bodyValue(buildRequestData(userQuery))
                 .retrieve()
                 .bodyToMono(String.class)
@@ -60,7 +61,7 @@ public class ClovaBasicService {
                 "repeatPenalty", 5.0,
                 "stopBefore", List.of(),
                 "messages", List.of(
-                        Map.of("role","system","content","-사용자의 요청에 맞는 적절한 운동 루틴을 추천합니다 -운동 루틴은 4~6개 사이의 운동으로 구성됩니다. -운동 루틴은 운동이름 ,해당 기구의 세팅할 중량 , 세트수 , 1세트당 반복횟수로 이루어져 있습니다." +"사용자가 원하는 부위의 운동만을 추천합니다 -다른 설명 없이 운동 루틴만 출력합니다. -운동 루틴 출력시 해당 값의 의미를 설명하지 말고 값만 출력합니다. - 특정 부위를 제외한다고 하면 그 부위를 사용하는 운동은 추천하지 않습니다 -특정 부위를 포함한다고 하면 그 부위를 사용하는 운동만을 추천합니다"),
+                        Map.of("role","system","content","-사용자의 요청에 맞는 적절한 운동 루틴을 추천합니다 -운동 루틴은 4~6개 사이의 운동으로 구성됩니다. -운동 루틴은 운동이름 ,해당 기구의 세팅할 중량 , 세트수 , 1세트당 반복횟수로 이루어져 있습니다." +"사용자가 원하는 부위의 운동만을 추천합니다 -다른 설명 없이 운동 루틴만 출력합니다. -운동 루틴 출력시 해당 값의 의미를 설명하지 말고 값만 출력합니다."),
                         Map.of("role", "user", "content", userQuery)
                 )
         );

@@ -26,12 +26,12 @@ public class ClovaController {
     }
 
     @PostMapping("/clova")
-    public Mono<String> getResponse(@RequestBody String data) {
+    public Mono<String> getResponse(@RequestParam("query") String data) {
         return clovaBasicService.getCompletion(data);
     }
 
     @PostMapping("/clova_custom")
-    public Mono<String> getResponseCustom(@RequestBody String data) {
+    public Mono<String> getResponseCustom(@RequestParam("query") String data) {
         return clovaCustomService.getCompletion(data);
     }
 
