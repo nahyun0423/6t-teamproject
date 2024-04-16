@@ -1,22 +1,51 @@
 package com.springbackend.controller;
 
-import com.springbackend.service.ClovaService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.springbackend.service.ClovaCreateService;
+import com.springbackend.service.ClovaBasicService;
+import com.springbackend.service.ClovaCustomService;
+import com.springbackend.service.ClovaViewService;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 @RestController
 public class ClovaController {
 
-    private final ClovaService clovaService;
-
-    public ClovaController(ClovaService clovaService) {
-        this.clovaService = clovaService;
+    private final ClovaBasicService clovaBasicService;
+    private final ClovaViewService clovaViewService;
+    private final ClovaCreateService clovaCreateService;
+    private final ClovaCustomService clovaCustomService;
+    public ClovaController(ClovaBasicService clovaBasicService, ClovaCreateService clovaCreateService, ClovaViewService clovaViewService, ClovaCustomService clovaCustomService) {
+        this.clovaBasicService = clovaBasicService;
+        this.clovaCreateService =clovaCreateService;
+        this.clovaViewService = clovaViewService;
+        this.clovaCustomService = clovaCustomService;
     }
 
-    @GetMapping("/clova")
-    public Mono<String> getResponse(@RequestParam(required = false, defaultValue = "나는 데드리프트 80kg을 들어올릴 수 있어. 내 신체조건에 맞는 적절한 상체운동 루틴을 구성해줘") String query) {
-        return clovaService.getCompletion(query);
+    @PostMapping("/clova")
+    public Mono<String> getResponse(@RequestBody String data) {
+        return clovaBasicService.getCompletion(data);
     }
+
+    @PostMapping("/clova_custom")
+    public Mono<String> getResponseCustom(@RequestBody String data) {
+        return clovaCustomService.getCompletion(data);
+    }
+
+    @PostMapping("/create/clova")
+    public Mono<String> create() throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        return clovaCreateService.getCreate();
+    }
+
+   @GetMapping("/clova-view")
+    public Mono<String> view(@RequestParam(value ="query",required = false, defaultValue="ef9swe3v") String query) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
+        return clovaViewService.getView(query);
+    }
+
+
+
+
 }
