@@ -14,9 +14,8 @@ class PreferexerciseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.preferexercise) //xml과 연결
 
-        val nextbutton = findViewById<Button>(R.id.button)
-
         val intent = Intent(this, DislikeexerciseActivity::class.java)
+        val nextbutton = findViewById<Button>(R.id.prefer_exercise_button_next)
         nextbutton.setOnClickListener{
             startActivity(intent)
         }

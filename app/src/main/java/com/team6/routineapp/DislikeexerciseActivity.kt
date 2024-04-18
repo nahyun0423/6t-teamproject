@@ -13,7 +13,12 @@ class DislikeexerciseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dislikeexercise) //xml과 연결
 
-        val finishbutton = findViewById<Button>(R.id.button)
+        val intent = Intent(this, RecommendationResultActivity::class.java)
+        val buttonToRecommendationResult =
+            findViewById<Button>(R.id.dislike_exercise_button_complete)
+        buttonToRecommendationResult.setOnClickListener {
+            startActivity(intent)
+        }
 
     }
 }
