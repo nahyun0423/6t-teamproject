@@ -1,5 +1,6 @@
 package com.team6.routineapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -16,22 +17,32 @@ open class Exercise(var name: String, var set: Int, var numberOfTimes: Int) {
     }
 }
 
-class WeightTraining(name: String, set: Int, numberOfTimes: Int, var weight: Int): Exercise(name, set, numberOfTimes) {
+class WeightTraining(name: String, set: Int, numberOfTimes: Int, var weight: Int) :
+    Exercise(name, set, numberOfTimes) {
     override fun getDetail(): String {
         return String.format("%dkg, ", weight) + super.getDetail()
     }
 }
 
 class RecommendationResultActivity : AppCompatActivity() {
-    public fun convertFromDpToPx(value: Int): Int {
+    fun convertFromDpToPx(value: Int): Int {
         var displayMetrics = resources.displayMetrics
         var result = Math.round(value * displayMetrics.density)
 
         return result;
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
+
+        val intentToRoutineList = Intent(this, RoutineList::class.java)
+        val intentToDetail = Intent(this, DetailInfoActivity::class.java)
+
+        val buttonAddToRoutine = findViewById<RelativeLayout>(R.id.button_2)
+        buttonAddToRoutine.setOnClickListener{
+            startActivity(intentToRoutineList)
+        }
 
         //이미지도 추가?
         val exercise1 = WeightTraining("오버헤드 프레스", 4, 10, 40)
@@ -48,13 +59,13 @@ class RecommendationResultActivity : AppCompatActivity() {
         var name: TextView
         var detail: TextView
         var parameter: RelativeLayout.LayoutParams
-        var resource: String
+        var resource: Int
 
         for (i in routine) {
-            when(i.name) {
-                "오버헤드 프레스" -> resource = "overhead_press"
-                "행잉 레그 레이즈" -> resource = "hanging_leg_raise"
-                else -> resource = "none"
+            when (i.name) {
+                "오버헤드 프레스" -> resource = R.drawable.overhead_press
+                "행잉 레그 레이즈" -> resource = R.drawable.hanging_leg_raise
+                else -> resource = -1
             }
 
             exercise = RelativeLayout(this)
@@ -65,10 +76,13 @@ class RecommendationResultActivity : AppCompatActivity() {
             parameter = RelativeLayout.LayoutParams(convertFromDpToPx(300), convertFromDpToPx(80))
             parameter.setMargins(0, convertFromDpToPx(30), 0, 0)
             exercise.layoutParams = parameter
+            exercise.setOnClickListener{
+                startActivity(intentToDetail)
+            }
 
             parameter = RelativeLayout.LayoutParams(convertFromDpToPx(80), convertFromDpToPx(80))
             icon.layoutParams = parameter
-            //icon.setImageResource(R.drawable.resource)
+            icon.setImageResource(resource)
 
             parameter = RelativeLayout.LayoutParams(convertFromDpToPx(200), convertFromDpToPx(20))
             parameter.setMargins(convertFromDpToPx(100), convertFromDpToPx(10), 0, 0)
@@ -87,6 +101,13 @@ class RecommendationResultActivity : AppCompatActivity() {
             exercise.addView(detail)
             middle.addView(exercise)
         }
+
+        val blankSpace = RelativeLayout(this)
+        parameter = RelativeLayout.LayoutParams(convertFromDpToPx(300), convertFromDpToPx(180))
+        parameter.setMargins(0, 0, 0, convertFromDpToPx(30))
+        blankSpace.layoutParams = parameter
+        middle.addView(blankSpace)
+
 
     }
 }

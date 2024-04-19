@@ -109,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/prefer_exercise_button_next"
         android:layout_width="91dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
