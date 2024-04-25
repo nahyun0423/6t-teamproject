@@ -35,12 +35,12 @@ public class ClovaCreateService {
         this.timestamps = String.valueOf(System.currentTimeMillis());
         try {
             MultiValueMap<String, Object> formData = new LinkedMultiValueMap<>();
-            formData.add("name", "exRoutine2_create");
+            formData.add("name", "exRoutine3_create");
             formData.add("model", "HCX-003");
             formData.add("method", "LoRA");
             formData.add("taskType", "GENERATION");
-            formData.add("trainEpochs", 4);
-            formData.add("learningRate", 1.0E-4);
+            formData.add("trainEpochs", 10);
+            formData.add("learningRate", 1.0E-5);
             formData.add("trainingDataset", new FileSystemResource("E:\\fineTuning_u8.csv"));
 
             return webClient.post()
