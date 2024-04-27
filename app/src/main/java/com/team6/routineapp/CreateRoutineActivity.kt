@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class ChoiceTap : AppCompatActivity() {
+class CreateRoutineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.choicetap)
+        setContentView(R.layout.activity_create_routine)
 
         val intent = Intent(this, PreferexerciseActivity::class.java)
-        val buttonToRecommendationResult = findViewById<Button>(R.id.buttonGettingRecommendationFromAI)
+        val buttonToRecommendationResult = findViewById<Button>(R.id.buttonGetRecommendationFromAI)
         buttonToRecommendationResult.setOnClickListener{
             startActivity(intent)
         }

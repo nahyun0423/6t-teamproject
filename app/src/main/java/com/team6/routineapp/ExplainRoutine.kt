@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.semantics.Role.Companion.Button
 
 
 class ExplainRoutine : AppCompatActivity() {
@@ -17,7 +16,7 @@ class ExplainRoutine : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
 
-        val intent = Intent(this, RoutineList::class.java)
+        val intent = Intent(this, RoutineActivity::class.java)
         button.setOnClickListener(View.OnClickListener{
             startActivity(intent)
         })

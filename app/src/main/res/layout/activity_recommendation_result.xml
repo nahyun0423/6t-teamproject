@@ -2,103 +2,104 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/top"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topRecommendationResult"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:padding="30dp"
-        android:gravity="left|bottom"
         android:background="@drawable/top"
-        android:clipToOutline="true"
-        android:elevation="4dp">
+        android:padding="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/user_"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="0dp"
+            android:gravity="start|bottom"
             android:includeFontPadding="false"
-            android:gravity="left|bottom"
-            android:fontFamily="@font/notosans"
-            android:text="@string/user_"
+            android:text="User님께\n적합한 루틴을 찾았습니다!"
             android:textAppearance="@style/user_"
-            app:lineHeight="24sp" />
-    </RelativeLayout>
-    <RelativeLayout
-        app:layout_constraintTop_toBottomOf="@+id/top"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        >
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-            <LinearLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/middle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:background="@color/white" >
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topRecommendationResult">
+
+        <LinearLayout
+            android:id="@+id/middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomRecommendationResult"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="#66F0F0F0" >
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/button_2"
-            android:id="@+id/button_1"
+        android:background="#66F0F0F0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/buttonNotNeeded"
             android:layout_width="240dp"
-            android:layout_height="50dp">
+            android:layout_height="50dp"
+            android:text="필요 없음"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toTopOf="@+id/button_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
             <View
                 android:id="@+id/button_1_background"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
-                android:background="@drawable/button_1_background"
-                />
+                android:background="@drawable/button_1_background" />
+
             <TextView
                 android:id="@+id/button_1_text"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:text="@string/button_1_text"
-                android:textAppearance="@style/button_1_text"
                 android:gravity="center_horizontal|center_vertical"
-                />
+                android:text="@string/button_1_text"
+                android:textAppearance="@style/button_1_text" />
         </RelativeLayout>
+
         <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_1"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/button_2"
             android:layout_width="240dp"
-            android:layout_height="50dp" >
-            <View
+            android:layout_height="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonNotNeeded">
+
+            <Button
                 android:id="@+id/button_2_background"
                 android:layout_width="240dp"
                 android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/button_2_background"
-                />
+                android:background="@drawable/button_2_background" />
+
             <TextView
                 android:id="@+id/button_2_text"
                 android:layout_width="240dp"
@@ -106,10 +107,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="15dp"
-                android:text="@string/button_2_text"
-                android:textAppearance="@style/button_2_text"
                 android:gravity="center_horizontal|center_vertical"
-                />
+                android:text="@string/button_2_text"
+                android:textAppearance="@style/button_2_text" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
