@@ -2,15 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectExerciseActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/selectExerciseActivityTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/theme1_main">
+        android:background="@color/skyblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <android.widget.SearchView
             android:id="@+id/select_exercise_search_view"
             android:layout_width="match_parent"
@@ -23,37 +27,41 @@
 
 
     <ScrollView
+        android:id="@+id/selectExerciseActivityMiddle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/select_exercise_search_view"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/selectExerciseActivityBottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/select_exercise_bottom"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectExerciseActivityTop">
+
         <LinearLayout
-            android:id="@+id/select_exercise_middle"
+            android:id="@+id/selectExerciseActivityMiddleContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:orientation="vertical">
 
         </LinearLayout>
     </ScrollView>
 
     <ScrollView
-        android:id="@+id/select_exercise_bottom"
+        android:id="@+id/selectExerciseActivityBottom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/theme1_main"
+        android:background="@color/skyblue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <LinearLayout
+            android:id="@+id/selectExerciseActivityBottomContainer"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:orientation="horizontal"
+            >
         </LinearLayout>
     </ScrollView>
 

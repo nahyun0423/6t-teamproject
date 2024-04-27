@@ -3,15 +3,10 @@ package com.team6.routineapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.TypedValue
-import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 
 open class Exercise(var name: String, var set: Int, var numberOfTimes: Int, var part: String, var tool: String) {
     open fun getDetail(): String {
@@ -38,7 +33,7 @@ class RecommendationResultActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
 
-        val intentToRoutineList = Intent(this, RoutineList::class.java)
+        val intentToRoutineList = Intent(this, RoutineActivity::class.java)
         val intentToDetail = Intent(this, DetailInfoActivity::class.java)
 
         val buttonAddToRoutine = findViewById<RelativeLayout>(R.id.button_2)

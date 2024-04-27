@@ -6,18 +6,12 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class SelectExerciseActivity : AppCompatActivity() {
     fun convertFromDpToPx(value: Int): Int {
         var displayMetrics = resources.displayMetrics
-        var result = Math.round(value * displayMetrics.density)
-
-        return result;
+        return Math.round(value * displayMetrics.density)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +27,7 @@ class SelectExerciseActivity : AppCompatActivity() {
         val exercise6 = Exercise("행잉 레그 레이즈", 4, 10, "코어", "행잉 레그 레이즈 머신")
         val routine = arrayOf(exercise1, exercise2, exercise3, exercise4, exercise5, exercise6)
 
-        val middle = findViewById<LinearLayout>(R.id.select_exercise_middle)
+        val middle = findViewById<LinearLayout>(R.id.selectExerciseActivityMiddleContainer)
         var exercise: RelativeLayout
         var icon: ImageView
         var name: TextView
@@ -75,5 +69,17 @@ class SelectExerciseActivity : AppCompatActivity() {
             exercise.addView(detail)
             middle.addView(exercise)
         }
+
+        var selectedExercise = ImageView(this)
+
+
+        selectedExercise.setBackgroundResource(R.drawable.circle)
+        selectedExercise.setImageResource(R.drawable.overhead_press)
+        parameter = RelativeLayout.LayoutParams(convertFromDpToPx(80), convertFromDpToPx(80))
+        selectedExercise.layoutParams = parameter
+
+        var bottom = findViewById<LinearLayout>(R.id.selectExerciseActivityBottomContainer)
+        bottom.addView(selectedExercise)
+
     }
 }

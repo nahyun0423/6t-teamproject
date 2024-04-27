@@ -19,7 +19,7 @@
             android:name=".RecommendationResultActivity"
             android:exported="true" />
         <activity
-            android:name=".ChoiceTap"
+            android:name=".CreateRoutineActivity"
             android:exported="true" />
         <activity
             android:name=".DetailInfoActivity"
@@ -28,7 +28,7 @@
             android:name=".ExplainRoutine"
             android:exported="true" />
         <activity
-            android:name=".RoutineList"
+            android:name=".RoutineActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <activity

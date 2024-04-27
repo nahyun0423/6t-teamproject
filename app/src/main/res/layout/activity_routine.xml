@@ -4,24 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RoutineList">
+    tools:context=".RoutineActivity">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="루틴 리스트"
-        android:textSize="21dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/scrollList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView2" />
 
     <android.widget.SearchView
-        android:id="@+id/searchView2"
+        android:id="@+id/searchViewRoutine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -32,8 +19,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/titleRoutine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="루틴 리스트"
+        android:textAppearance="@style/large"
+        app:layout_constraintBottom_toTopOf="@+id/contentRoutine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchViewRoutine" />
+
+
     <ScrollView
-        android:id="@+id/scrollList"
+        android:id="@+id/contentRoutine"
         android:layout_width="0dp"
         android:layout_height="600dp"
         android:layout_marginLeft="20dp"
@@ -44,7 +44,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/containerRoutine"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical" />
