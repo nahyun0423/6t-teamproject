@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="bottom_margin">20dp</dimen>
-    <dimen name="text_large"></dimen>
+    <dimen name="text_large">40sp</dimen>
+    <dimen name="text_medium">30sp</dimen>
+    <dimen name="text_small">20sp</dimen>
 </resources>

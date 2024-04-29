@@ -3,7 +3,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="skyblue">#FFA0C6FF</color>
-    <color name="pale_skyblue">#FFBBD6FF</color>
+    <color name="brightSkyblue">#FFBBD6FF</color>
     <color name="blue">#FF0E2850</color>
-    <color name="text">#FF494D50</color>
+    <color name="blueGray">#FF494D50</color>
+    <color name="gray">#FFD0D0D0</color>
+    <color name="water">#FFDBF6FE</color>
+    <color name="darkGreen">#FF003342</color>
+    <color name="darkWater">#FF369EBD</color>
 </resources>

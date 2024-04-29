@@ -17,7 +17,7 @@ class SelectExerciseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_exercise)
 
-        val intentToDetail = Intent(this, DetailInfoActivity::class.java)
+        val intentToDetail = Intent(this, ExerciseInformationActivity::class.java)
 
         val exercise1 = WeightTraining("오버헤드 프레스", 4, 10, "팔", "바벨", 40)
         val exercise2 = Exercise("행잉 레그 레이즈", 4, 10, "코어", "행잉 레그 레이즈 머신")

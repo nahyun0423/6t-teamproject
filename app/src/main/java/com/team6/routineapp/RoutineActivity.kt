@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup.MarginLayoutParams
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 
 
 class RoutineActivity : AppCompatActivity() {
@@ -16,8 +16,12 @@ class RoutineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
 
-        val routines = findViewById<LinearLayout>(R.id.containerRoutine)
+        val toCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+        findViewById<Button>(R.id.routineActivity_button).setOnClickListener {
+            startActivity(toCreateRoutineActivity);
+        }
 
+        val routines = findViewById<LinearLayout>(R.id.routineActivity_LinearLayout)
         generateRoutineList(routines)
 
     }

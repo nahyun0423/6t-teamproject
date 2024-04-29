@@ -10,10 +10,10 @@ class CreateRoutineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_routine)
 
-        val intent = Intent(this, PreferexerciseActivity::class.java)
+        val next = Intent(this, PreferexerciseActivity::class.java)
         val buttonToRecommendationResult = findViewById<Button>(R.id.buttonGetRecommendationFromAI)
         buttonToRecommendationResult.setOnClickListener{
-            startActivity(intent)
+            startActivity(next)
         }
     }
 }
