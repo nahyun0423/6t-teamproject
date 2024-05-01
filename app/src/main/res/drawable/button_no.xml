@@ -5,16 +5,16 @@
             <corners android:radius="10dp" />
             <gradient
                 android:endColor="@color/brightSkyblue"
-                android:startColor="@color/skyblue" />
+                android:startColor="@color/water" />
         </shape>
     </item>
     <item
-        android:bottom="4dp"
-        android:end="4dp"
-        android:start="4dp"
-        android:top="4dp">
+        android:bottom="3dp"
+        android:end="3dp"
+        android:start="3dp"
+        android:top="3dp">
         <shape android:shape="rectangle">
-            <corners android:radius="6dp" />
+            <corners android:radius="7dp" />
             <solid android:color="@color/white" />
         </shape>
     </item>

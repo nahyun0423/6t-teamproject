@@ -8,45 +8,14 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import java.io.Serializable
-
-open class Exercise(
-    var name: String,
-    var set: Int,
-    var numberOfTimes: Int,
-    var part: String,
-    var tool: String
-): Serializable {
-    open fun getDetail(): String {
-        return String.format("%d회, %d세트", numberOfTimes, set);
-    }
-}
-
-class WeightTraining(
-    name: String,
-    set: Int,
-    numberOfTimes: Int,
-    part: String,
-    tool: String,
-    var weight: Int
-) :
-    Exercise(name, set, numberOfTimes, part, tool) {
-    override fun getDetail(): String {
-        return String.format("%dkg, ", weight) + super.getDetail()
-    }
-}
+import com.team6.routineapp.fitness.Exercise
+import com.team6.routineapp.fitness.WeightTraining
+import com.team6.routineapp.utility.convertFromDpToPx
 
 class Routine(var name: String, var exercises: Array<Exercise>) {
 }
 
 class RecommendationResultActivity : AppCompatActivity() {
-    fun convertFromDpToPx(value: Int): Int {
-        var displayMetrics = resources.displayMetrics
-        var result = Math.round(value * displayMetrics.density)
-
-        return result;
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
@@ -87,10 +56,10 @@ class RecommendationResultActivity : AppCompatActivity() {
         var resource: Int
 
         for (exercise in routine.exercises) {
-            when (exercise.name) {
-                "오버헤드 프레스" -> resource = R.drawable.overhead_press
-                "행잉 레그 레이즈" -> resource = R.drawable.hanging_leg_raise
-                else -> resource = -1
+            resource = when (exercise.name) {
+                "오버헤드 프레스" -> R.drawable.overhead_press
+                "행잉 레그 레이즈" -> R.drawable.hanging_leg_raise
+                else -> -1
             }
 
             exerciseLayout = RelativeLayout(this)
@@ -102,7 +71,8 @@ class RecommendationResultActivity : AppCompatActivity() {
             parameter.setMargins(0, convertFromDpToPx(30), 0, 0)
             exerciseLayout.layoutParams = parameter
             exerciseLayout.setOnClickListener {
-                intentToExerciseInformationActivity = Intent(this, ExerciseInformationActivity::class.java)
+                intentToExerciseInformationActivity =
+                    Intent(this, ExerciseInformationActivity::class.java)
                 intentToExerciseInformationActivity.putExtra("exercise", exercise)
                 startActivity(intentToExerciseInformationActivity)
             }
