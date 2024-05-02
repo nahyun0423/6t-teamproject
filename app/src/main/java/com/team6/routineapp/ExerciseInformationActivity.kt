@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
 import androidx.annotation.RequiresApi
+import com.team6.routineapp.fitness.Exercise
 
 class ExerciseInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

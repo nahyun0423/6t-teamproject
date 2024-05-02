@@ -38,7 +38,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:gravity="center"
             android:orientation="vertical"></LinearLayout>
     </ScrollView>
 
@@ -57,7 +56,7 @@
             android:layout_height="50dp"
             android:background="@drawable/button_no"
             android:text="필요 없음"
-            android:textAppearance="@style/button_1_text"
+            android:textAppearance="@style/buttonNoText"
             app:layout_constraintBottom_toTopOf="@id/activityRecommendationResult_buttonAddToMyRoutine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +68,7 @@
             android:layout_height="50dp"
             android:background="@drawable/button_yes"
             android:text="내 루틴에 추가하기"
-            android:textAppearance="@style/button_2_text"
+            android:textAppearance="@style/buttonYesText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -7,13 +7,13 @@
         <item name="android:fontFamily">@font/notosans_bold</item>
     </style>
 
-    <style name="button_1_text">
+    <style name="buttonNoText">
         <item name="fontFamily">@font/notosans_bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/blue</item>
     </style>
 
-    <style name="button_2_text">
+    <style name="buttonYesText">
         <item name="fontFamily">@font/notosans_bold</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">@color/blueGray</item>
