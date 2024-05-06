@@ -9,8 +9,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/activitySelectExercise_layoutTop"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="60dp"
         android:background="@color/skyblue"
+        android:padding="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,7 +20,6 @@
             android:id="@+id/activitySelectExercise_searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -31,10 +31,10 @@
         android:id="@+id/activitySelectExercise_scrollViewMiddle"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/activitySelectExercise_scrollViewBottom"
+        app:layout_constraintBottom_toTopOf="@id/activitySelectExercise_layoutBottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activitySelectExercise_layoutTop">
+        app:layout_constraintTop_toBottomOf="@id/activitySelectExercise_layoutTop">
 
         <LinearLayout
             android:id="@+id/activitySelectExercise_layoutExercises"
@@ -46,8 +46,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <ScrollView
-        android:id="@+id/activitySelectExercise_scrollViewBottom"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activitySelectExercise_layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:background="@color/skyblue"
@@ -55,12 +55,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:id="@+id/activitySelectExercise_layoutRoutine"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start|center_vertical"
-            android:orientation="horizontal"></LinearLayout>
-    </ScrollView>
+        <HorizontalScrollView
+            android:id="@+id/activitySelectExercise_scrollViewBottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/activitySelectExercise_layoutRoutine"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+
+        <Button
+            android:id="@+id/activitySelectExercise_buttonFinish"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_no"
+            android:text="완료"
+            android:textColor="@color/blueGray"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

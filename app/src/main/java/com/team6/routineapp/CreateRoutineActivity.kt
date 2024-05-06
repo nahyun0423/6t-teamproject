@@ -1,5 +1,6 @@
 package com.team6.routineapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.RectF
 import android.graphics.Region
@@ -10,6 +11,7 @@ import android.widget.Button
 import com.team6.routineapp.utility.convertFromDpToPx
 
 class CreateRoutineActivity : AppCompatActivity() {
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_routine)

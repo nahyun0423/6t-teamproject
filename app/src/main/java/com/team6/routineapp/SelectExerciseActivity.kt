@@ -2,17 +2,18 @@ package com.team6.routineapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
+import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.team6.routineapp.fitness.Exercise
 import com.team6.routineapp.fitness.Training
 import com.team6.routineapp.fitness.WeightTraining
-import com.team6.routineapp.utility.convertFromDpToPx
 
 class SelectExerciseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,18 +26,20 @@ class SelectExerciseActivity : AppCompatActivity() {
         val overheadPress = Exercise("오버헤드 프레스", "팔", "바벨")
         val hangingLegRaise = Exercise("행잉 레그 레이즈", "코어", "행잉 레그 레이즈 머신")
         val exercises = arrayOf(overheadPress, hangingLegRaise)
-
         var training: Training?
         val routine = arrayListOf<Training?>()
 
-        val middleLayout = findViewById<LinearLayout>(R.id.activitySelectExercise_layoutExercises)
+        val exercisesLayout =
+            findViewById<LinearLayout>(R.id.activitySelectExercise_layoutExercises)
         var exerciseViewLayout: ConstraintLayout
         var exerciseViewIconImageView: ImageView
         var exerciseViewNameTextView: TextView
         var exerciseViewInformationTextView: TextView
         var exerciseViewAddButton: Button
 
-        var routineLayout = findViewById<LinearLayout>(R.id.activitySelectExercise_layoutRoutine)
+        val routineLayout = findViewById<LinearLayout>(R.id.activitySelectExercise_layoutRoutine)
+        val routineScrollView =
+            findViewById<HorizontalScrollView>(R.id.activitySelectExercise_scrollViewBottom)
         var trainingIconViewLayout: ConstraintLayout
         var trainingIconViewImageView: ImageView
         var trainingIconViewDeleteButton: Button
@@ -91,20 +94,25 @@ class SelectExerciseActivity : AppCompatActivity() {
                 trainingIconViewLayout =
                     layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
                 trainingIconViewImageView =
-                    trainingIconViewLayout.findViewById<ImageView>(R.id.viewTrainingIcon_imageView)
+                    trainingIconViewLayout.findViewById(R.id.viewTrainingIcon_imageView)
                 trainingIconViewDeleteButton =
-                    trainingIconViewLayout.findViewById<Button>(R.id.activitySelectExercise_buttonDelete)
-
+                    trainingIconViewLayout.findViewById(R.id.activitySelectExercise_buttonDelete)
                 trainingIconViewImageView.setImageResource(resource)
-                trainingIconViewDeleteButton.setOnClickListener {
+                trainingIconViewDeleteButton.setOnClickListener { view ->
                     routine.remove(training)
-                    routineLayout.removeView(trainingIconViewLayout)
+                    routineLayout.removeView(view.parent as View)
+
+                    routineScrollView.invalidate()
+                    routineScrollView.requestLayout()
                 }
 
                 routineLayout.addView(trainingIconViewLayout)
+
+                routineScrollView.invalidate()
+                routineScrollView.requestLayout()
             }
 
-            middleLayout.addView(exerciseViewLayout)
+            exercisesLayout.addView(exerciseViewLayout)
         }
     }
 }
