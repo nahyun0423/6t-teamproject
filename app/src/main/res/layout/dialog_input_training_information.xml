@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:padding="40dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialogInputTrainingInformation_layoutNumberOfTimes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_layoutSet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/dialogInputTrainingInformation_editTextNumberOfTimes"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:digits="0123456789"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewNumberOfTimes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialogInputTrainingInformation_textViewNumberOfTimes"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="회"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextNumberOfTimes"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialogInputTrainingInformation_layoutSet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_layoutWeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutNumberOfTimes">
+
+        <EditText
+            android:id="@+id/dialogInputTrainingInformation_editTextSet"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:digits="0123456789"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewSet"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialogInputTrainingInformation_textViewSet"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="세트"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextSet"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialogInputTrainingInformation_layoutWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutSet">
+
+        <EditText
+            android:id="@+id/dialogInputTrainingInformation_editTextWeight"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:digits="0123456789"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewWeight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dialogInputTrainingInformation_textViewWeight"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="kg"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextWeight"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/dialogInputTrainingInformation_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_yes"
+        android:text="완료"
+        android:textAppearance="@style/buttonYesText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutWeight" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

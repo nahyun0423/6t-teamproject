@@ -6,63 +6,66 @@
 
 
     <TextView
-        android:id="@+id/textViewTitleCreateRoutine"
+        android:id="@+id/activityCreateRoutine_textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/notosans_bold"
         android:text="루틴 만들기"
-        android:textColor="#0E2850"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/contentCreateRoutine"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/text_large"
+        app:layout_constraintBottom_toTopOf="@id/activityCreateRoutine_layoutButtons"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/contentCreateRoutine"
+        android:id="@+id/activityCreateRoutine_layoutButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewTitleCreateRoutine">
+        app:layout_constraintTop_toBottomOf="@id/activityCreateRoutine_textViewTitle">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/buttonContainerCreateRoutine"
+            android:id="@+id/activityCreateRoutine_layoutButtonsTop"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/buttonSelectAmongCreatedRoutine"
+            app:layout_constraintBottom_toTopOf="@id/activityCreateRoutine_buttonChooseAmongCreatedRoutine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <Button
-                android:id="@+id/buttonGetRecommendationFromAI"
+                android:id="@+id/activityCreateRoutine_buttonGetRecommendationFromAI"
                 android:layout_width="180dp"
                 android:layout_height="200dp"
-                android:background="@drawable/polygon_1"
-                android:gravity="top|start"
+                android:background="@drawable/button_left"
+                android:fontFamily="@font/notosans_bold"
+                android:gravity="start|top"
+                android:includeFontPadding="false"
                 android:padding="15dp"
                 android:text="AI에게 루틴\n추천받기"
-                android:textColor="#002B6A"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textColor="@color/blueGray"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
-                android:id="@+id/buttonMakeMyRoutine"
+                android:id="@+id/activityCreateRoutine_buttonMakeMyOwnRoutine"
                 android:layout_width="180dp"
                 android:layout_height="200dp"
-                android:background="@drawable/polygon_2"
+                android:background="@drawable/button_right"
+                android:fontFamily="@font/notosans_bold"
                 android:gravity="bottom|end"
+                android:includeFontPadding="false"
                 android:padding="15dp"
                 android:text="나만의 루틴\n리스트 만들기"
-                android:textColor="#003342"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textColor="@color/darkGreen"
+                android:textSize="@dimen/text_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -70,37 +73,36 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/buttonSelectAmongCreatedRoutine"
+            android:id="@+id/activityCreateRoutine_buttonChooseAmongCreatedRoutine"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
+            android:fontFamily="@font/notosans_bold"
             android:text="만들어진 루틴 리스트 보기"
-            android:textColor="#0E2850"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/buttonInputUserInformation"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/activiyCreateRoutine_buttonInputUserInformation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/buttonContainerCreateRoutine" />
+            app:layout_constraintTop_toBottomOf="@id/activityCreateRoutine_layoutButtonsTop" />
 
         <Button
-            android:id="@+id/buttonInputUserInformation"
+            android:id="@+id/activiyCreateRoutine_buttonInputUserInformation"
             android:layout_width="300dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/rounded_button"
+            android:fontFamily="@font/notosans_bold"
             android:text="사용자 정보 입력"
-            android:textColor="#0E2850"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:elevation="4dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonSelectAmongCreatedRoutine" />
+            app:layout_constraintTop_toBottomOf="@+id/activityCreateRoutine_buttonChooseAmongCreatedRoutine" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

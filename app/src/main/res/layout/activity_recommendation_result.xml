@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/topRecommendationResult"
+        android:id="@+id/activityRecommendationResult_layoutTop"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:background="@drawable/top"
@@ -20,7 +20,7 @@
             android:gravity="start|bottom"
             android:includeFontPadding="false"
             android:text="User님께\n적합한 루틴을 찾았습니다!"
-            android:textAppearance="@style/user_"
+            android:textAppearance="@style/title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -31,19 +31,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topRecommendationResult">
+        app:layout_constraintTop_toBottomOf="@id/activityRecommendationResult_layoutTop">
 
         <LinearLayout
-            android:id="@+id/middle"
+            android:id="@+id/activityRecommendationResult_layoutMiddle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:gravity="center"
             android:orientation="vertical"></LinearLayout>
     </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomRecommendationResult"
+        android:id="@+id/activityRecommendationResult_layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:background="#66F0F0F0"
@@ -52,65 +51,28 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/buttonNotNeeded"
+            android:id="@+id/activityRecommendationResult_buttonNotNeeded"
             android:layout_width="240dp"
             android:layout_height="50dp"
+            android:background="@drawable/button_no"
             android:text="필요 없음"
+            android:textAppearance="@style/buttonNoText"
+            app:layout_constraintBottom_toTopOf="@id/activityRecommendationResult_buttonAddToMyRoutine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/activityRecommendationResult_buttonAddToMyRoutine"
             android:layout_width="240dp"
             android:layout_height="50dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <View
-                android:id="@+id/button_1_background"
-                android:layout_width="240dp"
-                android:layout_height="50dp"
-                android:background="@drawable/button_1_background" />
-
-            <TextView
-                android:id="@+id/button_1_text"
-                android:layout_width="240dp"
-                android:layout_height="50dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="@string/button_1_text"
-                android:textAppearance="@style/button_1_text" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/button_2"
-            android:layout_width="240dp"
-            android:layout_height="50dp"
+            android:background="@drawable/button_yes"
+            android:text="내 루틴에 추가하기"
+            android:textAppearance="@style/buttonYesText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonNotNeeded">
-
-            <Button
-                android:id="@+id/button_2_background"
-                android:layout_width="240dp"
-                android:layout_height="50dp"
-                android:background="@drawable/button_2_background" />
-
-            <TextView
-                android:id="@+id/button_2_text"
-                android:layout_width="240dp"
-                android:layout_height="20dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:text="@string/button_2_text"
-                android:textAppearance="@style/button_2_text" />
-        </RelativeLayout>
+            app:layout_constraintTop_toBottomOf="@id/activityRecommendationResult_buttonNotNeeded" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

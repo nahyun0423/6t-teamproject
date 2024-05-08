@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!-- drawable/polygon_1.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="180dp"
+    android:height="200dp"
+    android:viewportWidth="180"
+    android:viewportHeight="200">
+    <path
+        android:pathData="M 180, 180 Q 180 , 200 160, 200 L 20, 200 Q 0, 200 7.42, 181.43 L 72.58, 18.57 Q 80, 0 100, 0 L 160, 0 Q 180, 0 180, 20 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="80"
+                android:endY="0"
+                android:startX="180"
+                android:startY="200"
+                android:type="linear">
+                <item
+                    android:color="@color/darkWater"
+                    android:offset="0" />
+                <item
+                    android:color="@color/water"
+                    android:offset="1" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>
