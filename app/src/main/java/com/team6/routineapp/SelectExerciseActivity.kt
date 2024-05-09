@@ -9,12 +9,11 @@ import android.widget.EditText
 import android.widget.HorizontalScrollView
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.window.Dialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.team6.routineapp.fitness.Exercise
+import com.team6.routineapp.fitness.Routine
 import com.team6.routineapp.fitness.Training
 import com.team6.routineapp.fitness.WeightTraining
 
@@ -25,23 +24,24 @@ class SelectExerciseActivity : AppCompatActivity() {
 
         val intentToExerciseInformationActivity =
             Intent(this, ExerciseInformationActivity::class.java)
+        val intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
         val overheadPress = Exercise("오버헤드 프레스", "팔", "바벨")
         val hangingLegRaise = Exercise("행잉 레그 레이즈", "코어", "행잉 레그 레이즈 머신")
         val exercises = arrayOf(overheadPress, hangingLegRaise)
-        var training: Training?
-        val routine = arrayListOf<Training?>()
+        var training: Training
+        val trainings = arrayOf<Training>()
 
         val inputTrainingInformationDialog = Dialog(this)
         inputTrainingInformationDialog.setContentView(R.layout.dialog_input_training_information)
         val inputTrainingInformationDialogNumberOfTimesEditText =
-            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialogInputTrainingInformation_editTextNumberOfTimes)
+            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialog_input_training_information_edittext_number_of_times)
         val inputTrainingInformationDialogSetEditText =
-            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialogInputTrainingInformation_editTextSet)
+            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialog_input_training_information_edittext_set)
         val inputTrainingInformationDialogWeightEditText =
-            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialogInputTrainingInformation_editTextWeight)
+            inputTrainingInformationDialog.findViewById<EditText>(R.id.dialog_input_training_information_edittext_weight)
         val inputTrainingInformationDialogButton =
-            inputTrainingInformationDialog.findViewById<Button>(R.id.dialogInputTrainingInformation_button)
+            inputTrainingInformationDialog.findViewById<Button>(R.id.dialog_input_training_information_button)
 
         val exercisesLayout =
             findViewById<LinearLayout>(R.id.activitySelectExercise_layoutExercises)
@@ -51,12 +51,14 @@ class SelectExerciseActivity : AppCompatActivity() {
         var exerciseViewInformationTextView: TextView
         var exerciseViewAddButton: Button
 
-        val routineLayout = findViewById<LinearLayout>(R.id.activitySelectExercise_layoutRoutine)
-        val routineScrollView =
-            findViewById<HorizontalScrollView>(R.id.activitySelectExercise_scrollViewBottom)
+        val bottomScrollView =
+            findViewById<HorizontalScrollView>(R.id.activity_select_exercise_scrollview_bottom)
+        val trainingsLayout =
+            findViewById<LinearLayout>(R.id.activity_select_exercise_layout_trainings)
         var trainingIconViewLayout: ConstraintLayout
         var trainingIconViewImageView: ImageView
         var trainingIconViewDeleteButton: Button
+        val finishButton = findViewById<Button>(R.id.activity_select_exercise_button)
 
         var resource: Int
         var category: String
@@ -68,24 +70,23 @@ class SelectExerciseActivity : AppCompatActivity() {
                 else -> -1
             }
 
-            category = when (exercise.name) {
-                "오버헤드 프레스" -> "WeightTraining"
-                "행잉 레그 레이즈" -> "Training"
-                else -> ""
+            category = when (exercise.tool) {
+                "바벨" -> "Weight Training"
+                else -> "Training"
             }
 
             exerciseViewLayout =
                 layoutInflater.inflate(R.layout.view_exercise, null) as ConstraintLayout
             exerciseViewIconImageView =
-                exerciseViewLayout.findViewById(R.id.viewExercise_imageViewIcon)
+                exerciseViewLayout.findViewById(R.id.view_training_imageview)
             exerciseViewNameTextView =
-                exerciseViewLayout.findViewById(R.id.viewExercise_textViewName)
+                exerciseViewLayout.findViewById(R.id.view_training_textview_exercise_name)
             exerciseViewInformationTextView =
-                exerciseViewLayout.findViewById(R.id.viewExercise_textViewInformation)
-            exerciseViewAddButton = exerciseViewLayout.findViewById(R.id.viewExercise_buttonAdd)
+                exerciseViewLayout.findViewById(R.id.view_exercises_textview_information)
+            exerciseViewAddButton = exerciseViewLayout.findViewById(R.id.view_exercise_button)
 
             exerciseViewLayout.setOnClickListener {
-                intentToExerciseInformationActivity.putExtra("exercise", exercise)
+                intentToExerciseInformationActivity.putExtra("Exercise", exercise)
                 startActivity(intentToExerciseInformationActivity)
             }
 
@@ -103,40 +104,54 @@ class SelectExerciseActivity : AppCompatActivity() {
                         "Weight Training" -> WeightTraining(
                             exercise,
                             inputTrainingInformationDialogSetEditText.text.toString().toInt(),
-                            inputTrainingInformationDialogNumberOfTimesEditText.text.toString().toInt(),
+                            inputTrainingInformationDialogNumberOfTimesEditText.text.toString()
+                                .toInt(),
                             inputTrainingInformationDialogWeightEditText.text.toString().toInt()
                         )
 
-                        "Training" -> Training(exercise, inputTrainingInformationDialogSetEditText.text.toString().toInt(), inputTrainingInformationDialogNumberOfTimesEditText.text.toString().toInt())
-                        else -> null
+                        "Training" -> Training(
+                            exercise,
+                            inputTrainingInformationDialogSetEditText.text.toString().toInt(),
+                            inputTrainingInformationDialogNumberOfTimesEditText.text.toString()
+                                .toInt()
+                        )
+
+                        else -> Training(exercise, -1, -1)
                     }
 
-                    routine.add(training)
+                    trainings.plus(training)
 
-                    trainingIconViewLayout =
-                        layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
+                    trainingIconViewLayout = layoutInflater.inflate(
+                        R.layout.view_training_icon, null
+                    ) as ConstraintLayout
                     trainingIconViewImageView =
-                        trainingIconViewLayout.findViewById(R.id.viewTrainingIcon_imageView)
+                        trainingIconViewLayout.findViewById(R.id.view_training_icon_imageview)
                     trainingIconViewDeleteButton =
-                        trainingIconViewLayout.findViewById(R.id.activitySelectExercise_buttonDelete)
+                        trainingIconViewLayout.findViewById(R.id.view_training_icon_button)
                     trainingIconViewImageView.setImageResource(resource)
                     trainingIconViewDeleteButton.setOnClickListener { view ->
-                        routine.remove(training)
-                        routineLayout.removeView(view.parent as View)
+                        trainings.drop(trainings.indexOf(training))
+                        trainingsLayout.removeView(view.parent as View)
 
-                        routineScrollView.invalidate()
-                        routineScrollView.requestLayout()
+                        bottomScrollView.invalidate()
+                        bottomScrollView.requestLayout()
                     }
 
-                    routineLayout.addView(trainingIconViewLayout)
+                    trainingsLayout.addView(trainingIconViewLayout)
 
-                    routineScrollView.invalidate()
-                    routineScrollView.requestLayout()
+                    bottomScrollView.invalidate()
+                    bottomScrollView.requestLayout()
+
                     inputTrainingInformationDialog.dismiss()
                 }
             }
 
             exercisesLayout.addView(exerciseViewLayout)
+        }
+
+        finishButton.setOnClickListener {
+            intentToRoutineActivity.putExtra("Routine", Routine("My Routine", trainings))
+            startActivity(intentToRoutineActivity)
         }
     }
 }

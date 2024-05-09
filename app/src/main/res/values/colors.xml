@@ -4,11 +4,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FFFF0000</color>
     <color name="skyblue">#FFA0C6FF</color>
-    <color name="brightSkyblue">#FFBBD6FF</color>
+    <color name="bright_skyblue">#FFBBD6FF</color>
     <color name="blue">#FF0E2850</color>
-    <color name="blueGray">#FF494D50</color>
+    <color name="blue_gray">#FF494D50</color>
     <color name="gray">#FFD0D0D0</color>
     <color name="water">#FFDBF6FE</color>
-    <color name="darkGreen">#FF003342</color>
-    <color name="darkWater">#FF369EBD</color>
+    <color name="dark_green">#FF003342</color>
+    <color name="dark_water">#FF369EBD</color>
 </resources>

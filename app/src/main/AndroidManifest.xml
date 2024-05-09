@@ -28,7 +28,7 @@
             android:name=".ExerciseInformationActivity"
             android:exported="true" />
         <activity
-            android:name=".ExplainRoutine"
+            android:name=".RoutineInformationActivity"
             android:exported="true" />
         <activity
             android:name=".RoutineActivity"

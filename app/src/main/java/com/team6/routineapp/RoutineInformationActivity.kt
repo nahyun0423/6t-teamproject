@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 
-class ExplainRoutine : AppCompatActivity() {
+class RoutineInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.explainroutine)
-        findViewById<TextView>(R.id.textView3).text = intent.getStringExtra("name")
+        setContentView(R.layout.activity_routine_information)
+        findViewById<TextView>(R.id.activity_routine_information_textview_name).text = intent.getStringExtra("name")
 
-        val button = findViewById<Button>(R.id.button)
+        val button = findViewById<Button>(R.id.activity_routine_information_button)
 
         val intent = Intent(this, RoutineActivity::class.java)
         button.setOnClickListener(View.OnClickListener{

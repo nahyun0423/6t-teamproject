@@ -18,7 +18,7 @@
                     android:color="@color/skyblue"
                     android:offset="0" />
                 <item
-                    android:color="@color/brightSkyblue"
+                    android:color="@color/bright_skyblue"
                     android:offset="1" />
             </gradient>
         </aapt:attr>

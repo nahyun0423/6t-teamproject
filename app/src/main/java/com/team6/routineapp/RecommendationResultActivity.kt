@@ -25,13 +25,13 @@ class RecommendationResultActivity : AppCompatActivity() {
         val intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
         var intentToExerciseInformationActivity: Intent
 
-        findViewById<Button>(R.id.activityRecommendationResult_buttonNotNeeded).setOnClickListener {
+        findViewById<Button>(R.id.activity_recommendation_result_button_not_needed).setOnClickListener {
             finish()
             startActivity(
                 intentToRoutineActivity
             )
         }
-        findViewById<Button>(R.id.activityRecommendationResult_buttonAddToMyRoutine).setOnClickListener {
+        findViewById<Button>(R.id.activity_recommendation_result_button_add_to_my_routine).setOnClickListener {
             finish()
             startActivity(
                 intentToRoutineActivity
@@ -51,7 +51,7 @@ class RecommendationResultActivity : AppCompatActivity() {
             "AI루틴", arrayOf(training1, training2, training3, training4, training5, training6)
         )
 
-        val middleLayout = findViewById<LinearLayout>(R.id.activityRecommendationResult_layoutMiddle)
+        val trainingsLayout = findViewById<LinearLayout>(R.id.layout_trainings)
         var trainingLayout: ConstraintLayout
         var trainingIconImageView: ImageView
         var trainingNameTextView: TextView
@@ -67,15 +67,16 @@ class RecommendationResultActivity : AppCompatActivity() {
                 else -> -1
             }
 
-            trainingLayout = layoutInflater.inflate(R.layout.view_training, null) as ConstraintLayout
-            trainingIconImageView = trainingLayout.findViewById(R.id.viewExercise_imageViewIcon)
-            trainingNameTextView = trainingLayout.findViewById(R.id.viewExercise_textViewName)
-            trainingDetailTextView = trainingLayout.findViewById(R.id.viewTraining_textViewDetail)
+            trainingLayout =
+                layoutInflater.inflate(R.layout.view_training, null) as ConstraintLayout
+            trainingIconImageView = trainingLayout.findViewById(R.id.view_training_imageview)
+            trainingNameTextView = trainingLayout.findViewById(R.id.view_training_textview_exercise_name)
+            trainingDetailTextView = trainingLayout.findViewById(R.id.view_training_textview_detail)
 
             trainingLayout.setOnClickListener {
                 intentToExerciseInformationActivity =
                     Intent(this, ExerciseInformationActivity::class.java)
-                intentToExerciseInformationActivity.putExtra("exercise", training.exercise)
+                intentToExerciseInformationActivity.putExtra("Exercise", training.exercise)
                 startActivity(intentToExerciseInformationActivity)
             }
 
@@ -83,10 +84,10 @@ class RecommendationResultActivity : AppCompatActivity() {
             trainingNameTextView.setText(training.exercise.name)
             trainingDetailTextView.setText(training.getDetail())
 
-            middleLayout.addView(trainingLayout)
+            trainingsLayout.addView(trainingLayout)
         }
 
         blankSpaceLayout.layoutParams = LayoutParams(convertFromDpToPx(80), convertFromDpToPx(210))
-        middleLayout.addView(blankSpaceLayout)
+        trainingsLayout.addView(blankSpaceLayout)
     }
 }

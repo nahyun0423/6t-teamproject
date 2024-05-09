@@ -2,10 +2,8 @@ package com.team6.routineapp.fitness
 
 import java.io.Serializable
 
-class Routine(var name: String, var trainings: Array<Training>) {}
-open class Exercise(var name: String, var part: String, var tool: String) : Serializable {
-
-}
+class Routine(var name: String, var trainings: Array<Training>) : Serializable {}
+class Exercise(var name: String, var part: String, var tool: String) : Serializable {}
 
 open class Training(var exercise: Exercise, var set: Int, var numberOfTimes: Int) : Serializable {
     open fun getDetail(): String {
