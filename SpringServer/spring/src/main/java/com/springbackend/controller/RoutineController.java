@@ -1,5 +1,6 @@
 package com.springbackend.controller;
 
+import com.springbackend.dto.RoutineDTO;
 import com.springbackend.entity.Routine;
 import com.springbackend.service.RoutineService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,7 @@ public class RoutineController {
     }
 
     @GetMapping("users/{userName}/{routineName}")
-    public Routine getRoutine(@PathVariable int routineName){
-        return routineService.getRoutine(routineName);
+    public RoutineDTO getRoutine(@PathVariable int routineId){
+        return routineService.getRoutine(routineId);
     }
 }

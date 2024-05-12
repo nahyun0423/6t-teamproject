@@ -1,5 +1,6 @@
 package com.springbackend.controller;
 
+import com.springbackend.dto.UserDTO;
 import com.springbackend.entity.User;
 
 import com.springbackend.service.UserService;
@@ -17,14 +18,12 @@ public class UserController {
     }
 
     @PostMapping("/users/save")
-    public void saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+    public void saveUser(@RequestBody UserDTO userDTO) {
+        userService.signUp(userDTO);
     }
 
     @GetMapping("/users/userInfo/{userId}")
-    public User userInfo(@PathVariable String userId){
+    public UserDTO userInfo(@PathVariable String userId){
         return userService.getUser(userId);
     }
-
-
 }

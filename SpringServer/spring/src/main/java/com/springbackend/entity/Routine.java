@@ -1,13 +1,15 @@
 package com.springbackend.entity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor
 @Table(name = "routines")
 public class Routine {
     @Id
@@ -25,4 +27,11 @@ public class Routine {
     @OneToMany(mappedBy = "routine", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<RoutineDetail> routineDetails;
 
+    @Builder
+    public Routine(Integer routineId, User user, String routineName, Set<RoutineDetail> routineDetails) {
+        this.routineId = routineId;
+        this.user = user;
+        this.routineName = routineName;
+        this.routineDetails = routineDetails;
+    }
 }

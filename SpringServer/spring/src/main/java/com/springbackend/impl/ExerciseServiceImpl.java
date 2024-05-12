@@ -1,9 +1,12 @@
 package com.springbackend.impl;
 
+import com.springbackend.dto.ExerciseDTO;
 import com.springbackend.entity.Exercise;
 import com.springbackend.repository.ExerciseRepository;
 import com.springbackend.service.ExerciseService;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class ExerciseServiceImpl implements ExerciseService {
@@ -15,7 +18,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public Exercise getExercise(int exerciseId) {
-        return exerciseRepository.findById(exerciseId).orElse(null);
+    public ExerciseDTO getExercise(int exerciseId) {
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+        return exercise.map(ExerciseDTO::new).orElse(null);
     }
 }

@@ -1,9 +1,12 @@
 package com.springbackend.impl;
 
+import com.springbackend.dto.RoutineDTO;
 import com.springbackend.entity.Routine;
 import com.springbackend.repository.RoutineRepository;
 import com.springbackend.service.RoutineService;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class RoutineServiceImpl implements RoutineService {
@@ -15,7 +18,8 @@ public class RoutineServiceImpl implements RoutineService {
     }
 
     @Override
-    public Routine getRoutine(int routineId) {
-        return routineRepository.findById(routineId).orElse(null);
+    public RoutineDTO getRoutine(int routineId) {
+        Optional<Routine> routine = routineRepository.findById(routineId);
+        return routine.map(RoutineDTO::new).orElse(null);
     }
 }

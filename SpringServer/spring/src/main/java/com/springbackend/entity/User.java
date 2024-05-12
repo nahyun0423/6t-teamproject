@@ -1,10 +1,10 @@
 package com.springbackend.entity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
     @Id
@@ -22,5 +22,14 @@ public class User {
 
     @Column(name = "MuscleMass")
     private Float muscleMass;
+
+    @Builder
+    public User(String userId, String password, Float height, Float weight, Float muscleMass) {
+        this.userId = userId;
+        this.password = password;
+        this.height = height;
+        this.weight = weight;
+        this.muscleMass = muscleMass;
+    }
 
 }

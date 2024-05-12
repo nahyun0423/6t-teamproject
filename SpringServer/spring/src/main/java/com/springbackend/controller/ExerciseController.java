@@ -1,5 +1,6 @@
 package com.springbackend.controller;
 
+import com.springbackend.dto.ExerciseDTO;
 import com.springbackend.entity.Exercise;
 import com.springbackend.service.ExerciseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class ExerciseController {
     }
 
     @GetMapping("/exercises/{exerciseId}")
-    public Exercise getInfo(@PathVariable int exerciseId){
+    public ExerciseDTO getInfo(@PathVariable int exerciseId){
         return exerciseService.getExercise(exerciseId);
 
     }

@@ -1,11 +1,13 @@
 package com.springbackend.entity;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
+@NoArgsConstructor
 @Table(name = "routineDetails")
 public class RoutineDetail {
     @Id
@@ -30,4 +32,13 @@ public class RoutineDetail {
     @Column(name = "Reps")
     private Integer reps;
 
+    @Builder
+    public RoutineDetail(Integer routineDetailId, Integer routineSequence, Routine routine, Exercise exercise, Integer sets, Integer reps) {
+        this.routineDetailId = routineDetailId;
+        this.routineSequence = routineSequence;
+        this.routine = routine;
+        this.exercise = exercise;
+        this.sets = sets;
+        this.reps = reps;
+    }
 }

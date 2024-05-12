@@ -1,9 +1,12 @@
 package com.springbackend.impl;
 
+import com.springbackend.dto.UserDTO;
 import com.springbackend.entity.User;
 import com.springbackend.repository.UserRepository;
 import com.springbackend.service.UserService;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -14,17 +17,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void saveUser(User user) {
+    public void signUp(UserDTO userDTO) {
+        User user = userDTO.toEntity();
         userRepository.save(user);
     }
-    @Override
-    public User getUser(String userId) {
-        return userRepository.findById(userId).orElse(null);
-    }
 
     @Override
-    public void deleteUser(String userId) {
-        userRepository.delete(getUser(userId));
-    }
-
+    public UserDTO getUser(String userId) {
+        Optional<User> user = userRepository.findById(userId);
+        return user.map(UserDTO::new).orElse(null);
+        }
 }
