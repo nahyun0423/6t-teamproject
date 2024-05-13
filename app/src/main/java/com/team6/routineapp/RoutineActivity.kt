@@ -2,52 +2,80 @@ package com.team6.routineapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.team6.routineapp.fitness.Routine
+import com.team6.routineapp.utility.convertFromDpToPx
+import com.team6.routineapp.utility.getClassExtra
+import kotlin.math.log
 
 
 class RoutineActivity : AppCompatActivity() {
+    companion object {
+        var routines = arrayOf<Routine>()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
 
-        val toCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+        val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+
         findViewById<Button>(R.id.activity_routine_button).setOnClickListener {
-            startActivity(toCreateRoutineActivity);
+            startActivity(intentToCreateRoutineActivity)
         }
 
-        val routines = findViewById<LinearLayout>(R.id.activity_routine_layout)
-        generateRoutineView(routines)
+        val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
 
+        var routine = intent.getClassExtra("routine", Routine::class.java)
+
+        if (routine != null) {
+            routines += (routine)
+        }
+
+        for (routine in routines) {
+            routinesLayout.addView(generateRoutineView(routine))
+        }
     }
 
-    private fun generateRoutineView(routines: LinearLayout) {
-        for (i in 1..9) {
+    private fun generateRoutineView(routine: Routine): View {
+        val layoutParameters = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+        layoutParameters.setMargins(0, 0, 0, convertFromDpToPx(20))
+        val intent = Intent(this, RoutineInformationActivity::class.java)
+        val routineName = routine.name
+        intent.putExtra("name", routineName)
 
-            val routine = layoutInflater.inflate(R.layout.view_routine, null)
+        val routineView = layoutInflater.inflate(R.layout.view_routine, null)
+        val routineViewtrainingsLayout =
+            routineView.findViewById<LinearLayout>(R.id.view_routine_layout_trainings)
+        var routineViewTrainingsTextView: TextView
 
-            routine.findViewById<TextView>(R.id.view_routine_textview_name).text = "초보자 상체 운동 ${i}"
-            routine.findViewById<TextView>(R.id.view_routine_textview_part).text = "가슴 등"
-            routine.findViewById<TextView>(R.id.exercise1).text = "벤치 프레스"
-            routine.findViewById<TextView>(R.id.exercise2).text = "랫 풀 다운"
-            routine.findViewById<ImageView>(R.id.viewRoutine_imageView)
-                .setImageResource(R.drawable.benchpress_image)
-            routines.addView(routine)
-            val intent = Intent(this, RoutineInformationActivity::class.java)
-            intent.putExtra("name", "초보자 상체 운동 ${i}")
-            routine.setOnClickListener(View.OnClickListener {
-                startActivity(intent)
-            })
-            //마진 적용
-            val size = getResources().getDimensionPixelSize(R.dimen.bottom_margin)
-            val margin = MarginLayoutParams(routine.getLayoutParams())
-            margin.setMargins(0, 0, 0, size)
-            routine.setLayoutParams(LinearLayout.LayoutParams(margin))
+        routineView.layoutParams = layoutParameters
+
+        routineView.findViewById<TextView>(R.id.view_routine_textview_name).text = routineName
+        routineView.findViewById<TextView>(R.id.view_routine_textview_part).text =
+            routine.trainings[0]!!.exercise.part
+        routineView.findViewById<ImageView>(R.id.view_routine_imageview)
+            .setImageResource(R.drawable.benchpress_image)
+
+        for (training in routine.trainings) {
+            routineViewTrainingsTextView = TextView(this)
+            routineViewTrainingsTextView.setText(training!!.exercise.name)
+            routineViewtrainingsLayout.addView(routineViewTrainingsTextView)
         }
+
+        routineView.setOnClickListener {
+            startActivity(intent)
+        }
+
+        return routineView
     }
 }

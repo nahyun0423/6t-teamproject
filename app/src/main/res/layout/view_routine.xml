@@ -10,74 +10,51 @@
 
     <TextView
         android:id="@+id/view_routine_textview_name"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/notosans_bold"
+        android:includeFontPadding="false"
         android:text="루틴 이름"
         android:textSize="@dimen/text_large"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/view_routine_imageview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/view_routine_textview_part"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:includeFontPadding="false"
+        android:text="운동 부위"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintEnd_toStartOf="@id/view_routine_imageview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_routine_textview_name" />
+
+    <ImageView
+        android:id="@+id/view_routine_imageview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/rectangle_water"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/benchpress_image" />
 
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginRight="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/viewRoutine_imageView"
+        app:layout_constraintEnd_toStartOf="@id/view_routine_imageview"
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:id="@+id/view_routine_layout_trainings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/view_routine_textview_part"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="운동 부위"
-                android:textSize="@dimen/text_small"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.08"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_routine_textview_name"
-                app:layout_constraintVertical_bias="0.536" />
-
-            <TextView
-                android:id="@+id/exercise1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="운동 1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.078"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_routine_textview_part"
-                app:layout_constraintVertical_bias="0.136" />
-
-            <TextView
-                android:id="@+id/exercise2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:text="운동 2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.077"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/exercise1" />
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/viewRoutine_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="#BCDAE3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_routine_textview_name"
-        app:srcCompat="@drawable/benchpress_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
