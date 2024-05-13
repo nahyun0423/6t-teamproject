@@ -1,6 +1,8 @@
 package com.springbackend.clova;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.springbackend.parsing.ApiResponseDTO;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -47,32 +49,49 @@ public class ClovaCustomService {
                 "messages", List.of(
                         Map.of("role","system","content","-사용자의 요청에 맞는 적절한 운동 루틴을 추천합니다\n" +
                                 "-운동 루틴은 운동이름,해당 기구의 세팅할 중량,세트수,1세트당 반복횟수로 이루어져 있는 운동세트의 5개의 집합입니다. " +
-                                "출력 형식도 이와 동일하게만 출력합니다.\n" +
-                                "운동세트 출력시 전후에 다른 내용을 붙히지 않고 운동세트만을 출력하고, 루틴의 각 값 사이에는 쉼표를 붙힙니다.\n" +
-                                "벤치프레스,70kg,3세트,10회  ->출력 예시입니다." +
-                                "한개의 운동세트가 모두 출력 된 후에는 줄바꿈을 한 후 출력합니다.\n" +
-                                "만일 맨몸운동이여서 기구의 세팅할 중량이 없으면 0kg으로 출력합니다." +
-                                "-운동 목록을 출력할 때는 다른 설명 없이 운동 루틴만 출력합니다.\n" +
-                                "-운동 루틴은 다음 목록 안에 있는 것 중에서만 선택합니다. "),
+                                "-운동세트의 각 값 사이에는 쉼표를 붙입니다." +
+                                "-운동 이름을 제외하곤 띄어쓰기를 사용하지 않고 출력합니다." +
+                                "-운동세트 사이에는 띄어쓰기 없이 / 를 붙여줍니다 \n" +
+                                "-만일 맨몸운동이여서 기구의 세팅할 중량이 없으면 0kg으로 출력합니다." +
+                                "-운동 루틴을 출력할 때는 다른 설명 없이 운동 세트만 출력합니다.\n"
+                        ),
                         Map.of("role", "user", "content", userQuery)
                 )
         );
     }
 
-    //clova response 데이터(json)를 파싱 후 content만 추출
+    //clova response 데이터(json)를 파싱 후 content만 추출하고 그것만 다시 json으로 변환
     private Mono<String> formatResponse(String jsonResponse) {
         try {
             ApiResponseDTO response = objectMapper.readValue(jsonResponse, ApiResponseDTO.class);
             ApiResponseDTO.Message message = response.getResult().getMessage();
-            //String formattedContent = message.getContent().replace("\n", "<br>"); // 줄바꿈 문자를 <br>로 변환
-            return Mono.just(message.getContent());
-            //return Mono.just(formattedContent);
+            //return Mono.just(message.getContent());
+            return Mono.just(convertToJSON(message.getContent()));
         } catch (IOException e) {
             return Mono.error(new RuntimeException("Error parsing JSON response", e));
         }
     }
 
-    //clova request 데이터
+    private String convertToJSON(String data) {
+        String[] routines = data.split("/");
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayNode arrayNode = mapper.createArrayNode();
+
+        for (String routine : routines) {
+            String[] details = routine.split(",");
+            if (details.length == 4) {
+                ObjectNode objectNode = mapper.createObjectNode();
+                objectNode.put("exerciseName", details[0].trim());
+                objectNode.put("weight", details[1].trim());
+                objectNode.put("sets", details[2].trim().replaceAll("[^0-9]", "")); // 숫자만 추출
+                objectNode.put("reps", details[3].trim().replaceAll("[^0-9]", "")); // 숫자만 추출
+                arrayNode.add(objectNode);
+            }
+        }
+        return arrayNode.toString();
+
+        //clova request 데이터
+    }
 
 
 }
