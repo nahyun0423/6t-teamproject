@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping("/users/save")
     public void saveUser(@RequestBody UserDTO userDTO) {
-        userService.signUp(userDTO);
+        userService.save(userDTO);
     }
 
     @GetMapping("/users/userInfo/{userId}")

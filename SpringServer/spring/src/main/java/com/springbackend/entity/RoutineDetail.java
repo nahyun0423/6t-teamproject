@@ -15,15 +15,12 @@ public class RoutineDetail {
     @Column(name = "RoutineDetailID")
     private Integer routineDetailId;
 
-    @Column(name = "RoutineSequence")
-    private Integer routineSequence;
-
     @ManyToOne
-    @JoinColumn(name = "RoutineID")
+    @JoinColumn(name = "RoutineName", referencedColumnName = "RoutineName")
     private Routine routine;
 
     @ManyToOne
-    @JoinColumn(name = "ExerciseID")
+    @JoinColumn(name = "ExerciseName", referencedColumnName = "ExerciseName")
     private Exercise exercise;
 
     @Column(name = "Sets")
@@ -32,13 +29,17 @@ public class RoutineDetail {
     @Column(name = "Reps")
     private Integer reps;
 
+    @Column(name = "Weight")
+    private Integer weight;
+
+
     @Builder
-    public RoutineDetail(Integer routineDetailId, Integer routineSequence, Routine routine, Exercise exercise, Integer sets, Integer reps) {
+    public RoutineDetail(Integer routineDetailId, Routine routine, Exercise exercise, Integer sets, Integer reps, Integer weight) {
         this.routineDetailId = routineDetailId;
-        this.routineSequence = routineSequence;
         this.routine = routine;
         this.exercise = exercise;
         this.sets = sets;
         this.reps = reps;
+        this.weight=weight;
     }
 }

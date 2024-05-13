@@ -24,7 +24,7 @@ public class ClovaBasicService {
     }
 
     //api 부분
-    public Mono<String> getCompletion(String userQuery) {
+    public Mono<String> getCompletion(String data) {
         return webClient.post()
                 .uri("https://clovastudio.stream.ntruss.com/testapp/v1/chat-completions/HCX-003")
                 .header("X-NCP-CLOVASTUDIO-API-KEY", "NTA0MjU2MWZlZTcxNDJiY/bEfwpnZM0oOSzn0mYVKIkfhLLCWaDuoNPeCXVrFfK/")
@@ -32,7 +32,7 @@ public class ClovaBasicService {
                 .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "905ee286-20db-43a2-8371-9a0dce56bdd9")
                 .header("Content-Type","application/json")
                 .header("Accept","")
-                .bodyValue(buildRequestData(userQuery))
+                .bodyValue(buildRequestData(data))
                 .retrieve()
                 .bodyToMono(String.class)
                 .flatMap(this::formatResponse);
@@ -43,9 +43,9 @@ public class ClovaBasicService {
         try {
             ApiResponseDTO response = objectMapper.readValue(jsonResponse, ApiResponseDTO.class);
             ApiResponseDTO.Message message = response.getResult().getMessage();
-            String formattedContent = message.getContent().replace("\n", "<br>"); // 줄바꿈 문자를 <br>로 변환
-            //return Mono.just(message.getContent());
-            return Mono.just(formattedContent);
+            //String formattedContent = message.getContent().replace("\n", "<br>"); // 줄바꿈 문자를 <br>로 변환
+            return Mono.just(message.getContent());
+           // return Mono.just(formattedContent);
         } catch (IOException e) {
             return Mono.error(new RuntimeException("Error parsing JSON response", e));
         }

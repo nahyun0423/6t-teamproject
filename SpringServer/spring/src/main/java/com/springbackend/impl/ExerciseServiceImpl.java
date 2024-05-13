@@ -18,8 +18,8 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
     @Override
-    public ExerciseDTO getExercise(int exerciseId) {
-        Optional<Exercise> exercise = exerciseRepository.findById(exerciseId);
+    public ExerciseDTO getExercise(String exerciseName) {
+        Optional<Exercise> exercise = exerciseRepository.findById(exerciseName);
         return exercise.map(ExerciseDTO::new).orElse(null);
     }
 }

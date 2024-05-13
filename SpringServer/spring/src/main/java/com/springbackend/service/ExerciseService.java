@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface ExerciseService {
-    ExerciseDTO getExercise(int exerciseId);
+    ExerciseDTO getExercise(String exerciseName);
 }

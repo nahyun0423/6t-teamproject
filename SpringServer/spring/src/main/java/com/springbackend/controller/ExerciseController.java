@@ -18,9 +18,9 @@ public class ExerciseController {
         this.exerciseService = exerciseService;
     }
 
-    @GetMapping("/exercises/{exerciseId}")
-    public ExerciseDTO getInfo(@PathVariable int exerciseId){
-        return exerciseService.getExercise(exerciseId);
+    @GetMapping("/exercises/{exerciseName}")
+    public ExerciseDTO getInfo(@PathVariable String exerciseName){
+        return exerciseService.getExercise(exerciseName);
 
     }
 }

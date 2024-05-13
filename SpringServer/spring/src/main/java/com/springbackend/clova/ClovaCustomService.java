@@ -46,10 +46,13 @@ public class ClovaCustomService {
                 "stopBefore", List.of(),
                 "messages", List.of(
                         Map.of("role","system","content","-사용자의 요청에 맞는 적절한 운동 루틴을 추천합니다\n" +
-                                "-운동 루틴은 운동이름 ,해당 기구의 세팅할 중량 , 세트수 , 1세트당 반복횟수로 이루어져 있습니다.\n" +
-                                "-운동 루틴은 5개의 운동만으로 구성됩니다.\n" +
+                                "-운동 루틴은 운동이름,해당 기구의 세팅할 중량,세트수,1세트당 반복횟수로 이루어져 있는 운동세트의 5개의 집합입니다. " +
+                                "출력 형식도 이와 동일하게만 출력합니다.\n" +
+                                "운동세트 출력시 전후에 다른 내용을 붙히지 않고 운동세트만을 출력하고, 루틴의 각 값 사이에는 쉼표를 붙힙니다.\n" +
+                                "벤치프레스,70kg,3세트,10회  ->출력 예시입니다." +
+                                "한개의 운동세트가 모두 출력 된 후에는 줄바꿈을 한 후 출력합니다.\n" +
+                                "만일 맨몸운동이여서 기구의 세팅할 중량이 없으면 0kg으로 출력합니다." +
                                 "-운동 목록을 출력할 때는 다른 설명 없이 운동 루틴만 출력합니다.\n" +
-                                "-운동 목록을 출력하고 나서는 왜 해당 운동을 선정했는지 이유를 100자에서 200자 사이로 출력합니다.\n" +
                                 "-운동 루틴은 다음 목록 안에 있는 것 중에서만 선택합니다. "),
                         Map.of("role", "user", "content", userQuery)
                 )
@@ -61,9 +64,9 @@ public class ClovaCustomService {
         try {
             ApiResponseDTO response = objectMapper.readValue(jsonResponse, ApiResponseDTO.class);
             ApiResponseDTO.Message message = response.getResult().getMessage();
-            String formattedContent = message.getContent().replace("\n", "<br>"); // 줄바꿈 문자를 <br>로 변환
-            //return Mono.just(message.getContent());
-            return Mono.just(formattedContent);
+            //String formattedContent = message.getContent().replace("\n", "<br>"); // 줄바꿈 문자를 <br>로 변환
+            return Mono.just(message.getContent());
+            //return Mono.just(formattedContent);
         } catch (IOException e) {
             return Mono.error(new RuntimeException("Error parsing JSON response", e));
         }

@@ -7,10 +7,8 @@ import lombok.*;
 @NoArgsConstructor
 @Table(name = "exercises")
 public class Exercise {
-    @Id
-    @Column(name = "ExerciseID")
-    private Integer exerciseId;
 
+    @Id
     @Column(name = "ExerciseName")
     private String exerciseName;
 
@@ -21,7 +19,6 @@ public class Exercise {
     private String videoLink;
     @Builder
     public Exercise(Integer exerciseId, String exerciseName, String descriptions, String videoLink) {
-        this.exerciseId = exerciseId;
         this.exerciseName = exerciseName;
         this.descriptions = descriptions;
         this.videoLink = videoLink;
