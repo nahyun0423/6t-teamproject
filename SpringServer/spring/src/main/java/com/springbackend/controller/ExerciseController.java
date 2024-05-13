@@ -18,6 +18,8 @@ public class ExerciseController {
         this.exerciseService = exerciseService;
     }
 
+
+    //DB에서 운동정보 호출
     @GetMapping("/exercises/{exerciseName}")
     public ExerciseDTO getInfo(@PathVariable String exerciseName){
         return exerciseService.getExercise(exerciseName);

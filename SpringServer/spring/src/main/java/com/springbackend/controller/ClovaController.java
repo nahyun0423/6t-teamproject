@@ -25,14 +25,18 @@ public class ClovaController {
         this.clovaCustomService = clovaCustomService;
     }
 
-    @PostMapping("/clova")
-    public Mono<String> getResponse(@RequestBody String data) {
-        return clovaBasicService.getCompletion(data);
-    }
 
+    //Clova Studio 호출
     @PostMapping("/clova_custom")
     public Mono<String> getResponseCustom(@RequestBody String data) {
         return clovaCustomService.getCompletion(data);
+    }
+
+
+
+    @PostMapping("/clova")
+    public Mono<String> getResponse(@RequestBody String data) {
+        return clovaBasicService.getCompletion(data);
     }
 
     @PostMapping("/create/clova")

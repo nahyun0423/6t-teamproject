@@ -17,11 +17,13 @@ public class UserController {
         this.userService = userService;
     }
 
+    //DB에 회원정보 저장(회원가입)
     @PostMapping("/users/save")
     public void saveUser(@RequestBody UserDTO userDTO) {
         userService.save(userDTO);
     }
 
+    //ID로 DB에서 유저 검색(로그인)
     @GetMapping("/users/userInfo/{userId}")
     public UserDTO userInfo(@PathVariable String userId){
         return userService.getUser(userId);

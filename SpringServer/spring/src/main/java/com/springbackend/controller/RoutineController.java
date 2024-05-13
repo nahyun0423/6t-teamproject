@@ -15,25 +15,30 @@ public class RoutineController {
         this.routineService = routineService;
     }
 
+    //DB에 루틴 저장
     @PostMapping("/routine/save")
     public void saveRoutine(@RequestBody RoutineDTO routineDTO) {
         routineService.saveRoutine(routineDTO);
     }
 
-    @PostMapping("/routine")
-    public RoutineDTO pushRoutine(@RequestBody RoutineDTO routineDTO) {
-        return routineDTO;
-    }
+    //루틴 이름으로 해당 루틴 정보 DB에서 호출
     @GetMapping("/routine/{routineName}")
     public RoutineDTO getRoutine(@PathVariable String routineName){
         return routineService.getRoutine(routineName);
     }
 
+    //해당 유저가 생성한 모든 루틴 출력
     @GetMapping("/routine/all/{userId}")
     public List<RoutineDTO> getAllRoutine(@PathVariable String userId){
         return routineService.getAllRoutinesByUser(userId);
     }
 
+
+    //test용
+    @PostMapping("/routine")
+    public RoutineDTO pushRoutine(@RequestBody RoutineDTO routineDTO) {
+        return routineDTO;
+    }
 
 
 }
