@@ -9,7 +9,7 @@
     android:padding="30dp">
 
     <ImageView
-        android:id="@+id/view_training_imageview"
+        android:id="@+id/view_exercise_imageview"
         android:layout_width="80dp"
         android:layout_height="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/view_training_textview_exercise_name"
+        android:id="@+id/view_exercise_textview_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -27,12 +27,12 @@
         android:includeFontPadding="false"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/view_exercises_textview_information"
-        app:layout_constraintStart_toEndOf="@id/view_training_imageview"
+        app:layout_constraintBottom_toTopOf="@id/view_exercise_textview_information"
+        app:layout_constraintStart_toEndOf="@id/view_exercise_imageview"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/view_exercises_textview_information"
+        android:id="@+id/view_exercise_textview_information"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -43,9 +43,9 @@
         android:textColor="@color/black"
         android:textSize="12sp"
         android:maxLines="2"
-        app:layout_constraintStart_toEndOf="@id/view_training_imageview"
+        app:layout_constraintStart_toEndOf="@id/view_exercise_imageview"
         app:layout_constraintEnd_toStartOf="@id/view_exercise_button"
-        app:layout_constraintTop_toBottomOf="@id/view_training_textview_exercise_name" />
+        app:layout_constraintTop_toBottomOf="@id/view_exercise_textview_name" />
 
     <Button
         android:id="@+id/view_exercise_button"

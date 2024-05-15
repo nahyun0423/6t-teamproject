@@ -11,78 +11,42 @@ import android.widget.RelativeLayout
 import android.widget.RelativeLayout.LayoutParams
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.team6.routineapp.fitness.Exercise
-import com.team6.routineapp.fitness.Routine
-import com.team6.routineapp.fitness.Training
-import com.team6.routineapp.fitness.WeightTraining
-import com.team6.routineapp.utility.convertFromDpToPx
+import com.team6.routineapp.fitness.*
+import com.team6.routineapp.utility.*
 
 
 class RecommendationResultActivity : AppCompatActivity() {
+    private var resource = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
 
+        /* 변수 선언 */
         val routine = getRecommendationFromAI()
 
         val intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
-        var intentToExerciseInformationActivity: Intent
 
-        findViewById<Button>(R.id.activity_recommendation_result_button_not_needed).setOnClickListener {
+        val notNeededButton =
+            findViewById<Button>(R.id.activity_recommendation_result_button_not_needed)
+        val addToMyRoutineButton =
+            findViewById<Button>(R.id.activity_recommendation_result_button_add_to_my_routine)
+
+        /* 처리 */
+        notNeededButton.setOnClickListener {
             finish()
             startActivity(intentToRoutineActivity)
         }
-        findViewById<Button>(R.id.activity_recommendation_result_button_add_to_my_routine).setOnClickListener {
+        addToMyRoutineButton.setOnClickListener {
             finish()
             intentToRoutineActivity.putExtra("routine", routine)
             startActivity(intentToRoutineActivity)
         }
 
-        val trainingsLayout = findViewById<LinearLayout>(R.id.layout_trainings)
-        var trainingLayout: ConstraintLayout
-        var trainingIconImageView: ImageView
-        var trainingNameTextView: TextView
-        var trainingDetailTextView: TextView
-        val blankSpaceLayout = RelativeLayout(this)
-
-        var resource: Int
-
-        for (training in routine.trainings) {
-            resource = when (training!!.exercise.name) {
-                "오버헤드 프레스" -> R.drawable.overhead_press
-                "행잉 레그 레이즈" -> R.drawable.hanging_leg_raise
-                else -> -1
-            }
-
-            trainingLayout =
-                layoutInflater.inflate(R.layout.view_training, null) as ConstraintLayout
-            trainingIconImageView = trainingLayout.findViewById(R.id.view_training_imageview)
-            trainingNameTextView =
-                trainingLayout.findViewById(R.id.view_training_textview_exercise_name)
-            trainingDetailTextView = trainingLayout.findViewById(R.id.view_training_textview_detail)
-
-            trainingLayout.setOnClickListener {
-                intentToExerciseInformationActivity =
-                    Intent(this, ExerciseInformationActivity::class.java)
-                intentToExerciseInformationActivity.putExtra("exercise", training.exercise)
-                startActivity(intentToExerciseInformationActivity)
-            }
-
-            trainingIconImageView.setImageResource(resource)
-            trainingNameTextView.setText(training.exercise.name)
-            trainingDetailTextView.setText(training.getDetail())
-
-            trainingsLayout.addView(trainingLayout)
-        }
-
-        blankSpaceLayout.layoutParams = LayoutParams(convertFromDpToPx(80), convertFromDpToPx(210))
-        trainingsLayout.addView(blankSpaceLayout)
+        generateTrainingsView(routine.trainings)
     }
 
-    private fun getRecommendationFromAI() : Routine {
-        val overheadPress = Exercise("오버헤드 프레스", "팔", "바벨")
-        val hangingLegRaise = Exercise("행잉 레그 레이즈", "코어", "행잉 레그 레이즈 머신")
-
+    private fun getRecommendationFromAI(): Routine {
         val training1 = WeightTraining(overheadPress, 4, 10, 40)
         val training2 = Training(hangingLegRaise, 4, 10)
         val training3 = WeightTraining(overheadPress, 4, 10, 30)
@@ -91,42 +55,41 @@ class RecommendationResultActivity : AppCompatActivity() {
         val training6 = Training(hangingLegRaise, 4, 10)
 
         return Routine(
-            "AI루틴", arrayOf(training1, training2, training3, training4, training5, training6)
+            "AI 추천 루틴", arrayOf(training1, training2, training3, training4, training5, training6)
         )
     }
 
-    private fun generateRoutineView(routine: Routine): View {
-        val layoutParameters = ConstraintLayout.LayoutParams(
-            ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParameters.setMargins(0, 0, 0, convertFromDpToPx(20))
-        val intent = Intent(this, RoutineInformationActivity::class.java)
-        val routineName = routine.name
-        intent.putExtra("name", routineName)
+    private fun generateTrainingView(training: Training): View {
+        val intentToExerciseInformationActivity =
+            Intent(this, ExerciseInformationActivity::class.java)
 
-        val routineView = layoutInflater.inflate(R.layout.view_routine, null)
-        val routineViewtrainingsLayout =
-            routineView.findViewById<LinearLayout>(R.id.view_routine_layout_trainings)
-        var routineViewTrainingsTextView: TextView
+        val trainingLayout: ConstraintLayout =
+            layoutInflater.inflate(R.layout.view_training, null) as ConstraintLayout
+        val trainingIconImageView =
+            trainingLayout.findViewById<ImageView>(R.id.view_exercise_imageview)
+        val trainingNameTextView =
+            trainingLayout.findViewById<TextView>(R.id.view_exercise_textview_name)
+        val trainingDetailTextView =
+            trainingLayout.findViewById<TextView>(R.id.view_training_textview_detail)
 
-        routineView.layoutParams = layoutParameters
-
-        routineView.findViewById<TextView>(R.id.view_routine_textview_name).text = routineName
-        routineView.findViewById<TextView>(R.id.view_routine_textview_part).text =
-            routine.trainings[0]!!.exercise.part
-        routineView.findViewById<ImageView>(R.id.view_routine_imageview)
-            .setImageResource(R.drawable.benchpress_image)
-
-        for (training in routine.trainings) {
-            routineViewTrainingsTextView = TextView(this)
-            routineViewTrainingsTextView.setText(training!!.exercise.name)
-            routineViewtrainingsLayout.addView(routineViewTrainingsTextView)
+        trainingLayout.setOnClickListener {
+            intentToExerciseInformationActivity.putExtra("exercise", training.exercise)
+            startActivity(intentToExerciseInformationActivity)
         }
+        trainingIconImageView.setImageResource(getImageResource(training.exercise))
+        trainingNameTextView.text = training.exercise.name
+        trainingDetailTextView.text = training.getDetail()
 
-        routineView.setOnClickListener {
-            startActivity(intent)
-        }
+        return trainingLayout
+    }
 
-        return routineView
+    private fun generateTrainingsView(trainings: Array<Training?>) {
+        val trainingsLayout = findViewById<LinearLayout>(R.id.layout_trainings)
+        val blankSpaceLayout = RelativeLayout(this)
+
+        for (training in trainings) trainingsLayout.addView(generateTrainingView(training!!))
+        blankSpaceLayout.layoutParams = LayoutParams(convertFromDpToPx(80), convertFromDpToPx(210))
+
+        trainingsLayout.addView(blankSpaceLayout)
     }
 }
