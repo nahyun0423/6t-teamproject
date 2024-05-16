@@ -3,51 +3,110 @@ package com.team6.routineapp
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup.MarginLayoutParams
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.children
+import com.team6.routineapp.fitness.*
+import com.team6.routineapp.utility.*
 
 
 class RoutineActivity : AppCompatActivity() {
+    companion object {
+        var routines: Array<Routine> = arrayOf()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
 
-        val toCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
-        findViewById<Button>(R.id.routineActivity_button).setOnClickListener {
-            startActivity(toCreateRoutineActivity);
+        val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+
+        val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
+        val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
+
+        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query == null) return false
+
+                for(routineView in routinesLayout.children) routineView.visibility = View.GONE
+                for(routineView in routinesLayout.children) {
+                    val routine = routineView.tag as Routine
+
+                    if (routine.name.contains(query)) {
+                        routineView.visibility = View.VISIBLE
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+        })
+
+        findViewById<Button>(R.id.activity_routine_button).setOnClickListener {
+            startActivity(intentToCreateRoutineActivity)
         }
 
-        val routines = findViewById<LinearLayout>(R.id.routineActivity_LinearLayout)
-        generateRoutineList(routines)
+        var routine = intent.getClassExtra("routine", Routine::class.java)
 
+        if (routine != null) {
+            routines += (routine)
+        }
+
+        for (routine in routines) {
+            routinesLayout.addView(generateRoutineView(routine))
+        }
     }
 
-    private fun generateRoutineList(routines: LinearLayout) {
-        for (i in 1..9) {
+    private fun generateTrainingView(training: Training): TextView {
+        val routineViewTrainingsTextView: TextView = TextView(this)
 
-            val routine = layoutInflater.inflate(R.layout.routine, null)
+        routineViewTrainingsTextView.text = training!!.exercise.name
 
-            routine.findViewById<TextView>(R.id.routineName).text = "초보자 상체 운동 ${i}"
-            routine.findViewById<TextView>(R.id.exerciseTarget).text = "가슴 등"
-            routine.findViewById<TextView>(R.id.exercise1).text = "벤치 프레스"
-            routine.findViewById<TextView>(R.id.exercise2).text = "랫 풀 다운"
-            routine.findViewById<ImageView>(R.id.image)
-                .setImageResource(R.drawable.benchpress_image)
-            routines.addView(routine)
-            val intent = Intent(this, ExplainRoutine::class.java)
-            intent.putExtra("name", "초보자 상체 운동 ${i}")
-            routine.setOnClickListener(View.OnClickListener {
-                startActivity(intent)
-            })
-            //마진 적용
-            val size = getResources().getDimensionPixelSize(R.dimen.bottom_margin)
-            val margin = MarginLayoutParams(routine.getLayoutParams())
-            margin.setMargins(0, 0, 0, size)
-            routine.setLayoutParams(LinearLayout.LayoutParams(margin))
+        return routineViewTrainingsTextView
+    }
+
+    private fun generateTrainingsView(trainings: Array<Training?>, parent: LinearLayout) {
+        for (training in trainings) {
+            parent.addView(generateTrainingView(training!!))
         }
+    }
+
+    private fun generateRoutineView(routine: Routine): View {
+        val routineName = routine.name
+        val layoutParameters = ConstraintLayout.LayoutParams(
+            ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT
+        )
+
+        val intentToRoutineInformationActivity =
+            Intent(this, RoutineInformationActivity::class.java)
+        intentToRoutineInformationActivity.putExtra("name", routineName)
+
+        val routineView = layoutInflater.inflate(R.layout.view_routine, null)
+        val routineViewTrainingsLayout =
+            routineView.findViewById<LinearLayout>(R.id.view_routine_layout_trainings)
+
+        layoutParameters.setMargins(0, 0, 0, convertFromDpToPx(20))
+
+        routineView.layoutParams = layoutParameters
+        routineView.tag = routine
+        routineView.findViewById<TextView>(R.id.view_routine_textview_name).text = routineName
+        routineView.findViewById<TextView>(R.id.view_routine_textview_part).text =
+            routine.trainings[0]!!.exercise.part
+        routineView.findViewById<ImageView>(R.id.view_routine_imageview)
+            .setImageResource(R.drawable.benchpress_image)
+        routineView.setOnClickListener {
+            startActivity(intentToRoutineInformationActivity)
+        }
+
+        generateTrainingsView(routine.trainings, routineViewTrainingsLayout)
+
+        return routineView
     }
 }

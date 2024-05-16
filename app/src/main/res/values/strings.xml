@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Routine App</string>
+    <string name="activity_recommendation_result_title"><b>User</b>님께\n적합한 루틴을 찾았습니다!</string>
 </resources>

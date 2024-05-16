@@ -10,27 +10,28 @@
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dialogInputTrainingInformation_layoutNumberOfTimes"
+        android:id="@+id/dialog_input_training_information_layout_number_of_times"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_layoutSet"
+        app:layout_constraintBottom_toTopOf="@id/dialog_input_training_information_layout_set"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/dialogInputTrainingInformation_editTextNumberOfTimes"
+            android:id="@+id/dialog_input_training_information_edittext_number_of_times"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:digits="0123456789"
             android:inputType="number"
+            android:text="10"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewNumberOfTimes"
+            app:layout_constraintEnd_toStartOf="@id/dialog_input_training_information_textview_number_of_times"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dialogInputTrainingInformation_textViewNumberOfTimes"
+            android:id="@+id/dialog_input_training_information_textview_number_of_times"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:fontFamily="@font/notosans_bold"
@@ -38,35 +39,36 @@
             android:includeFontPadding="false"
             android:text="회"
             android:textColor="@color/blue"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextNumberOfTimes"
+            app:layout_constraintStart_toEndOf="@id/dialog_input_training_information_edittext_number_of_times"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dialogInputTrainingInformation_layoutSet"
+        android:id="@+id/dialog_input_training_information_layout_set"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_layoutWeight"
+        app:layout_constraintBottom_toTopOf="@id/dialog_input_training_information_layout_weight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutNumberOfTimes">
+        app:layout_constraintTop_toBottomOf="@id/dialog_input_training_information_layout_number_of_times">
 
         <EditText
-            android:id="@+id/dialogInputTrainingInformation_editTextSet"
+            android:id="@+id/dialog_input_training_information_edittext_set"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:digits="0123456789"
             android:inputType="number"
+            android:text="5"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewSet"
+            app:layout_constraintEnd_toStartOf="@id/dialog_input_training_information_textview_set"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dialogInputTrainingInformation_textViewSet"
+            android:id="@+id/dialog_input_training_information_textview_set"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:fontFamily="@font/notosans_bold"
@@ -74,35 +76,36 @@
             android:includeFontPadding="false"
             android:text="세트"
             android:textColor="@color/blue"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextSet"
+            app:layout_constraintStart_toEndOf="@id/dialog_input_training_information_edittext_set"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dialogInputTrainingInformation_layoutWeight"
+        android:id="@+id/dialog_input_training_information_layout_weight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/dialogInputTrainingInformation_button"
+        app:layout_constraintBottom_toTopOf="@id/dialog_input_training_information_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutSet">
+        app:layout_constraintTop_toBottomOf="@id/dialog_input_training_information_layout_set">
 
         <EditText
-            android:id="@+id/dialogInputTrainingInformation_editTextWeight"
+            android:id="@+id/dialog_input_training_information_edittext_weight"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:digits="0123456789"
             android:inputType="number"
+            android:text="30"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/dialogInputTrainingInformation_textViewWeight"
+            app:layout_constraintEnd_toStartOf="@id/dialog_input_training_information_textview_weight"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/dialogInputTrainingInformation_textViewWeight"
+            android:id="@+id/dialog_input_training_information_textview_weight"
             android:layout_width="40dp"
             android:layout_height="60dp"
             android:fontFamily="@font/notosans_bold"
@@ -110,23 +113,23 @@
             android:includeFontPadding="false"
             android:text="kg"
             android:textColor="@color/blue"
-            android:textSize="@dimen/text_medium"
+            android:textSize="@dimen/text_large"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/dialogInputTrainingInformation_editTextWeight"
+            app:layout_constraintStart_toEndOf="@id/dialog_input_training_information_edittext_weight"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/dialogInputTrainingInformation_button"
+        android:id="@+id/dialog_input_training_information_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/button_yes"
         android:text="완료"
-        android:textAppearance="@style/buttonYesText"
+        android:textAppearance="@style/text_button_yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialogInputTrainingInformation_layoutWeight" />
+        app:layout_constraintTop_toBottomOf="@id/dialog_input_training_information_layout_weight" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
