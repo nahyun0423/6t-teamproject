@@ -16,12 +16,18 @@ public class UserDTO {
     private Float height;
     private Float weight;
     private Float muscleMass;
+    private Float fatMass;
+    private String gender;
+    private String shape;
     public UserDTO(User user) {
         this.userId = user.getUserId();
         this.password = user.getPassword();
         this.height = user.getHeight();
         this.weight = user.getWeight();
         this.muscleMass = user.getMuscleMass();
+        this.shape = user.getShape();
+        this.gender = user.getGender();
+        this.fatMass = user.getFatMass();
     }
 
     public User toEntity() {
@@ -31,6 +37,9 @@ public class UserDTO {
                 .height(height)
                 .weight(weight)
                 .muscleMass(muscleMass)
+                .fatMass(fatMass)
+                .shape(shape)
+                .gender(gender)
                 .build();
     }
 

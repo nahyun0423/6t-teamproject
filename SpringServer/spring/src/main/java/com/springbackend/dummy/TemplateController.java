@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class TemplateController {
 
-    @GetMapping("/clova-create")
+    @GetMapping("/clova_create")
     public String createTask() {
         return "clova-create";
     }
@@ -15,13 +15,13 @@ public class TemplateController {
     public String index() {
         return "index";
     }
-    @GetMapping("/clova-run")
+    @GetMapping("/clova_run")
     public String clovaRun(Model model, @RequestParam(defaultValue = "기본") String mode) {
         model.addAttribute("mode", mode);
         return "clova-run";
     }
 
-    @GetMapping("/clova-run-custom")
+    @GetMapping("/clova_run_custom")
     public String clovaRunCustom(Model model) {
         return clovaRun(model, "학습");
     }

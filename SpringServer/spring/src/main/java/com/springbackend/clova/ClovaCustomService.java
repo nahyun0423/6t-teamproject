@@ -48,25 +48,53 @@ public class ClovaCustomService {
                 "stopBefore", List.of(),
                 "messages", List.of(
                         Map.of("role","system","content","-사용자의 요청에 맞는 적절한 운동 루틴을 추천합니다\n" +
-                                "-운동 루틴은 운동이름,해당 기구의 세팅할 중량,세트수,1세트당 반복횟수로 이루어져 있는 운동세트의 5개의 집합입니다. " +
-                                "-운동세트의 각 값 사이에는 쉼표를 붙입니다." +
-                                "-운동 이름을 제외하곤 띄어쓰기를 사용하지 않고 출력합니다." +
-                                "-운동세트 사이에는 띄어쓰기 없이 / 를 붙여줍니다 \n" +
-                                "-만일 맨몸운동이여서 기구의 세팅할 중량이 없으면 0kg으로 출력합니다." +
-                                "-운동 루틴을 출력할 때는 다른 설명 없이 운동 세트만 출력합니다.\n"
+                                "-사용자는 다음 형식으로 질문합니다:\n" +
+                                "1. 자신의 신체 정보 2. 운동에서 제외했으면 하는 부위 3. 운동 목적 4. 주로 운동했으면 하는 부위 5. 운동 환경 및 장소 6. 운동 개수\n" +
+                                "-사용자가 운동에서 제외했으면 하는 부위에 해당하는 운동은 추천하지 않습니다.\n" +
+                                "-사용자가 주로 운동했으면 하는 부위에 해당하는 운동은 1개 이상 추천합니다.\n" +
+                                "-환경 및 장소가 헬스장이면 바벨이나 기구를 사용하는 운동 위주로 추천하고 집이면 기구나 도구 없이 운동할 수 있는 운동을 추천합니다.\n" +
+                                "-운동 루틴은 운동이름, 해당 기구의 세팅할 중량, 세트수, 1세트당 반복횟수로 이루어져 있습니다.\n" +
+                                "-운동 루틴은 3개~5개의 운동이 포함되어 있습니다.\n" +
+                                "-운동 루틴은 다음 목록 안에 있는 것 중에서만 선택합니다.\n" +
+                                "- 등 부위: 풀업, 랫 풀 다운, 시티드 로우, 데드리프트, 원 암 덤벨 로우\n" +
+                                "- 가슴 부위: 벤치프레스, 덤벨 플라이, 케이블 크로스 오버, 체스트프레스, 팔굽혀펴기\n" +
+                                "- 팔 부위: 덤벨 컬, 트라이셉스 푸시 다운, 오버헤드 케이블 컬, 딥스, 팔굽혀펴기, 벤치프레스\n" +
+                                "- 어깨: 오버헤드 프레스, 스미스 머신 슈러그, 케틀벨 스트릭 프레스, 밴드 오버헤드 프레스, 파이크 푸쉬업\n" +
+                                "- 하체: 스쿼트, 런지, 힙 어브덕션, 레그 익스텐션, 레그 프레스\n" +
+                                "- 복근: 플랭크, 디클라인 크런치, 행잉 레그 레이즈, 시티드 니 업, 바이시클 크런치\n" +
+                                "- json 파일 형식에 대해 잘 알고있습니다.\n" +
+                                "- 출력 데이터는 아래 형식으로 출력합니다:\n" +
+                                "{\n" +
+                                "  \"userId\": \"dbtls\""+
+                                "  \"routineName\": \"상체운동2\""+
+                                "  \"routineDetails\": [\n" +
+                                "    {\n" +
+                                "      \"ExerciseName\": \"값1-1\",\n" +
+                                "      \"Weight\": \"값1-2\",\n" +
+                                "      \"Sets\": \"값1-3\",\n" +
+                                "      \"Reps\": \"값1-4\"\n" +
+                                "    },\n" +
+                                "    {\n" +
+                                "      \"ExerciseName\": \"값2-1\",\n" +
+                                "      \"Weight\": \"값2-2\",\n" +
+                                "      \"Sets\": \"값2-3\",\n" +
+                                "      \"Reps\": \"값2-4\"\n" +
+                                "    }\n" +
+                                "  ]\n" +
+                                "}\n"
                         ),
                         Map.of("role", "user", "content", userQuery)
                 )
         );
     }
 
-    //clova response 데이터(json)를 파싱 후 content만 추출하고 그것만 다시 json으로 변환
+    //clova response 데이터(json)를 파싱 후 content만 추출
     private Mono<String> formatResponse(String jsonResponse) {
         try {
             ApiResponseDTO response = objectMapper.readValue(jsonResponse, ApiResponseDTO.class);
             ApiResponseDTO.Message message = response.getResult().getMessage();
             //return Mono.just(message.getContent());
-            return Mono.just(convertToJSON(message.getContent()));
+            return Mono.just(message.getContent());
         } catch (IOException e) {
             return Mono.error(new RuntimeException("Error parsing JSON response", e));
         }
