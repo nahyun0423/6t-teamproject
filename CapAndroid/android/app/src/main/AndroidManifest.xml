@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -16,22 +15,25 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AiRecommendEx"
+            android:name=".InputTrainingInformationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SelectExerciseActivity"
             android:exported="true" />
         <activity
             android:name=".RecommendationResultActivity"
             android:exported="true" />
         <activity
-            android:name=".ChoiceTap"
+            android:name=".CreateRoutineActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailInfoActivity"
+            android:name=".ExerciseInformationActivity"
             android:exported="true" />
         <activity
-            android:name=".ExplainRoutine"
+            android:name=".RoutineInformationActivity"
             android:exported="true" />
         <activity
-            android:name=".RoutineList"
+            android:name=".RoutineActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <activity
@@ -52,9 +54,20 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ConnectServerImpl"
+            android:exported="true" />
+
+
+
+
+
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>

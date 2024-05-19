@@ -109,11 +109,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/dislike_exercise_button_complete"
         android:layout_width="91dp"
         android:layout_height="48dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="4dp"
         android:background="#00FFFFFF"
         android:text="완료"
         android:textColor="#005CFA"

@@ -69,19 +69,20 @@ public class ClovaCustomService {
                                 "  \"routineName\": \"상체운동2\""+
                                 "  \"routineDetails\": [\n" +
                                 "    {\n" +
-                                "      \"ExerciseName\": \"값1-1\",\n" +
-                                "      \"Weight\": \"값1-2\",\n" +
-                                "      \"Sets\": \"값1-3\",\n" +
-                                "      \"Reps\": \"값1-4\"\n" +
+                                "      \"exerciseName\": \"값1-1\",\n" +
+                                "      \"weight\": 값1-2,\n" +
+                                "      \"sets\": 값1-3,\n" +
+                                "      \"reps\": 값1-4\n" +
                                 "    },\n" +
                                 "    {\n" +
-                                "      \"ExerciseName\": \"값2-1\",\n" +
-                                "      \"Weight\": \"값2-2\",\n" +
-                                "      \"Sets\": \"값2-3\",\n" +
-                                "      \"Reps\": \"값2-4\"\n" +
+                                "      \"exerciseName\": \"값2-1\",\n" +
+                                "      \"weight\": 값2-2,\n" +
+                                "      \"sets\": 값2-3,\n" +
+                                "      \"reps\": 값2-4\n" +
                                 "    }\n" +
                                 "  ]\n" +
-                                "}\n"
+                                "}\n" +
+                                "만약 맨몸운동이라면, weight는 0으로 출력합니다."
                         ),
                         Map.of("role", "user", "content", userQuery)
                 )

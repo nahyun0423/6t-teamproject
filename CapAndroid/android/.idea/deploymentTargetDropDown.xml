@@ -2,10 +2,10 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="AiRecommedEx">
+      <entry key="AiRecommendEx">
         <State />
       </entry>
-      <entry key="ChoiceTap">
+      <entry key="CreateRoutineActivity">
         <State />
       </entry>
       <entry key="MainActivity">
@@ -14,7 +14,10 @@
       <entry key="PreferexerciseActivity">
         <State />
       </entry>
-      <entry key="RecommendationResultActivity">
+      <entry key="RoutineInformationActivity">
+        <State />
+      </entry>
+      <entry key="app">
         <State />
       </entry>
     </value>

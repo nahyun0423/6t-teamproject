@@ -8,7 +8,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 public class UserDTO {
     private String userId;
@@ -29,6 +29,9 @@ public class UserDTO {
         this.gender = user.getGender();
         this.fatMass = user.getFatMass();
     }
+
+
+
 
     public User toEntity() {
         return User.builder()

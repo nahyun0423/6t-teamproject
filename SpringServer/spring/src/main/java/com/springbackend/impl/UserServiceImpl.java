@@ -21,19 +21,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(UserDTO userDTO) {
-        setShape(userDTO);
-        User user = userDTO.toEntity();
-        userRepository.save(user);
+    public String signUp(UserDTO userDTO) {
+        if (userRepository.existsById(userDTO.getUserId())) {
+            return "failure";
+
+        }
+        else{
+            setShape(userDTO);
+            User user = userDTO.toEntity();
+            userRepository.save(user);
+            return "success";
+        }
     }
 
 
 
     @Override
-    public UserDTO getUser(String userId) {
-        Optional<User> user = userRepository.findById(userId);
-        return user.map(UserDTO::new).orElse(null);
+    public UserDTO login(String userId,String password) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (userOptional.isPresent() && userOptional.get().getPassword().equals(password)) {
+            return new UserDTO(userOptional.get());
+        } else {
+            return new UserDTO();
         }
+    }
+
+
         
         
         

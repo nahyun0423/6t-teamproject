@@ -29,10 +29,9 @@ public class ClovaController {
     //Clova Studio 호출
     @PostMapping("/clova_custom")
     public Mono<String> getResponseCustom(@RequestBody String data) {
+        System.out.println(data);
         return clovaCustomService.getCompletion(data);
     }
-
-
 
     @PostMapping("/clova")
     public Mono<String> getResponse(@RequestBody String data) {
@@ -48,8 +47,5 @@ public class ClovaController {
     public Mono<String> view(@RequestParam(value ="query",required = false, defaultValue="ef9swe3v") String query) throws UnsupportedEncodingException, NoSuchAlgorithmException, InvalidKeyException {
         return clovaViewService.getView(query);
     }
-
-
-
 
 }

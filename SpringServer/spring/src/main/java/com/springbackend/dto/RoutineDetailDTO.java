@@ -15,7 +15,6 @@ import lombok.Setter;
 public class RoutineDetailDTO {
     private String exerciseName;
     private String routineName;
-    private Integer exerciseId;
     private Integer sets;
     private Integer reps;
     private Integer weight;
