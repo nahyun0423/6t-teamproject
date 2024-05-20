@@ -21,6 +21,9 @@
             android:name=".SelectExerciseActivity"
             android:exported="true" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".RecommendationResultActivity"
             android:exported="true" />
         <activity
@@ -57,13 +60,6 @@
         <activity
             android:name=".ConnectServerImpl"
             android:exported="true" />
-
-
-
-
-
-
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
