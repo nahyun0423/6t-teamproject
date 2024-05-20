@@ -17,16 +17,19 @@ import com.team6.routineapp.utility.*
 
 class RoutineActivity : AppCompatActivity() {
     companion object {
-        var routines: Array<Routine> = arrayOf()
+        var routines: Array<Routine> = arrayOf() // 저장된 Routine
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
+        
+        /* 값 선언 */
         val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
         val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
         val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
 
+        /* 처리 */
         searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 if (query == null) return false
@@ -45,23 +48,24 @@ class RoutineActivity : AppCompatActivity() {
             override fun onQueryTextChange(newText: String?): Boolean {
                 return true
             }
-        })
+        }) // 검색 기능
 
         findViewById<Button>(R.id.activity_routine_button).setOnClickListener {
             startActivity(intentToCreateRoutineActivity)
-        }
+        } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
 
-        var routine = intent.getClassExtra("routine", Routine::class.java)
+        var routine = intent.getClassExtra("routine", Routine::class.java) // 다른 Activity에서 전달한 Routine을 받아 옴
 
         if (routine != null) {
-            routines += (routine)
-        }
+            routines += (routine) 
+        } // 받아 온 Routine을 List에 추가
 
         for (routine in routines) {
             routinesLayout.addView(generateRoutineView(routine))
-        }
+        } // Routine List에 대응하는 View를 만듦
     }
 
+    /* Training에 대응하는 View 만듦 */
     private fun generateTrainingView(training: Training): TextView {
         val routineViewTrainingsTextView: TextView = TextView(this)
 
@@ -70,12 +74,14 @@ class RoutineActivity : AppCompatActivity() {
         return routineViewTrainingsTextView
     }
 
+    /* Training List에 대응하는 View 만듦 */
     private fun generateTrainingsView(trainings: Array<Training?>, parent: LinearLayout) {
         for (training in trainings) {
             parent.addView(generateTrainingView(training!!))
         }
     }
-
+    
+    /* Routine에 대응 하는 View 만듦 */
     private fun generateRoutineView(routine: Routine): View {
         val routineName = routine.name
         val layoutParameters = ConstraintLayout.LayoutParams(
