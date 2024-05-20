@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -11,30 +12,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".SettingActivity"
-            android:exported="true" />
         <activity
             android:name=".InputTrainingInformationActivity"
             android:exported="false" />
         <activity
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
             android:name=".SelectExerciseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".RecommendationResultActivity"
             android:exported="true" />
         <activity
-            android:name=".CreateRoutineActivity"
+            android:name=".ChoiceTap"
             android:exported="true" />
         <activity
-            android:name=".ExerciseInformationActivity"
+            android:name=".DetailInfoActivity"
             android:exported="true" />
         <activity
-            android:name=".RoutineInformationActivity"
+            android:name=".ExplainRoutine"
             android:exported="true" />
         <activity
-            android:name=".RoutineActivity"
+            android:name=".RoutineList"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <activity
@@ -55,9 +60,13 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ConnectServerImpl"
+            android:exported="true" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
