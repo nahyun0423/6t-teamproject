@@ -18,28 +18,28 @@
             android:name=".InputTrainingInformationActivity"
             android:exported="false" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
+        <activity
             android:name=".SettingActivity"
             android:exported="true" />
         <activity
             android:name=".SelectExerciseActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
-        <activity
             android:name=".RecommendationResultActivity"
             android:exported="true" />
         <activity
-            android:name=".ChoiceTap"
+            android:name=".CreateRoutineActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailInfoActivity"
+            android:name=".ExerciseInformationActivity"
             android:exported="true" />
         <activity
-            android:name=".ExplainRoutine"
+            android:name=".RoutineInformationActivity"
             android:exported="true" />
         <activity
-            android:name=".RoutineList"
+            android:name=".RoutineActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing" />
         <activity
