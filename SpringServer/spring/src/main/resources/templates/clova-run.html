@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Naver Clova Studio Test</title>
+</head>
+<body>
+<h1 th:text="'Naver Clova Studio Test - ' + ${mode} +'모델'">Naver Clova Studio Test</h1>
+<form th:action="${mode == '학습' ? '/clova_custom' : '/clova'}" th:method="post">
+    <label for="query">Query:</label>
+    <textarea id="query" name="query" rows="5" cols="33" required></textarea>
+    <button type="submit">Send Request</button>
+</form>
+</body>
+</html>
