@@ -18,3 +18,5 @@ class WeightTraining(exercise: Exercise, set: Int, numberOfTimes: Int, var weigh
 }
 
 class Routine(var name: String, var trainings: Array<Training?>) : Serializable {}
+
+class UserInfo(var height : Int, var weight : Int, var muscle: Int, var fat : Int) : Serializable {}
