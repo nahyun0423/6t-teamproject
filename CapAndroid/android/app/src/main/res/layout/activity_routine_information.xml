@@ -42,21 +42,44 @@
     <ListView
         android:id="@+id/activity_routine_information_listview"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/activity_routine_information_layout_top"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/activity_routine_information_layout_bottom"
         />
 
-    <Button
-        android:id="@+id/activity_routine_information_button"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:background="@drawable/button_yes"
-        android:text="닫기"
-        android:textAppearance="@style/text_button_yes"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_routine_information_layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#66F0F0F0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/activity_routine_information_button_close"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_no"
+            android:text="창 닫기"
+            android:textAppearance="@style/text_button_no"
+            app:layout_constraintBottom_toTopOf="@id/activity_routine_information_button_start_exercise"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/activity_routine_information_button_start_exercise"
+            android:layout_width="240dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button_yes"
+            android:text="이 루틴으로 운동 시작하기"
+            android:textAppearance="@style/text_button_yes"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_routine_information_button_close" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,7 @@ class RoutineActivity : AppCompatActivity() {
             }
         }) // 검색 기능
 
-        findViewById<Button>(R.id.activity_routine_button).setOnClickListener {
+        findViewById<Button>(R.id.activity_exercise_button).setOnClickListener {
             startActivity(intentToCreateRoutineActivity)
         } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
 
@@ -90,7 +90,7 @@ class RoutineActivity : AppCompatActivity() {
 
         val intentToRoutineInformationActivity =
             Intent(this, RoutineInformationActivity::class.java)
-        intentToRoutineInformationActivity.putExtra("name", routineName)
+        intentToRoutineInformationActivity.putExtra("routine", routine)
 
         val routineView = layoutInflater.inflate(R.layout.view_routine, null)
         val routineViewTrainingsLayout =
