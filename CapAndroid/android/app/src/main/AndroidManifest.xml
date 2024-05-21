@@ -22,10 +22,13 @@
             android:name=".InputTrainingInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectExerciseActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SelectExerciseActivity"
             android:exported="true" />
         <activity
             android:name=".RecommendationResultActivity"

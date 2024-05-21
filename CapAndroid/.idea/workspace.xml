@@ -16,12 +16,12 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2f4GmPaBlZDAA9rnraRz7p78ZWw" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
@@ -34,8 +34,8 @@
     "android.gradle.sync.needed": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "backend__ai",
-    "last_opened_file_path": "E:/Capstone/6t-teamproject/android",
+    "git-widget-placeholder": "conflictTest",
+    "last_opened_file_path": "C:/Users/user/Desktop/conflict/6t-teamproject/CapAndroid/android",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2"

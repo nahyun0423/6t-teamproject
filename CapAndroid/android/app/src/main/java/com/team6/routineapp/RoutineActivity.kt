@@ -23,9 +23,9 @@ class RoutineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
-        
-        /* 값 선언 */
+
         val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+
         val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
         val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
 
