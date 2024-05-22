@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+CapAndroid/android/.gradle/
+CapAndroid/android/.idea/
+
