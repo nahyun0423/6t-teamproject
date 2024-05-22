@@ -2,16 +2,16 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="AiRecommendEx">
+      <entry key="ConnectServerImpl">
         <State />
       </entry>
       <entry key="CreateRoutineActivity">
         <State />
       </entry>
-      <entry key="MainActivity">
+      <entry key="LoginActivity">
         <State />
       </entry>
-      <entry key="PreferexerciseActivity">
+      <entry key="MainActivity">
         <State />
       </entry>
       <entry key="RoutineInformationActivity">

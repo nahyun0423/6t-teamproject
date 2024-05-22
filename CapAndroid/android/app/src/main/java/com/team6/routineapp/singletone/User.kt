@@ -5,7 +5,7 @@ import com.team6.routineapp.dto.UserDTO
 object User {
     var currentUser: UserDTO? = null
 
-    fun loginUser(user: UserDTO) {
+    fun saveUser(user: UserDTO) {
         currentUser = user
     }
 

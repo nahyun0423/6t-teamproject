@@ -28,4 +28,8 @@ public class UserController {
     public UserDTO userInfo(@PathVariable String userId,@PathVariable String password){
         return userService.login(userId,password);
     }
+    @PostMapping("/editUser")
+    public UserDTO editUser(@RequestBody UserDTO userDTO){
+        return userService.edit(userDTO);
+    }
 }

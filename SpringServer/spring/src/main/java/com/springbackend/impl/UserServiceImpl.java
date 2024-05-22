@@ -35,7 +35,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     @Override
     public UserDTO login(String userId,String password) {
         Optional<User> userOptional = userRepository.findById(userId);
@@ -43,6 +42,15 @@ public class UserServiceImpl implements UserService {
             return new UserDTO(userOptional.get());
         } else {
             return new UserDTO();
+        }
+    }
+    public UserDTO edit(UserDTO userDTO){
+        Optional<User> userOptional = userRepository.findById(userDTO.getUserId());
+        if (userOptional.isPresent()) {
+            userRepository.save(userDTO.toEntity());
+            return new UserDTO(userOptional.get());
+        } else {
+            return null;
         }
     }
 

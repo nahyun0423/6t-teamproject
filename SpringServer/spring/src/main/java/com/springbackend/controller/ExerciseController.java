@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ExerciseController {
     private final ExerciseService exerciseService;
@@ -23,6 +25,12 @@ public class ExerciseController {
     @GetMapping("/exercises/{exerciseName}")
     public ExerciseDTO getInfo(@PathVariable String exerciseName){
         return exerciseService.getExercise(exerciseName);
-
     }
+
+    //모든 운동정보 호출
+    @GetMapping("/exercises")
+    public List<ExerciseDTO> getAllExercises() {
+        return exerciseService.getAllExercises();
+    }
+
 }

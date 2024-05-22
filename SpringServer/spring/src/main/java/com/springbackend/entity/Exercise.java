@@ -17,10 +17,18 @@ public class Exercise {
 
     @Column(name = "VideoLink", columnDefinition = "TEXT")
     private String videoLink;
+
+    @Column(name = "Target", columnDefinition = "TEXT")
+    private String target;
+
+    @Column(name = "Tools", columnDefinition = "TEXT")
+    private String tools;
     @Builder
-    public Exercise(Integer exerciseId, String exerciseName, String descriptions, String videoLink) {
+    public Exercise(String exerciseName, String descriptions, String videoLink, String target, String tools) {
         this.exerciseName = exerciseName;
         this.descriptions = descriptions;
         this.videoLink = videoLink;
+        this.target = target;
+        this.tools = tools;
     }
 }

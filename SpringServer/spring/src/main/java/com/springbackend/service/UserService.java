@@ -9,6 +9,7 @@ public interface UserService {
     
     String signUp(UserDTO userDTO);
     UserDTO login(String userId,String password);
+    UserDTO edit(UserDTO userDTO);
 
 
 }

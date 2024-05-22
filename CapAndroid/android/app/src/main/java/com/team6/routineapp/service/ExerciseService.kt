@@ -8,4 +8,8 @@ import retrofit2.http.Path
 interface ExerciseService {
     @GET("exercises/{exerciseName}")
     fun getExercise(@Path("exerciseName") exerciseName: String): Call<ExerciseDTO>
+
+    @GET("exercises")
+    fun getAllExercise(): Call<List<ExerciseDTO>>
+
 }

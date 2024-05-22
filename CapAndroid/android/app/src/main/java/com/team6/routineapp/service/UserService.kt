@@ -13,4 +13,7 @@ interface UserService {
 
     @GET("/login/{userId}/{password}")
     fun login(@Path("userId") userId: String, @Path("password") password: String): Call<UserDTO>
+
+    @POST("/editUser")
+    fun editUser(@Body userDTO: UserDTO): Call<UserDTO>
 }
