@@ -23,8 +23,8 @@ import com.team6.routineapp.utility.getCategory
 import com.team6.routineapp.utility.getImageResource
 
 class SelectExerciseActivity() : AppCompatActivity() {
+    /* 값 선언 */
     private var resource = 0
-    private var category = ""
     private var training: Training? = null
     private var trainings: Array<Training?> = arrayOf()
 
@@ -87,7 +87,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
         button = findViewById(R.id.activity_select_exercise_button)
 
 
-        /* */
+        /* 처리 */
         inputRoutineNameDialogButton.setOnClickListener {
             val routineName = inputRoutineNameDialogEditText.text.toString()
 
@@ -102,7 +102,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
                 inputRoutineNameDialog.dismiss()
                 startActivity(intentToRoutineActivity)
             }
-        }
+        } // 루틴의 이름을 짓는 Dialog 기능
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -127,9 +127,9 @@ class SelectExerciseActivity() : AppCompatActivity() {
             override fun onQueryTextChange(query: String?): Boolean {
                 return true
             }
-        })
+        }) // 운동 검색 기능
 
-        generateExercisesView(exercises)
+        generateExercisesView(exercises) // Exercise List에 대응하는 View 만듦
 
         button.setOnClickListener {
             if (trainings.isEmpty()) {
@@ -137,9 +137,10 @@ class SelectExerciseActivity() : AppCompatActivity() {
             } else {
                 inputRoutineNameDialog.show()
             }
-        }
+        } // 루틴 만들기 완료 버튼
     }
 
+    /* 만든 Training에 대응하는 View를 만듦 */
     private fun generateTrainingIconView(training: Training) : ConstraintLayout {
         val trainingIconView =
             layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
@@ -158,6 +159,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
         return trainingIconView
     }
 
+    /* Exercise에 대응하는 View를 만듦 */
     private fun generateExerciseView(exercise: Exercise): ConstraintLayout {
         val exerciseView: ConstraintLayout =
             layoutInflater.inflate(R.layout.view_exercise, null) as ConstraintLayout
@@ -170,7 +172,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
         val exerciseViewButton: Button = exerciseView.findViewById(R.id.view_exercise_button)
 
         resource = getImageResource(exercise)
-        category = getCategory(exercise)
+        val category = getCategory(exercise)
 
         exerciseView.setOnClickListener {
             intentToExerciseInformationActivity.putExtra("exercise", exercise)
@@ -218,6 +220,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
         return exerciseView
     }
 
+    /* Exercise List에 대응하는 View를 만듦 */
     private fun generateExercisesView(exercises: Array<Exercise>) {
         for (exercise in exercises) exercisesLayout.addView(generateExerciseView(exercise))
     }

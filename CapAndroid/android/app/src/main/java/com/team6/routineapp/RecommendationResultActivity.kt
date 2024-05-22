@@ -3,6 +3,7 @@ package com.team6.routineapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -36,16 +37,17 @@ class RecommendationResultActivity : AppCompatActivity() {
         notNeededButton.setOnClickListener {
             finish()
             startActivity(intentToRoutineActivity)
-        }
+        } // 필요 없음 버튼을 누르면, Routine Activity로 이동
         addToMyRoutineButton.setOnClickListener {
             finish()
             intentToRoutineActivity.putExtra("routine", routine)
             startActivity(intentToRoutineActivity)
-        }
+        } // 내 루틴에 추가하기 버튼을 누르면, 생성된 Routine과 함께 Routine Activity로 이동
 
         generateTrainingsView(routine.trainings)
     }
 
+    /* AI 추천 Routine 불러 옴 */
     private fun getRecommendationFromAI(): Routine {
         val training1 = WeightTraining(overheadPress, 4, 10, 40)
         val training2 = Training(hangingLegRaise, 4, 10)
@@ -59,6 +61,7 @@ class RecommendationResultActivity : AppCompatActivity() {
         )
     }
 
+    /* Training에 대응되는 View 만듦 */
     private fun generateTrainingView(training: Training): View {
         val intentToExerciseInformationActivity =
             Intent(this, ExerciseInformationActivity::class.java)
@@ -79,12 +82,12 @@ class RecommendationResultActivity : AppCompatActivity() {
         trainingIconImageView.setImageResource(getImageResource(training.exercise))
         trainingNameTextView.text = training.exercise.name
         trainingDetailTextView.text = training.getDetail()
-
         return trainingLayout
     }
 
+    /* Training List에 대응되는 View 만듦 */
     private fun generateTrainingsView(trainings: Array<Training?>) {
-        val trainingsLayout = findViewById<LinearLayout>(R.id.layout_trainings)
+        val trainingsLayout = findViewById<LinearLayout>(R.id.activity_recommendation_result_layout_trainings)
         val blankSpaceLayout = RelativeLayout(this)
 
         for (training in trainings) trainingsLayout.addView(generateTrainingView(training!!))
