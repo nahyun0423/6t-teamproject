@@ -22,7 +22,7 @@
             android:name=".InputTrainingInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".LogInActivity"
             android:exported="true" />
         <activity
             android:name=".SettingActivity"

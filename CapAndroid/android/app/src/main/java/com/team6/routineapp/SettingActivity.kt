@@ -1,6 +1,5 @@
 package com.team6.routineapp
 
-import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
@@ -8,11 +7,7 @@ import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.widget.addTextChangedListener
 import com.team6.routineapp.fitness.UserInfo
 
 class SettingActivity : AppCompatActivity() {
@@ -40,10 +35,10 @@ class SettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_setting_info)
 
         inputUserInfoDialog = Dialog(this)
-        inputUserInfoDialog.setContentView(R.layout.dialog_input_user_information)
-        inputUserInfoDialogHeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_user_height)
-        inputUserInfoDialogWeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_user_weight)
-        inputUserInfoDialogMuscleEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_user_muscle)
+        inputUserInfoDialog.setContentView(R.layout.dialog_input_physical_information)
+        inputUserInfoDialogHeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_height)
+        inputUserInfoDialogWeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_user_weight)
+        inputUserInfoDialogMuscleEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_user_muscle)
         inputUserInfoDialogFatEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_user_fat)
         inputUserInfoDialogButton = inputUserInfoDialog.findViewById<Button>(R.id.dialog_input_user_information_button)
 

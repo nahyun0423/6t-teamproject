@@ -13,8 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginActivity : AppCompatActivity() {
-
+class LogInActivity : AppCompatActivity() {
     private lateinit var intentToRegisterActivity: Intent
     private lateinit var intentToCreateRoutineActivity: Intent
 
@@ -25,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.activity_log_in)
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
         intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java)
 
@@ -48,12 +47,12 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(intentToCreateRoutineActivity)
                         } else if (response.body()?.userId == null) {
                             //로그인 실패
-                            Toast.makeText(this@LoginActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
 
                         } else {
                             // 오류 처리
                             println("Error Code: ${response.code()}")
-                            Toast.makeText(this@LoginActivity, "error", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
                         }
                     }
                     override fun onFailure(call: Call<UserDTO>, t: Throwable) {
