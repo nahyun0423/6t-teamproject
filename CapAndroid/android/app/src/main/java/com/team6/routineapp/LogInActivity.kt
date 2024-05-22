@@ -15,7 +15,7 @@ import retrofit2.Response
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var intentToRegisterActivity: Intent
-    private lateinit var intentToCreateRoutineActivity: Intent
+    private lateinit var intentToRoutineActivity: Intent
 
     private lateinit var inputIdEditText: EditText
     private lateinit var inputPasswordEditText: EditText
@@ -26,7 +26,7 @@ class LogInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
-        intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java)
+        intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
         inputIdEditText = findViewById(R.id.login_id)
         inputPasswordEditText = findViewById(R.id.login_pass)
@@ -42,7 +42,7 @@ class LogInActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
                         if (response.isSuccessful && response.body()?.userId != null) {
                             User.saveUser(response.body()!!)
-                            startActivity(intentToCreateRoutineActivity)
+                            startActivity(intentToRoutineActivity)
                         } else if (response.body()?.userId == null) {
                             //로그인 실패
                             Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()

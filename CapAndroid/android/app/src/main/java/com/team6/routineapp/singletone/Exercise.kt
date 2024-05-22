@@ -8,8 +8,6 @@ object Exercise {
     fun addExercise(exercise: ExerciseDTO) {
         exercises.add(exercise)
     }
-
-
     fun getExerciseByName(exerciseName: String): ExerciseDTO? {
         return exercises.find { it.exerciseName == exerciseName }
     }
