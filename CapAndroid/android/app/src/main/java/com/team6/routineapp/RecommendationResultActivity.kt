@@ -3,6 +3,7 @@ package com.team6.routineapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -81,13 +82,12 @@ class RecommendationResultActivity : AppCompatActivity() {
         trainingIconImageView.setImageResource(getImageResource(training.exercise))
         trainingNameTextView.text = training.exercise.name
         trainingDetailTextView.text = training.getDetail()
-
         return trainingLayout
     }
 
     /* Training List에 대응되는 View 만듦 */
     private fun generateTrainingsView(trainings: Array<Training?>) {
-        val trainingsLayout = findViewById<LinearLayout>(R.id.layout_trainings)
+        val trainingsLayout = findViewById<LinearLayout>(R.id.activity_recommendation_result_layout_trainings)
         val blankSpaceLayout = RelativeLayout(this)
 
         for (training in trainings) trainingsLayout.addView(generateTrainingView(training!!))

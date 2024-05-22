@@ -6,6 +6,7 @@ import com.springbackend.repository.ExerciseRepository;
 import com.springbackend.service.ExerciseService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service

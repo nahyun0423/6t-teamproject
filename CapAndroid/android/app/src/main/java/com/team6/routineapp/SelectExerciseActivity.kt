@@ -25,7 +25,6 @@ import com.team6.routineapp.utility.getImageResource
 class SelectExerciseActivity() : AppCompatActivity() {
     /* 값 선언 */
     private var resource = 0
-    private var category = ""
     private var training: Training? = null
     private var trainings: Array<Training?> = arrayOf()
 
@@ -55,10 +54,10 @@ class SelectExerciseActivity() : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_exercise)
 
-        /* 식별자 선언 */
+        /* Declare */
         val searchView: SearchView = findViewById(R.id.activity_select_exercise_searchview)
 
-        /* 값 지정 */
+        /* Assign */
         intentToExerciseInformationActivity = Intent(this, ExerciseInformationActivity::class.java)
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
@@ -173,7 +172,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
         val exerciseViewButton: Button = exerciseView.findViewById(R.id.view_exercise_button)
 
         resource = getImageResource(exercise)
-        category = getCategory(exercise)
+        val category = getCategory(exercise)
 
         exerciseView.setOnClickListener {
             intentToExerciseInformationActivity.putExtra("exercise", exercise)

@@ -8,8 +8,8 @@ import com.team6.routineapp.fitness.Exercise
 import com.team6.routineapp.service.ExerciseService
 import com.team6.routineapp.service.RetrofitClient
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 val overheadPress = Exercise("오버헤드 프레스", "팔", "바벨")
 val hangingLegRaise = Exercise("행잉 레그 레이즈", "코어", "행잉 레그 레이즈 머신")
@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var exerciseName = "레그 익스텐션"
-        val exerciseServise = RetrofitClient.exerciseService
-        val call = exerciseServise.getExercise(exerciseName)
+        val exerciseService = RetrofitClient.exerciseService
+        val call = exerciseService.getExercise(exerciseName)
 
-        call.enqueue(object : retrofit2.Callback<ExerciseDTO> {
+        call.enqueue(object : Callback<ExerciseDTO> {
             override fun onResponse(call: Call<ExerciseDTO>, response: Response<ExerciseDTO>) {
                 if (response.isSuccessful && response.body() != null) {
                     val data = response.body()

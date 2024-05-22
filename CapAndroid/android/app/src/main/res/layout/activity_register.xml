@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_register_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원 가입"
+        android:textAppearance="@style/text_title"
+        app:layout_constraintBottom_toTopOf="@id/activity_register_layout_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_register_layout_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/activity_register_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_register_textview">
+
+        <EditText
+            android:padding="10dp"
+            android:id="@+id/activity_register_edittext_identifier"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittextbox"
+            android:hint="ID"
+            app:layout_constraintBottom_toTopOf="@id/activity_register_edittext_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <EditText
+            android:padding="10dp"
+            android:id="@+id/activity_register_edittext_password"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittextbox"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/activity_register_edittext_password_check"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_register_edittext_identifier" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="* 영어, 숫자를 이용한 8자리 조합"
+            app:layout_constraintStart_toStartOf="@id/activity_register_edittext_password"
+            app:layout_constraintTop_toBottomOf="@id/activity_register_edittext_password"/>
+
+        <EditText
+            android:padding="10dp"
+            android:id="@+id/activity_register_edittext_password_check"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/edittextbox"
+            android:hint="비밀번호 확인"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_register_edittext_password" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/activity_register_button"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:background="@drawable/solid_button2"
+        android:text="회원 가입"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_register_layout_content" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
