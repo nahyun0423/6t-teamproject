@@ -41,9 +41,7 @@ class LogInActivity : AppCompatActivity() {
                 .enqueue(object : Callback<UserDTO> {
                     override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
                         if (response.isSuccessful && response.body()?.userId != null) {
-                            // 로그인 성공시, User 객체에 응답값 저장
-                            User.loginUser(response.body()!!)
-                            //intentToCreateRoutineActivity.putExtra()
+                            User.saveUser(response.body()!!)
                             startActivity(intentToCreateRoutineActivity)
                         } else if (response.body()?.userId == null) {
                             //로그인 실패

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ExerciseServiceImpl implements ExerciseService {
@@ -22,5 +23,14 @@ public class ExerciseServiceImpl implements ExerciseService {
     public ExerciseDTO getExercise(String exerciseName) {
         Optional<Exercise> exercise = exerciseRepository.findById(exerciseName);
         return exercise.map(ExerciseDTO::new).orElse(null);
+    }
+
+
+    @Override
+    public List<ExerciseDTO> getAllExercises() {
+        List<Exercise> exercises = exerciseRepository.findAll();
+        return exercises.stream()
+                .map(ExerciseDTO::new)
+                .collect(Collectors.toList());
     }
 }

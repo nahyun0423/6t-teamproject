@@ -14,7 +14,7 @@ object Exercise {
         return exercises.find { it.exerciseName == exerciseName }
     }
 
-    fun getAllRoutines(): List<ExerciseDTO> {
+    fun getAllExercise(): List<ExerciseDTO> {
         return exercises.toList()
     }
 }

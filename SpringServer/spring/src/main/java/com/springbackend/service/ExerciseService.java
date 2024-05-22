@@ -9,4 +9,6 @@ import java.util.List;
 @Service
 public interface ExerciseService {
     ExerciseDTO getExercise(String exerciseName);
+
+    List<ExerciseDTO> getAllExercises();
 }

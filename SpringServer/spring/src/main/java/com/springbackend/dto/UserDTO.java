@@ -19,6 +19,8 @@ public class UserDTO {
     private Float fatMass;
     private String gender;
     private String shape;
+    private Integer RM_bench;
+    private Integer RM_squat;
     public UserDTO(User user) {
         this.userId = user.getUserId();
         this.password = user.getPassword();
@@ -28,6 +30,8 @@ public class UserDTO {
         this.shape = user.getShape();
         this.gender = user.getGender();
         this.fatMass = user.getFatMass();
+        this.RM_bench = user.getRM_bench();
+        this.RM_squat = user.getRM_squat();
     }
 
 
@@ -43,6 +47,8 @@ public class UserDTO {
                 .fatMass(fatMass)
                 .shape(shape)
                 .gender(gender)
+                .RM_bench(RM_bench)
+                .RM_squat(RM_squat)
                 .build();
     }
 

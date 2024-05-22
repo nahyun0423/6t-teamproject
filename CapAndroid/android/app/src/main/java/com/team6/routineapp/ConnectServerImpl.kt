@@ -48,72 +48,6 @@ class ConnectServerImpl : AppCompatActivity() {
                 }
             })
 
-        //로그인기능
-        val id = "dbtls" /*수정*/
-        val password = "qwer" /*수정*/
-        RetrofitClient.userService.login(id, password /*실제 입력된 아이디 비밀번호 넣기*/)
-            .enqueue(object : Callback<UserDTO> {
-                override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
-                    if (response.isSuccessful && response.body()?.userId != null) {
-
-                        // 로그인 성공시, User 객체에 응답값 저장
-                        User.loginUser(response.body()!!)
-                    } else if (response.body()?.userId == null) {
-                        /*수정*/
-                        //로그인 실패
-                    } else {
-                        // 오류 처리
-                        println("Error Code: ${response.code()}")
-                    }
-                }
-
-                override fun onFailure(call: Call<UserDTO>, t: Throwable) {
-                    // 네트워크 오류 또는 요청 실패 처리
-                    println("Error: ${t.message}")
-                }
-            })
-
-
-        //운동 조회
-        val exerciseName: String = "풀업" /*수정*/
-        RetrofitClient.exerciseService.getExercise(exerciseName/*수정*/)
-            .enqueue(object : Callback<ExerciseDTO> {
-                override fun onResponse(call: Call<ExerciseDTO>, response: Response<ExerciseDTO>) {
-                    if (response.isSuccessful) {
-                        /*수정*/
-                        //운동을 가져와서 Exercise객체에 저장
-                        Exercise.addExercise(response.body()!!)
-                    } else {
-                        println("Error Code: ${response.code()}")
-
-                    }
-                }
-
-                override fun onFailure(call: Call<ExerciseDTO>, t: Throwable) {
-                    println("Error: ${t.message}")
-                }
-            })
-
-        //회원가입
-        val userDTO = UserDTO(/*여기에 실제로 값 받아서 넣기*/"아이디", "비밀번호", 172.3f, 77.2f, 30f, 60f, "남")
-        RetrofitClient.userService.signUp(userDTO).enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                if (response.isSuccessful && response.body() == "success") {
-                    /*수정*/
-                    //response.body()  =="success" 면 회원가입 성공(중복된 아이디 없음)
-                    println("회원가입 성공")
-                } else {
-                    //response.body()  =="failure"면 실패
-                    println("회원가입 실패")
-                }
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                println("Error: ${t.message}")
-            }
-        })
-
-
         //루틴을 DB에 저장
         val routine = RoutineDTO() /*수정*/
         RetrofitClient.routineService.saveRoutine(routine/*수정*/).enqueue(object : Callback<Void> {
@@ -131,17 +65,14 @@ class ConnectServerImpl : AppCompatActivity() {
             }
         })
 
-        //해당 유저의 모든 루틴 불러오기
+        //DB에 저장되어 있는 해당 유저의 모든 루틴 가져오기
         val userId = "dbtls" /*수정*/
         RetrofitClient.routineService.getAllRoutinesByUser(userId/*수정*/)
             .enqueue(object : Callback<List<RoutineDTO>> {
-                override fun onResponse(
-                    call: Call<List<RoutineDTO>>,
-                    response: Response<List<RoutineDTO>>
-                ) {
+                override fun onResponse(call: Call<List<RoutineDTO>>,
+                                        response: Response<List<RoutineDTO>>) {
                     if (response.isSuccessful) {
                         /*수정*/
-
                         val routines = response.body()
                         routines?.forEach { routine ->
                             Routine.addRoutine(routine) // 유저의 모든 루틴을 Routine에 추가
@@ -156,6 +87,92 @@ class ConnectServerImpl : AppCompatActivity() {
                     println("Error: ${t.message}")
                 }
             })
+
+
+
+        //로그인기능
+        val id = "dbtls" /*수정*/
+        val password = "qwer" /*수정*/
+        RetrofitClient.userService.login(id, password /*실제 입력된 아이디 비밀번호 넣기*/)
+            .enqueue(object : Callback<UserDTO> {
+                override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
+                    if (response.isSuccessful && response.body()?.userId != null) {
+
+                        // 로그인 성공시, User 객체에 응답값 저장
+                        User.saveUser(response.body()!!)
+                    } else if (response.body()?.userId == null) {
+                        /*수정*/
+                        //로그인 실패
+                    } else {
+                        // 오류 처리
+                        println("Error Code: ${response.code()}")
+                    }
+                }
+
+                override fun onFailure(call: Call<UserDTO>, t: Throwable) {
+                    // 네트워크 오류 또는 요청 실패 처리
+                    println("Error: ${t.message}")
+                }
+            })
+
+
+        //모든 운동 조회후 Exercise에 저장
+        RetrofitClient.exerciseService.getAllExercise()
+            .enqueue(object : Callback<List<ExerciseDTO>> {
+                override fun onResponse(call: Call<List<ExerciseDTO>>, response: Response<List<ExerciseDTO>>) {
+                    if (response.isSuccessful) {
+                        response.body()?.forEach { exerciseDTO ->
+                            Exercise.addExercise(exerciseDTO)
+                        }
+                    } else {
+                        println("Error Code: ${response.code()}")
+
+                    }
+                }
+
+                override fun onFailure(call: Call<List<ExerciseDTO>>, t: Throwable) {
+                    println("Error: ${t.message}")
+                }
+            })
+
+        //회원가입
+        val userDTO = UserDTO(/*여기에 실제로 값 받아서 넣기*/"dbtls", "qwer", 172.3f, 77.2f, 30f, 60f, "남",null,40,35)
+        RetrofitClient.userService.signUp(userDTO).enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful && response.body() == "success") {
+                    /*수정*/
+                    //response.body()  =="success" 면 회원가입 성공(중복된 아이디 없음)
+                    println("회원가입 성공")
+                } else {
+                    //response.body()  =="failure"면 실패
+                    println("회원가입 실패")
+                }
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                println("Error: ${t.message}")
+            }
+        })
+
+        //유저 정보 수정
+        RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {
+            override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
+                if (response.isSuccessful) {
+                    User.saveUser(response.body()!!)
+                } else {
+                    println("Error Code: ${response.code()}")
+                }
+            }
+
+            override fun onFailure(call: Call<UserDTO>, t: Throwable) {
+                println("Error: ${t.message}")
+            }
+        })
+
+        btn.setOnClickListener(){
+
+        }
+
 
     }
 

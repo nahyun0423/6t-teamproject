@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36539eb3-04b6-46c8-9869-fcf818eafc17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/controller/ExerciseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/controller/ExerciseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/impl/ExerciseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/impl/ExerciseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/service/ExerciseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../SpringServer/spring/src/main/java/com/springbackend/service/ExerciseService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,12 +18,24 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2f4UvEPNBMEMEWK8trPxSedMEYt" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,7 +50,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/user/Desktop/RoutineApp/6t-teamproject"
+    "last_opened_file_path": "E:/Capstone/6t-teamproject/CapAndroid/android/app"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
