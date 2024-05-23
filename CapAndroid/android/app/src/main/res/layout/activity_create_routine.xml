@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/activity_create_routine_textview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="루틴 만들기"
+        android:textAppearance="@style/text_title"
+        app:layout_constraintBottom_toTopOf="@id/activity_create_routine_layout_buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_create_routine_layout_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_create_routine_textview_title">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/activity_create_routine_layout_buttons_top"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/activity_create_routine_button_choose_among_created_routine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/activity_create_routine_button_get_recommendation_from_ai"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:background="@drawable/button_left"
+                android:fontFamily="@font/notosans_bold"
+                android:gravity="start|top"
+                android:includeFontPadding="false"
+                android:padding="15dp"
+                android:text="AI에게 루틴\n추천받기"
+                android:textColor="@color/blue_gray"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/activity_create_routine_button_make_my_own_routine"
+                android:layout_width="180dp"
+                android:layout_height="200dp"
+                android:background="@drawable/button_right"
+                android:fontFamily="@font/notosans_bold"
+                android:gravity="bottom|end"
+                android:includeFontPadding="false"
+                android:padding="15dp"
+                android:text="나만의 루틴\n리스트 만들기"
+                android:textColor="@color/dark_green"
+                android:textSize="@dimen/text_large"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/activity_create_routine_button_choose_among_created_routine"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/notosans_bold"
+            android:text="만들어진 루틴 리스트 보기"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toTopOf="@+id/activity_create_routine_button_input_user_information"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_create_routine_layout_buttons_top" />
+
+        <Button
+            android:id="@+id/activity_create_routine_button_input_user_information"
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/notosans_bold"
+            android:text="사용자 정보 입력"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_create_routine_button_choose_among_created_routine" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

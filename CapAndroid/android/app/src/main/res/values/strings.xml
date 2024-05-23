@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Routine App</string>
+    <string name="activity_recommendation_result_title"><b>User</b>님께\n적합한 루틴을 찾았습니다!</string>
+    <string name="dialog_input_physical_information_title"><b>신체 정보</b>를 입력해 주세요.</string>
+</resources>
