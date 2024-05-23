@@ -37,7 +37,7 @@ class CreateRoutineActivity : AppCompatActivity() {
 
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    if (region.contains(event.getX().toInt(), event.getY().toInt())) {
+                    if (region.contains(event.x.toInt(), event.y.toInt())) {
                         startActivity(intentToPreferexerciseActivity)
                         true
                     }
@@ -64,7 +64,7 @@ class CreateRoutineActivity : AppCompatActivity() {
 
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    if (region.contains(event.getX().toInt(), event.getY().toInt())) {
+                    if (region.contains(event.x.toInt(), event.y.toInt())) {
                         startActivity(intentToSelectExerciseActivity)
                         true
                     }

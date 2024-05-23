@@ -25,39 +25,41 @@ class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
-        inputIdEditText = findViewById(R.id.login_id)
-        inputPasswordEditText = findViewById(R.id.login_pass)
+        inputIdEditText = findViewById(R.id.activity_log_in_edittext_identifier)
+        inputPasswordEditText = findViewById(R.id.activity_log_in_edittext_password)
 
-        loginButton = findViewById(R.id.button_login)
+        loginButton = findViewById(R.id.activity_log_in_button_log_in)
 
         loginButton.setOnClickListener {
             val userId = inputIdEditText.text.toString().trim()
             val userPassword = inputPasswordEditText.text.toString().trim()
 
-            RetrofitClient.userService.login(userId, userPassword)
-                .enqueue(object : Callback<UserDTO> {
-                    override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
-                        if (response.isSuccessful && response.body()?.userId != null) {
-                            User.saveUser(response.body()!!)
-                            startActivity(intentToRoutineActivity)
-                        } else if (response.body()?.userId == null) {
-                            //로그인 실패
-                            Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+            RetrofitClient.userService.login(userId, userPassword).enqueue(object : Callback<UserDTO> {
+                override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
+                    if (response.isSuccessful && response.body()?.userId != null) {
+                        User.saveUser(response.body()!!)
+                        userDTO = response.body()!!
+                        startActivity(intentToRoutineActivity)
+                    } else if (response.body()?.userId == null) {
+                        //로그인 실패
+                        Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
 
-                        } else {
-                            // 오류 처리
-                            println("Error Code: ${response.code()}")
-                            Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
-                        }
+                    } else {
+                        // 오류 처리
+                        println("Error Code: ${response.code()}")
+                        Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
                     }
-                    override fun onFailure(call: Call<UserDTO>, t: Throwable) {
-                        // 네트워크 오류 또는 요청 실패 처리
-                        println("Error: ${t.message}")
-                    }
-                })
+                }
+
+                override fun onFailure(call: Call<UserDTO>, t: Throwable) {
+                    // 네트워크 오류 또는 요청 실패 처리
+                    println("Error: ${t.message}")
+                }
+            })
         }
     }
 }

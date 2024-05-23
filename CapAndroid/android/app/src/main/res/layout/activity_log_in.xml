@@ -7,22 +7,20 @@
     >
 
     <EditText
-        android:id="@+id/login_pass"
+        android:id="@+id/activity_log_in_edittext_password"
         android:layout_width="270dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="60dp"
         android:background="@drawable/edittextbox"
         android:ems="10"
         android:hint=" PW"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/login_id"
+        app:layout_constraintEnd_toEndOf="@+id/activity_log_in_edittext_identifier"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/login_id"
-        app:layout_constraintTop_toBottomOf="@+id/login_id" />
+        app:layout_constraintStart_toStartOf="@+id/activity_log_in_edittext_identifier"
+        app:layout_constraintTop_toBottomOf="@+id/activity_log_in_edittext_identifier" />
 
     <EditText
-        android:id="@+id/login_id"
+        android:id="@+id/activity_log_in_edittext_identifier"
         android:layout_width="270dp"
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
@@ -38,16 +36,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/activity_log_in_button_log_in"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
         android:background="@drawable/solid_button"
         android:text="로그인"
-        app:layout_constraintEnd_toEndOf="@+id/login_pass"
+        app:layout_constraintEnd_toEndOf="@+id/activity_log_in_edittext_password"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/login_pass"
-        app:layout_constraintTop_toBottomOf="@+id/login_pass" />
+        app:layout_constraintStart_toStartOf="@+id/activity_log_in_edittext_password"
+        app:layout_constraintTop_toBottomOf="@+id/activity_log_in_edittext_password" />
 
     <Button
         android:id="@+id/activity_register_button"
@@ -56,9 +54,9 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/solid_button2"
         android:text="회원가입"
-        app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintEnd_toEndOf="@+id/activity_log_in_button_log_in"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintStart_toStartOf="@+id/activity_log_in_button_log_in"
+        app:layout_constraintTop_toBottomOf="@+id/activity_log_in_button_log_in" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

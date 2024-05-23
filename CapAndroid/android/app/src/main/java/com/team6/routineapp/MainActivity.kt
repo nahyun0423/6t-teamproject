@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.team6.routineapp.dto.ExerciseDTO
+import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.fitness.Exercise
+import com.team6.routineapp.fitness.WeightTraining
 import com.team6.routineapp.service.ExerciseService
 import com.team6.routineapp.service.RetrofitClient
 import retrofit2.Call
@@ -15,8 +17,10 @@ import retrofit2.Response
 
 val overheadPress = Exercise("오버헤드 프레스", "팔", "바벨")
 val hangingLegRaise = Exercise("행잉 레그 레이즈", "코어", "행잉 레그 레이즈 머신")
+var userDTO: UserDTO = UserDTO()
 var exerciseDTOs: List<ExerciseDTO> = listOf()
 var exercises: Array<Exercise> = arrayOf()
+val exerciseSingleton = com.team6.routineapp.singletone.Exercise
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d("Load Error", "LE")
 
-        val exerciseSingleton = com.team6.routineapp.singletone.Exercise
+
         val exerciseService = RetrofitClient.exerciseService
         val call = exerciseService.getAllExercises()
 
