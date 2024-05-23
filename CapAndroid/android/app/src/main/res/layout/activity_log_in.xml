@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_log_in_edittext_password" />
 
     <Button
-        android:id="@+id/activity_register_button"
+        android:id="@+id/activity_log_in_button_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"

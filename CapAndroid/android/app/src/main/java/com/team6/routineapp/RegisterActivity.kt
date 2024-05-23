@@ -3,22 +3,22 @@ package com.team6.routineapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
-import com.team6.routineapp.singletone.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var intentToRoutineActivity: Intent
-    private lateinit var identifierEditText : EditText
+    private lateinit var identifierEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var passwordCheckEditText: EditText
-    private lateinit var button : Button
+    private lateinit var button: Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -33,12 +33,13 @@ class RegisterActivity : AppCompatActivity() {
         button.setOnClickListener {
             val identifier = identifierEditText.text.toString()
             val password = passwordEditText.text.toString()
+            val passwordCheck = passwordCheckEditText.text.toString()
 
             if (password.length < 8) {
                 Toast.makeText(this, "설정한 비밀번호가 8자리 미만입니다. 조건에 맞게 다시 설정해주세요.", Toast.LENGTH_LONG).show()
-            }
-
-            else {
+            } else if (password != passwordCheck) {
+                Toast.makeText(this, "비밀번호 확인 문자열이 틀립니다. 다시 확인해 주세요.", Toast.LENGTH_LONG).show()
+            } else {
                 val newUserDTO = UserDTO(identifier, password)
                 RetrofitClient.userService.signUp(userDTO).enqueue(object : Callback<String> {
                     override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -51,7 +52,7 @@ class RegisterActivity : AppCompatActivity() {
                     }
 
                     override fun onFailure(call: Call<String>, t: Throwable) {
-                        TODO("Not yet implemented")
+                        Log.d("response", "fail")
                     }
                 })
             }

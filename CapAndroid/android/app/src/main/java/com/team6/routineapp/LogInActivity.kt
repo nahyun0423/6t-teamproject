@@ -21,6 +21,7 @@ class LogInActivity : AppCompatActivity() {
     private lateinit var inputPasswordEditText: EditText
 
     private lateinit var loginButton: Button
+    private lateinit var registerButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +34,7 @@ class LogInActivity : AppCompatActivity() {
         inputPasswordEditText = findViewById(R.id.activity_log_in_edittext_password)
 
         loginButton = findViewById(R.id.activity_log_in_button_log_in)
+        registerButton = findViewById(R.id.activity_log_in_button_register)
 
         loginButton.setOnClickListener {
             val userId = inputIdEditText.text.toString().trim()
@@ -60,6 +62,9 @@ class LogInActivity : AppCompatActivity() {
                     println("Error: ${t.message}")
                 }
             })
+        }
+        registerButton.setOnClickListener {
+            startActivity(intentToRegisterActivity)
         }
     }
 }
