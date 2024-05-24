@@ -2,21 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="CreateRoutineActivity">
-        <State />
-      </entry>
-      <entry key="ExerciseActivity">
-        <State />
-      </entry>
-      <entry key="LogInActivity">
-        <State />
-      </entry>
-      <entry key="MainActivity">
-        <State />
-      </entry>
-      <entry key="RegisterActivity">
-        <State />
-      </entry>
       <entry key="android.RoutineApp.app">
         <State />
       </entry>
