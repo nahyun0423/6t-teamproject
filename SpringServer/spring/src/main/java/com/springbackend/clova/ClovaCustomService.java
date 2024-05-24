@@ -65,8 +65,8 @@ public class ClovaCustomService {
                                 "- json 파일 형식에 대해 잘 알고있습니다.\n" +
                                 "- 출력 데이터는 아래 형식으로 출력합니다:\n" +
                                 "{\n" +
-                                "  \"userId\": \"dbtls\""+
-                                "  \"routineName\": \"상체운동2\""+
+                                "  \"userId\": \"\" "+
+                                "  \"routineName\": \"\" "+
                                 "  \"routineDetails\": [\n" +
                                 "    {\n" +
                                 "      \"exerciseName\": \"값1-1\",\n" +
@@ -84,7 +84,46 @@ public class ClovaCustomService {
                                 "}\n" +
                                 "만약 맨몸운동이라면, weight는 0으로 출력합니다."
                         ),
-                        Map.of("role", "user", "content", userQuery)
+                        Map.of("role", "user", "content", "1. 비만형  2. 어깨 부위를 선호해 \n" +
+                                "3. 1RM은 상체 벤치프레스 10kg, 하체 스쿼트 10kg이야 4. 근력 강화가 목적이야 5. 헬스장에서 할 수 있었으면 좋겠어"),
+                        Map.of("role", "assistant", "content",
+                                "{\n" +
+                                        "  \"userId\": \"\" "+
+                                        "  \"routineName\": \"\" "+
+                                        "  \"routineDetails\": [\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"버피테스트\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 3,\n" +
+                                        "      \"reps\": 5\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"마운틴 클라이머\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 3,\n" +
+                                        "      \"reps\": 10\n" +
+                                        "    }\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"오버헤드 프레스\",\n" +
+                                        "      \"weight\": 8,\n" +
+                                        "      \"sets\": 3,\n" +
+                                        "      \"reps\": 5\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"스미스 머신 슈러그\",\n" +
+                                        "      \"weight\": 10,\n" +
+                                        "      \"sets\": 3,\n" +
+                                        "      \"reps\": 5\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"스쿼트\",\n" +
+                                        "      \"weight\": 8,\n" +
+                                        "      \"sets\": 3,\n" +
+                                        "      \"reps\": 5\n" +
+                                        "    },\n" +
+                                        "  ]\n" +
+                                        "}\n"),
+                        Map.of("role", "user", "content", userQuery)    //학습 전 테스트 시스템
                 )
         );
     }
