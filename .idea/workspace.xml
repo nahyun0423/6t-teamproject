@@ -1,17 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_recommendation_result.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_routine.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_select_exercise.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_input_training_information.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/dislikeexercise.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/explainroutine.xml">
+        <config>
+          <theme>@style/Theme.AppCompat.Light.NoActionBar</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06d14c77-6bf2-41b3-a149-5d0271179655" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CapAndroid/android/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CapAndroid/android/local.properties" afterDir="false" />
+    <list default="true" id="06d14c77-6bf2-41b3-a149-5d0271179655" name="Changes" comment="chore : choicetap - LinearLayout으로 수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/arm-pulldown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/band-overhead-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/barbell-curl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/barbell-row.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/bench-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/benchpress_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/benchpressimage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/biceps-curl-machine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/bicycle-crunch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/cable-crossover.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/cable-one-arm-reverse-fly.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/cable-overhead-curl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/cable-seated-row.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/chest-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/conventional-deadlift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/decline-bench-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/decline-crunch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/decline-knee-raise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/dips.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/dumbbell-curl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/dumbbell-fly.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/dumbbell-lateral-raise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/hanging-leg-raise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/hanging_leg_raise.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/hip-adduction.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/incline-bench-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/kettlebell-strict-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/lat-pull-down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/leg-curl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/leg-extension.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/leg-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/lunge.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/lying-triceps-extension.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/one-arm-dumbbell-row.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/overhead-press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/overhead_press.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/pike-push-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/plank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/pull-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/push-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/rectangle_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/romanian-deadlift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/russian-twist.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/shoulder-press-machine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/side-plank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/sit-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/smith-shrug.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/squat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/triceps-pushdown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/v-squat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CapAndroid/android/app/src/main/res/drawable/wrist-roller.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +100,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\gh\.android\avd\Pixel_4_XL_API_30.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -69,12 +149,15 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/Capstone/6t-teamproject/SpringServer/spring/build.gradle",
+    "last_opened_file_path": "C:/nahyun/2024_grade4/2024capstone/6t-teamproject",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -113,5 +196,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chore : choicetap - LinearLayout으로 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : choicetap - LinearLayout으로 수정" />
   </component>
 </project>
