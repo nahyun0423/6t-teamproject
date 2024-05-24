@@ -9,6 +9,7 @@ class PreferexerciseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_target_part) //xml과 연결
+        activityStack.push(this)
 
         val intent = Intent(this, DislikeexerciseActivity::class.java)
         val nextbutton = findViewById<Button>(R.id.prefer_exercise_button_next)

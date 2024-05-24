@@ -25,6 +25,7 @@ class RoutineInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine_information)
+        activityStack.push(this)
 
         /* Declare */
         val routine = intent.getClassExtra("routine", Routine::class.java)
@@ -49,8 +50,7 @@ class RoutineInformationActivity : AppCompatActivity() {
         }
 
         startExerciseButton.setOnClickListener {
-            finish()
-
+            activityStack.pop().finish()
             intentToExerciseActivity.putExtra("routine", routine)
             startActivity(intentToExerciseActivity)
         }

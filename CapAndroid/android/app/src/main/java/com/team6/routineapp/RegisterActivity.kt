@@ -27,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        activityStack.push(this)
 
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
         inputPhysicalInformationDialog = generateDialog()
@@ -120,6 +121,8 @@ class RegisterActivity : AppCompatActivity() {
                         if (response.isSuccessful) {
                             userDTO = newUserDTO
                             inputPhysicalInformationDialog.dismiss()
+                            activityStack.pop().finish()
+                            activityStack.pop().finish()
                             startActivity(intentToRoutineActivity)
                         }
 

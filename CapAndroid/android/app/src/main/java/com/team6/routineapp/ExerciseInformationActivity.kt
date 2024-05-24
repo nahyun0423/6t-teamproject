@@ -19,6 +19,7 @@ class ExerciseInformationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise_information) //xml과 연결
+        activityStack.push(this)
 
         val exercise = intent.getClassExtra("exercise", Exercise::class.java) // 다른 Activity로부터 전달받은 Exercise를 받아 옴
         findViewById<TextView>(R.id.activity_exercise_information_textview_exercise_name).setText(exercise!!.name) // 제목을 Exercise의 name으로 설정

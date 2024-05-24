@@ -59,6 +59,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_select_exercise)
+        activityStack.push(this)
 
         /* Declare */
         val searchView: SearchView = findViewById(R.id.activity_select_exercise_searchview)
@@ -99,10 +100,10 @@ class SelectExerciseActivity() : AppCompatActivity() {
                 Toast.makeText(this, "루틴 이름을 지어주세요.", Toast.LENGTH_SHORT).show()
             } else {
                 var routineDetailDTOs: List<RoutineDetailDTO> = listOf()
-                trainings.forEach {
-                    routineDetailDTOs += when (it) {
-                        is WeightTraining -> RoutineDetailDTO(it.exercise.name, it.set, it.numberOfTimes, it.weight)
-                        else -> RoutineDetailDTO(it!!.exercise.name, it.set, it.numberOfTimes)
+                for (training in trainings) {
+                    routineDetailDTOs += when (training) {
+                        is WeightTraining -> RoutineDetailDTO(training.exercise.name, training.set, training.numberOfTimes, training.weight)
+                        else -> RoutineDetailDTO(training!!.exercise.name, training.set, training.numberOfTimes)
                     }
                 }
 
@@ -110,7 +111,9 @@ class SelectExerciseActivity() : AppCompatActivity() {
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             inputRoutineNameDialog.dismiss()
-                            finish()
+                            activityStack.pop().finish()
+                            activityStack.pop().finish()
+                            activityStack.pop().finish()
                             startActivity(intentToRoutineActivity)
                         }
 

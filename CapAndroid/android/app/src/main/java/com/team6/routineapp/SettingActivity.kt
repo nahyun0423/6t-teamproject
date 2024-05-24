@@ -37,6 +37,7 @@ class SettingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?): Unit {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting_info)
+        activityStack.push(this)
 
         inputUserInfoDialog = Dialog(this)
         inputUserInfoDialog.setContentView(R.layout.dialog_input_physical_information)

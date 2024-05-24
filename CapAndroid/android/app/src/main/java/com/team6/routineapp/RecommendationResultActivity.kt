@@ -22,6 +22,7 @@ class RecommendationResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recommendation_result)
+        activityStack.push(this)
 
         /* 변수 선언 */
         val routine = getRecommendationFromAI()
@@ -35,11 +36,19 @@ class RecommendationResultActivity : AppCompatActivity() {
 
         /* 처리 */
         notNeededButton.setOnClickListener {
-            finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
             startActivity(intentToRoutineActivity)
         } // 필요 없음 버튼을 누르면, Routine Activity로 이동
         addToMyRoutineButton.setOnClickListener {
-            finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
+            activityStack.pop().finish()
             intentToRoutineActivity.putExtra("routine", routine)
             startActivity(intentToRoutineActivity)
         } // 내 루틴에 추가하기 버튼을 누르면, 생성된 Routine과 함께 Routine Activity로 이동

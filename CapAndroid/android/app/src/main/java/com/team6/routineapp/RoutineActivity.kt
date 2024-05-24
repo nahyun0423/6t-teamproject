@@ -22,16 +22,14 @@ import retrofit2.Response
 
 
 class RoutineActivity : AppCompatActivity() {
-    companion object {
-        var routines: Array<Routine> = arrayOf() // 저장된 Routine
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_routine)
+        activityStack.push(this)
+
+        var routines: Array<Routine> = arrayOf()
 
         val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
-
         val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
         val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
 
@@ -40,27 +38,33 @@ class RoutineActivity : AppCompatActivity() {
             .enqueue(object : Callback<List<RoutineDTO>> {
                 override fun onResponse(call: Call<List<RoutineDTO>>, response: Response<List<RoutineDTO>>) {
                     if (response.isSuccessful && response.body() != null) {
-                        response.body()!!.forEach {
+                        for (routineDTO in response.body()!!) {
                             var trainings: Array<Training?> = arrayOf()
-                            it.routineDetails!!.forEach {
-                                Log.d("name", it.exerciseName!!)
-                                val exerciseName = it.exerciseName
+                            for (routineDetail in routineDTO.routineDetails!!) {
+                                val exerciseName = routineDetail.exerciseName
                                 var exercise: Exercise? = null
-                                exercises.forEach {
-                                    if (it.name == exerciseName) exercise = it
+                                for (exercise_ in exercises) {
+                                    if (exercise_.name == exerciseName) exercise = exercise_
                                 }
 
-                                trainings += if (it.weight == null) {
-                                    Training(exercise!!, it.sets!!, it.reps!!)
+                                trainings += if (routineDetail.weight == null) {
+                                    Training(exercise!!, routineDetail.sets!!, routineDetail.reps!!)
                                 } else {
-                                    WeightTraining(exercise!!, it.sets!!, it.reps!!, it.weight!!)
+                                    WeightTraining(
+                                        exercise!!,
+                                        routineDetail.sets!!,
+                                        routineDetail.reps!!,
+                                        routineDetail.weight!!
+                                    )
                                 }
                             }
 
-                            routines += Routine(it.routineName!!, trainings)
+                            routines += Routine(routineDTO.routineName!!, trainings)
                         }
 
-                        routines.forEach { routinesLayout.addView(generateRoutineView(it)) }
+                        for (routine in routines) {
+                            routinesLayout.addView(generateRoutineView(routine))
+                        }
                     }
                 }
 

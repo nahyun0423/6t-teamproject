@@ -12,6 +12,7 @@ class ExerciseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_exercise)
+        activityStack.push(this)
 
         val button: Button = findViewById(R.id.activity_exercise_button)
     }

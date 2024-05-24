@@ -8,13 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 class DislikeexerciseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_select_dislike_part) //xml과 연결
+        setContentView(R.layout.activity_select_dislike_part)
+        activityStack.push(this)
 
-        val intent = Intent(this, RecommendationResultActivity::class.java)
-        val buttonToRecommendationResult =
+        val intentToRecommendationResult = Intent(this, RecommendationResultActivity::class.java)
+        val completeButton =
             findViewById<Button>(R.id.dislike_exercise_button_complete)
-        buttonToRecommendationResult.setOnClickListener {
-            startActivity(intent)
+        completeButton.setOnClickListener {
+            startActivity(intentToRecommendationResult)
         }
 
     }

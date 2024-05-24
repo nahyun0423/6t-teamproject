@@ -26,6 +26,7 @@ class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+        activityStack.push(this)
 
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)

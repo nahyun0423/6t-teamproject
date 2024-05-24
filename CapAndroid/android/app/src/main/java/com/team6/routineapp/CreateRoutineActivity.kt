@@ -15,6 +15,7 @@ class CreateRoutineActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_routine)
+        activityStack.push(this)
 
         val intentToPreferexerciseActivity = Intent(this, PreferexerciseActivity::class.java)
         val intentToSelectExerciseActivity = Intent(this, SelectExerciseActivity::class.java)
