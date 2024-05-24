@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
+import com.team6.routineapp.singletone.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,9 +42,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "비밀번호 확인 문자열이 틀립니다. 다시 확인해 주세요.", Toast.LENGTH_LONG).show()
             } else {
                 val newUserDTO = UserDTO(identifier, password)
-                RetrofitClient.userService.signUp(userDTO).enqueue(object : Callback<String> {
+                RetrofitClient.userService.checkDup(newUserDTO).enqueue(object : Callback<String> {
                     override fun onResponse(call: Call<String>, response: Response<String>) {
                         if (response.isSuccessful && response.body() == "success") {
+                            Toast.makeText(this@RegisterActivity, "중복체크 성공.", Toast.LENGTH_LONG).show()
                             userDTO = newUserDTO
                             startActivity(intentToRoutineActivity)
                         } else {
