@@ -21,24 +21,13 @@ import retrofit2.Response
 
 
 class RoutineActivity : AppCompatActivity() {
-    companion object {
-        var routines: Array<Routine> = arrayOf() // 저장된 Routine
-    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_routine)
-
-        val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
-
-        val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
-        val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
-
-        /* 처리 */
+    private fun getUserRoutines(callback: (Array<Routine>) -> Unit) {
         RetrofitClient.routineService.getAllRoutinesByUser(userDTO.userId!!)
             .enqueue(object : Callback<List<RoutineDTO>> {
                 override fun onResponse(call: Call<List<RoutineDTO>>, response: Response<List<RoutineDTO>>) {
                     if (response.isSuccessful && response.body() != null) {
+                        var routines: Array<Routine> = arrayOf()
                         response.body()!!.forEach {
                             var trainings: Array<Training?> = arrayOf()
                             it.routineDetails!!.forEach {
@@ -47,58 +36,63 @@ class RoutineActivity : AppCompatActivity() {
                                 exercises.forEach {
                                     if (it.name == exerciseName) exercise = it
                                 }
-
                                 trainings += if (it.weight == null) {
                                     Training(exercise!!, it.sets!!, it.reps!!)
                                 } else {
                                     WeightTraining(exercise!!, it.sets!!, it.reps!!, it.weight!!)
                                 }
                             }
-
-                            routines+= Routine(it.routineName!!, trainings)
+                            routines += Routine(it.routineName!!, trainings)
                         }
+                        callback(routines)
                     }
                 }
-
                 override fun onFailure(call: Call<List<RoutineDTO>>, t: Throwable) {
                     TODO("Not yet implemented")
                 }
-
             })
+    }
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query == null) return false
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-                for (routineView in routinesLayout.children) routineView.visibility = View.GONE
-                for (routineView in routinesLayout.children) {
-                    val routine = routineView.tag as Routine
+        getUserRoutines { routines ->
+            setContentView(R.layout.activity_routine)
 
-                    if (routine.name.contains(query)) {
-                        routineView.visibility = View.VISIBLE
+            var newRoutines = routines
+
+            val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
+
+            val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
+            val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
+
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if (query == null) return false
+                    for (routineView in routinesLayout.children) routineView.visibility = View.GONE
+                    for (routineView in routinesLayout.children) {
+                        val routine = routineView.tag as Routine
+
+                        if (routine.name.contains(query)) {
+                            routineView.visibility = View.VISIBLE
+                        }
                     }
+                    return false
                 }
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return true
-            }
-        }) // 검색 기능
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return true
+                }
+            }) // 검색 기능
 
-        findViewById<Button>(R.id.activity_exercise_button).setOnClickListener {
-            startActivity(intentToCreateRoutineActivity)
-        } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
+            findViewById<Button>(R.id.activity_exercise_button).setOnClickListener {
+                startActivity(intentToCreateRoutineActivity)
+            } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
 
-        var routine = intent.getClassExtra("routine", Routine::class.java) // 다른 Activity에서 전달한 Routine을 받아 옴
-
-        if (routine != null) {
-            routines += (routine)
-        } // 받아 온 Routine을 List에 추가
-
-        for (routine in routines) {
-            routinesLayout.addView(generateRoutineView(routine))
-        } // Routine List에 대응하는 View를 만듦
+            for (routine in newRoutines) {
+                routinesLayout.addView(generateRoutineView(routine))
+            } // Routine List에 대응하는 View를 만듦
+        }
     }
 
     /* Training에 대응하는 View 만듦 */
