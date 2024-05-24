@@ -117,7 +117,7 @@ class ConnectServerImpl : AppCompatActivity() {
 
 
         //모든 운동 조회후 Exercise에 저장
-        RetrofitClient.exerciseService.getAllExercise()
+        RetrofitClient.exerciseService.getAllExercises()
             .enqueue(object : Callback<List<ExerciseDTO>> {
                 override fun onResponse(call: Call<List<ExerciseDTO>>, response: Response<List<ExerciseDTO>>) {
                     if (response.isSuccessful) {

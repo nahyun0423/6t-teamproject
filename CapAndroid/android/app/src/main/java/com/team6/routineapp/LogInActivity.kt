@@ -15,49 +15,56 @@ import retrofit2.Response
 
 class LogInActivity : AppCompatActivity() {
     private lateinit var intentToRegisterActivity: Intent
-    private lateinit var intentToCreateRoutineActivity: Intent
+    private lateinit var intentToRoutineActivity: Intent
 
     private lateinit var inputIdEditText: EditText
     private lateinit var inputPasswordEditText: EditText
 
     private lateinit var loginButton: Button
+    private lateinit var registerButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
-        intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java)
+        intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
-        inputIdEditText = findViewById(R.id.login_id)
-        inputPasswordEditText = findViewById(R.id.login_pass)
+        inputIdEditText = findViewById(R.id.activity_log_in_edittext_identifier)
+        inputPasswordEditText = findViewById(R.id.activity_log_in_edittext_password)
 
-        loginButton = findViewById(R.id.button_login)
+        loginButton = findViewById(R.id.activity_log_in_button_log_in)
+        registerButton = findViewById(R.id.activity_log_in_button_register)
 
         loginButton.setOnClickListener {
             val userId = inputIdEditText.text.toString().trim()
             val userPassword = inputPasswordEditText.text.toString().trim()
 
-            RetrofitClient.userService.login(userId, userPassword)
-                .enqueue(object : Callback<UserDTO> {
-                    override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
-                        if (response.isSuccessful && response.body()?.userId != null) {
-                            User.saveUser(response.body()!!)
-                            startActivity(intentToCreateRoutineActivity)
-                        } else if (response.body()?.userId == null) {
-                            //로그인 실패
-                            Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
+            RetrofitClient.userService.login(userId, userPassword).enqueue(object : Callback<UserDTO> {
+                override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
+                    if (response.isSuccessful && response.body()?.userId != null) {
+                        User.saveUser(response.body()!!)
+                        userDTO = response.body()!!
+                        startActivity(intentToRoutineActivity)
+                    } else if (response.body()?.userId == null) {
+                        //로그인 실패
+                        Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
 
-                        } else {
-                            // 오류 처리
-                            println("Error Code: ${response.code()}")
-                            Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
-                        }
+                    } else {
+                        // 오류 처리
+                        println("Error Code: ${response.code()}")
+                        Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
                     }
-                    override fun onFailure(call: Call<UserDTO>, t: Throwable) {
-                        // 네트워크 오류 또는 요청 실패 처리
-                        println("Error: ${t.message}")
-                    }
-                })
+                }
+
+                override fun onFailure(call: Call<UserDTO>, t: Throwable) {
+                    // 네트워크 오류 또는 요청 실패 처리
+                    println("Error: ${t.message}")
+                }
+            })
+        }
+        registerButton.setOnClickListener {
+            startActivity(intentToRegisterActivity)
         }
     }
 }

@@ -15,12 +15,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.children
+import com.team6.routineapp.dto.RoutineDTO
+import com.team6.routineapp.dto.RoutineDetailDTO
 import com.team6.routineapp.fitness.Exercise
 import com.team6.routineapp.fitness.Routine
 import com.team6.routineapp.fitness.Training
 import com.team6.routineapp.fitness.WeightTraining
+import com.team6.routineapp.service.RetrofitClient
 import com.team6.routineapp.utility.getCategory
 import com.team6.routineapp.utility.getImageResource
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SelectExerciseActivity() : AppCompatActivity() {
     /* 값 선언 */
@@ -94,6 +100,23 @@ class SelectExerciseActivity() : AppCompatActivity() {
             if (routineName == "") {
                 Toast.makeText(this, "루틴 이름을 지어주세요.", Toast.LENGTH_SHORT).show()
             } else {
+                val routineDetailDTOs: List<RoutineDetailDTO> = listOf()
+                trainings.forEach {
+                    routineDetailDTOs.plus(
+                        when (it) {
+                            is WeightTraining -> RoutineDetailDTO(it.exercise.name, it.set, it.numberOfTimes, it.weight)
+                            else -> RoutineDetailDTO(it!!.exercise.name, it.set, it.numberOfTimes)
+                        }
+                    )
+                }
+                RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs)).enqueue(object:Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                    }
+
+                })
                 intentToRoutineActivity.putExtra(
                     "routine", Routine(
                         inputRoutineNameDialogEditText.text.toString(), trainings
@@ -141,7 +164,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
     }
 
     /* 만든 Training에 대응하는 View를 만듦 */
-    private fun generateTrainingIconView(training: Training) : ConstraintLayout {
+    private fun generateTrainingIconView(training: Training): ConstraintLayout {
         val trainingIconView =
             layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
 

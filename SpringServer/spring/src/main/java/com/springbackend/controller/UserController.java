@@ -19,8 +19,13 @@ public class UserController {
 
     //DB에 회원정보 저장(회원가입)
     @PostMapping("/signUp")
-    public String saveUser(@RequestBody UserDTO userDTO) {
-        return userService.signUp(userDTO);
+    public void saveUser(@RequestBody UserDTO userDTO) {
+        userService.signUp(userDTO);
+    }
+
+    @PostMapping("/checkDup")
+    public String checkDup(@RequestBody UserDTO userDTO){
+        return userService.checkDup(userDTO);
     }
 
     //ID로 DB에서 유저 검색(로그인)

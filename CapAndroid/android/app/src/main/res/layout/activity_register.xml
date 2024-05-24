@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/activity_register_textview"
+        android:id="@+id/activity_register_textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원 가입"
@@ -24,7 +24,7 @@
         app:layout_constraintBottom_toTopOf="@id/activity_register_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_register_textview">
+        app:layout_constraintTop_toBottomOf="@id/activity_register_textview_title">
 
         <EditText
             android:padding="10dp"
@@ -55,11 +55,11 @@
             app:layout_constraintTop_toBottomOf="@id/activity_register_edittext_identifier" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/activity_register_textview_password_rule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="* 영어, 숫자를 이용한 8자리 조합"
+            android:text="* 영어와 숫자를 조합한 8자리 이상의 문자열"
             app:layout_constraintStart_toStartOf="@id/activity_register_edittext_password"
             app:layout_constraintTop_toBottomOf="@id/activity_register_edittext_password"/>
 
@@ -81,9 +81,10 @@
 
     <Button
         android:id="@+id/activity_register_button"
-        android:layout_width="270dp"
-        android:layout_height="50dp"
-        android:background="@drawable/solid_button2"
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_yes"
+        android:textAppearance="@style/text_button_yes"
         android:text="회원 가입"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

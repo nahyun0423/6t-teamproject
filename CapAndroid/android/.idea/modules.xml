@@ -4,9 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/RoutineApp.iml" filepath="$PROJECT_DIR$/.idea/modules/RoutineApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/RoutineApp.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/android.RoutineApp.app.unitTest.iml" />
     </modules>
   </component>
 </project>

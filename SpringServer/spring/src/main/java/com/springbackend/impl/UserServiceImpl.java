@@ -21,17 +21,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String signUp(UserDTO userDTO) {
+    public String checkDup(UserDTO userDTO) {
         if (userRepository.existsById(userDTO.getUserId())) {
             return "failure";
-
         }
         else{
-            setShape(userDTO);
-            User user = userDTO.toEntity();
-            userRepository.save(user);
             return "success";
         }
+    }
+
+    @Override
+    public void signUp(UserDTO userDTO) {
+
+        setShape(userDTO);
+        User user = userDTO.toEntity();
+        userRepository.save(user);
     }
 
 
@@ -55,9 +59,8 @@ public class UserServiceImpl implements UserService {
     }
 
 
-        
-        
-        
+
+
     private void setShape(UserDTO userDTO) {
         float[] diffs = getFloats(userDTO);
         String[] labels = new String[] {"체중", "골격근량", "체지방량"};

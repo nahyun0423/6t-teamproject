@@ -10,6 +10,6 @@ interface ExerciseService {
     fun getExercise(@Path("exerciseName") exerciseName: String): Call<ExerciseDTO>
 
     @GET("exercises")
-    fun getAllExercise(): Call<List<ExerciseDTO>>
+    fun getAllExercises(): Call<List<ExerciseDTO>>
 
 }
