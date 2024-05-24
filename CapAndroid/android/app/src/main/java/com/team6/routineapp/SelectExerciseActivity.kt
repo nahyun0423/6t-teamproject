@@ -80,10 +80,8 @@ class SelectExerciseActivity() : AppCompatActivity() {
 
         inputRoutineNameDialog = Dialog(this)
         inputRoutineNameDialog.setContentView(R.layout.dialog_input_routine_name)
-        inputRoutineNameDialogEditText =
-            inputRoutineNameDialog.findViewById(R.id.dialog_input_routine_name_edittext)
-        inputRoutineNameDialogButton =
-            inputRoutineNameDialog.findViewById(R.id.dialog_input_routine_name_button)
+        inputRoutineNameDialogEditText = inputRoutineNameDialog.findViewById(R.id.dialog_input_routine_name_edittext)
+        inputRoutineNameDialogButton = inputRoutineNameDialog.findViewById(R.id.dialog_input_routine_name_button)
 
         exercisesLayout = findViewById(R.id.activity_select_exercise_layout_exercises)
 
@@ -100,23 +98,23 @@ class SelectExerciseActivity() : AppCompatActivity() {
             if (routineName == "") {
                 Toast.makeText(this, "루틴 이름을 지어주세요.", Toast.LENGTH_SHORT).show()
             } else {
-                val routineDetailDTOs: List<RoutineDetailDTO> = listOf()
+                var routineDetailDTOs: List<RoutineDetailDTO> = listOf()
                 trainings.forEach {
-                    routineDetailDTOs.plus(
-                        when (it) {
-                            is WeightTraining -> RoutineDetailDTO(it.exercise.name, it.set, it.numberOfTimes, it.weight)
-                            else -> RoutineDetailDTO(it!!.exercise.name, it.set, it.numberOfTimes)
-                        }
-                    )
+                    routineDetailDTOs += when (it) {
+                        is WeightTraining -> RoutineDetailDTO(it.exercise.name, it.set, it.numberOfTimes, it.weight)
+                        else -> RoutineDetailDTO(it!!.exercise.name, it.set, it.numberOfTimes)
+                    }
                 }
-                RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs)).enqueue(object:Callback<Void> {
-                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    }
 
-                    override fun onFailure(call: Call<Void>, t: Throwable) {
-                    }
+                RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs))
+                    .enqueue(object : Callback<Void> {
+                        override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        }
 
-                })
+                        override fun onFailure(call: Call<Void>, t: Throwable) {
+                        }
+
+                    })
                 intentToRoutineActivity.putExtra(
                     "routine", Routine(
                         inputRoutineNameDialogEditText.text.toString(), trainings
@@ -165,8 +163,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
 
     /* 만든 Training에 대응하는 View를 만듦 */
     private fun generateTrainingIconView(training: Training): ConstraintLayout {
-        val trainingIconView =
-            layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
+        val trainingIconView = layoutInflater.inflate(R.layout.view_training_icon, null) as ConstraintLayout
 
         trainingIconViewImageView = trainingIconView.findViewById(R.id.view_training_icon_imageview)
         trainingIconViewButton = trainingIconView.findViewById(R.id.view_training_icon_button)
@@ -184,12 +181,9 @@ class SelectExerciseActivity() : AppCompatActivity() {
 
     /* Exercise에 대응하는 View를 만듦 */
     private fun generateExerciseView(exercise: Exercise): ConstraintLayout {
-        val exerciseView: ConstraintLayout =
-            layoutInflater.inflate(R.layout.view_exercise, null) as ConstraintLayout
-        val exerciseViewImageView: ImageView =
-            exerciseView.findViewById(R.id.view_exercise_imageview)
-        val exerciseViewNameTextView: TextView =
-            exerciseView.findViewById(R.id.view_exercise_textview_name)
+        val exerciseView: ConstraintLayout = layoutInflater.inflate(R.layout.view_exercise, null) as ConstraintLayout
+        val exerciseViewImageView: ImageView = exerciseView.findViewById(R.id.view_exercise_imageview)
+        val exerciseViewNameTextView: TextView = exerciseView.findViewById(R.id.view_exercise_textview_name)
         val exerciseViewInformationTextView: TextView =
             exerciseView.findViewById(R.id.view_exercise_textview_information)
         val exerciseViewButton: Button = exerciseView.findViewById(R.id.view_exercise_button)
