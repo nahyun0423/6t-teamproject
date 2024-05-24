@@ -109,19 +109,14 @@ class SelectExerciseActivity() : AppCompatActivity() {
                 RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs))
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                            inputRoutineNameDialog.dismiss()
+                            finish()
+                            startActivity(intentToRoutineActivity)
                         }
 
                         override fun onFailure(call: Call<Void>, t: Throwable) {
                         }
-
                     })
-                intentToRoutineActivity.putExtra(
-                    "routine", Routine(
-                        inputRoutineNameDialogEditText.text.toString(), trainings
-                    )
-                )
-                inputRoutineNameDialog.dismiss()
-                startActivity(intentToRoutineActivity)
             }
         } // 루틴의 이름을 짓는 Dialog 기능
 

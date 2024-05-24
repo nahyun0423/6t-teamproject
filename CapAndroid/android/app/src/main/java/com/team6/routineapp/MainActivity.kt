@@ -26,13 +26,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.d("Load Error", "LE")
 
-
-        val exerciseService = RetrofitClient.exerciseService
-        val call = exerciseService.getAllExercises()
-
-        call.enqueue(object : Callback<List<ExerciseDTO>> {
+        RetrofitClient.exerciseService.getAllExercises().enqueue(object : Callback<List<ExerciseDTO>> {
             override fun onResponse(call: Call<List<ExerciseDTO>>, response: Response<List<ExerciseDTO>>) {
                 if (response.isSuccessful && response.body() != null) {
                     exerciseDTOs = response.body()!!
@@ -40,6 +35,8 @@ class MainActivity : AppCompatActivity() {
                         exerciseSingleton.addExercise(exerciseDTO)
                         exercises += Exercise(exerciseDTO.exerciseName!!, exerciseDTO.target!!, exerciseDTO.tools!!)
                     }
+
+                    startActivity(Intent(this@MainActivity, LogInActivity::class.java))
                 }
             }
 
@@ -48,6 +45,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        startActivity(Intent(this, LogInActivity::class.java))
     }
 }

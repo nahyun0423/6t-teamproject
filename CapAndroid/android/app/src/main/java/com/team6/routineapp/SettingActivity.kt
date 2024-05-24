@@ -9,6 +9,10 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.team6.routineapp.fitness.UserInfo
+import com.team6.routineapp.service.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SettingActivity : AppCompatActivity() {
 
@@ -36,11 +40,11 @@ class SettingActivity : AppCompatActivity() {
 
         inputUserInfoDialog = Dialog(this)
         inputUserInfoDialog.setContentView(R.layout.dialog_input_physical_information)
-        inputUserInfoDialogHeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_height)
-        inputUserInfoDialogWeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_user_weight)
-        inputUserInfoDialogMuscleEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_user_muscle)
-        inputUserInfoDialogFatEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_user_information_edittext_user_fat)
-        inputUserInfoDialogButton = inputUserInfoDialog.findViewById<Button>(R.id.dialog_input_user_information_button)
+        inputUserInfoDialogHeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_height)
+        inputUserInfoDialogWeightEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_weight)
+        inputUserInfoDialogMuscleEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_muscle_mass)
+        inputUserInfoDialogFatEditText = inputUserInfoDialog.findViewById<EditText>(R.id.dialog_input_physical_information_edittext_fat_mass)
+        inputUserInfoDialogButton = inputUserInfoDialog.findViewById<Button>(R.id.dialog_input_physical_information_button)
 
         userId = findViewById<TextView>(R.id.activity_setting_info_textView_userId)
         userWeight = findViewById<TextView>(R.id.textView_user_weight)

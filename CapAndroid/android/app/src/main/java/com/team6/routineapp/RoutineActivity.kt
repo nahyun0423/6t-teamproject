@@ -2,6 +2,7 @@ package com.team6.routineapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -42,6 +43,7 @@ class RoutineActivity : AppCompatActivity() {
                         response.body()!!.forEach {
                             var trainings: Array<Training?> = arrayOf()
                             it.routineDetails!!.forEach {
+                                Log.d("name", it.exerciseName!!)
                                 val exerciseName = it.exerciseName
                                 var exercise: Exercise? = null
                                 exercises.forEach {
@@ -55,15 +57,16 @@ class RoutineActivity : AppCompatActivity() {
                                 }
                             }
 
-                            routines+= Routine(it.routineName!!, trainings)
+                            routines += Routine(it.routineName!!, trainings)
                         }
+
+                        routines.forEach { routinesLayout.addView(generateRoutineView(it)) }
                     }
                 }
 
                 override fun onFailure(call: Call<List<RoutineDTO>>, t: Throwable) {
                     TODO("Not yet implemented")
                 }
-
             })
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -89,16 +92,6 @@ class RoutineActivity : AppCompatActivity() {
         findViewById<Button>(R.id.activity_exercise_button).setOnClickListener {
             startActivity(intentToCreateRoutineActivity)
         } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
-
-        var routine = intent.getClassExtra("routine", Routine::class.java) // 다른 Activity에서 전달한 Routine을 받아 옴
-
-        if (routine != null) {
-            routines += (routine)
-        } // 받아 온 Routine을 List에 추가
-
-        for (routine in routines) {
-            routinesLayout.addView(generateRoutineView(routine))
-        } // Routine List에 대응하는 View를 만듦
     }
 
     /* Training에 대응하는 View 만듦 */
