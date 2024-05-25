@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:text="시작 자세"
+                android:text="운동 정보"
                 android:textAppearance="@style/text_guide_head"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +104,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textview_starting_posture_head" />
-
+                <!--
             <TextView
                 android:id="@+id/textview_movement_head"
                 android:layout_width="match_parent"
@@ -148,7 +148,7 @@
                 android:textAppearance="@style/text_guide_body"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textview_breathing_head" />
+                app:layout_constraintTop_toBottomOf="@id/textview_breathing_head" />-->
 
             <TextView
                 android:id="@+id/textview_video_head"
@@ -159,7 +159,19 @@
                 android:textAppearance="@style/text_guide_head"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textview_breathing_body" />
+                app:layout_constraintTop_toBottomOf="@id/textveiw_starting_posture_body" />
+
+            <TextView
+                android:id="@+id/textview_video_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="link"
+                android:textAppearance="@style/text_guide_body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_video_head" />
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

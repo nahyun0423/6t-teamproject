@@ -18,7 +18,7 @@ fun getImageResource(exercise: Exercise): Int {
     return when (exercise.name) {
         "오버헤드 프레스" -> R.drawable.overhead_press
         "행잉 레그 레이즈" -> R.drawable.hanging_leg_raise
-        else -> 0
+        else -> R.drawable.overhead_press
     }
 }
 

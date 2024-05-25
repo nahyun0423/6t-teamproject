@@ -77,14 +77,22 @@ class RegisterActivity : AppCompatActivity() {
         var lowerbodyRM: Int
 
 
-        val heightEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_height)
-        val weightEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_weight)
-        val muscleMassEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_muscle_mass)
-        val fatMassEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_fat_mass)
-        val upperbodyRMEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_upperbody)
-        val lowerbodyRMEditText: EditText = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_lowerbody)
-        val maleButton: Button = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_male)
-        val femaleButton: Button = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_female)
+        val heightEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_height)
+        val weightEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_weight)
+        val muscleMassEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_muscle_mass)
+        val fatMassEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_fat_mass)
+        val upperbodyRMEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_upperbody)
+        val lowerbodyRMEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_lowerbody)
+        val maleButton: Button =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_male)
+        val femaleButton: Button =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_female)
         val button: Button = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button)
 
         maleButton.setOnClickListener {

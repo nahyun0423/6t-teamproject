@@ -51,6 +51,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO edit(UserDTO userDTO){
         Optional<User> userOptional = userRepository.findById(userDTO.getUserId());
         if (userOptional.isPresent()) {
+            setShape(userDTO);
             userRepository.save(userDTO.toEntity());
             return new UserDTO(userOptional.get());
         } else {

@@ -19,8 +19,10 @@ class CreateRoutineActivity : AppCompatActivity() {
 
         val intentToPreferexerciseActivity = Intent(this, PreferexerciseActivity::class.java)
         val intentToSelectExerciseActivity = Intent(this, SelectExerciseActivity::class.java)
+        val intentToSettingActivity = Intent(this, SettingActivity::class.java)
         val buttonGetRecommendationFromAI = findViewById<Button>(R.id.activity_create_routine_button_get_recommendation_from_ai)
         val buttonMakeMyOwnRoutine = findViewById<Button>(R.id.activity_create_routine_button_make_my_own_routine)
+        val buttonSetting :Button = findViewById(R.id.activity_create_routine_button_input_user_information)
 
         buttonGetRecommendationFromAI.setOnTouchListener { view, event ->
             val path = android.graphics.Path()
@@ -74,6 +76,10 @@ class CreateRoutineActivity : AppCompatActivity() {
                 else -> false
             }
             false
+        }
+
+        buttonSetting.setOnClickListener {
+            startActivity(intentToSettingActivity)
         }
     }
 }
