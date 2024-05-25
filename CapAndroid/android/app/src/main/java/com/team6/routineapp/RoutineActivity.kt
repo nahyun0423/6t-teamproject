@@ -46,7 +46,6 @@ class RoutineActivity : AppCompatActivity() {
                                 for (exercise_ in exercises) {
                                     if (exercise_.name == exerciseName) exercise = exercise_
                                 }
-
                                 trainings += if (routineDetail.weight == null) {
                                     Training(exercise!!, routineDetail.sets!!, routineDetail.reps!!)
                                 } else {
@@ -58,41 +57,43 @@ class RoutineActivity : AppCompatActivity() {
                                     )
                                 }
                             }
-
                             routines += Routine(routineDTO.routineName!!, trainings)
                         }
 
                         for (routine in routines) {
                             routinesLayout.addView(generateRoutineView(routine))
                         }
+                        callback(routines)
                     }
                 }
-
                 override fun onFailure(call: Call<List<RoutineDTO>>, t: Throwable) {
                     TODO("Not yet implemented")
                 }
             })
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query == null) return false
+            val intentToCreateRoutineActivity = Intent(this, CreateRoutineActivity::class.java);
 
-                for (routineView in routinesLayout.children) routineView.visibility = View.GONE
-                for (routineView in routinesLayout.children) {
-                    val routine = routineView.tag as Routine
+            val searchView: SearchView = findViewById(R.id.activity_routine_searchview)
+            val routinesLayout = findViewById<LinearLayout>(R.id.activity_routine_layout)
 
-                    if (routine.name.contains(query)) {
-                        routineView.visibility = View.VISIBLE
+            searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if (query == null) return false
+                    for (routineView in routinesLayout.children) routineView.visibility = View.GONE
+                    for (routineView in routinesLayout.children) {
+                        val routine = routineView.tag as Routine
+
+                        if (routine.name.contains(query)) {
+                            routineView.visibility = View.VISIBLE
+                        }
                     }
+                    return false
                 }
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                return true
-            }
-        }) // 검색 기능
-
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return true
+                }
+            }) // 검색 기능
         findViewById<Button>(R.id.activity_exercise_button).setOnClickListener {
             startActivity(intentToCreateRoutineActivity)
         } // 루틴 추가하기 버튼을 누르면, CreateRoutine Actiivty로 이동
