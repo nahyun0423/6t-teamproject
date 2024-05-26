@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectPurposeActivity">
+
+    <TextView
+        android:id="@+id/activity_select_purpose_textview_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_select_purpose_head"
+        android:textAppearance="@style/text_title"
+        android:fontFamily="@font/notosans"
+        android:textSize="@dimen/text_large"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/activity_select_purpose_layout_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_select_purpose_layout_body"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toTopOf="@id/activity_select_purpose_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_select_purpose_textview_head">
+        <CheckBox
+            android:id="@+id/activity_select_purpose_checkbox_lose_weight"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/solid_button"
+            android:text="체중 감소"
+            app:layout_constraintBottom_toTopOf="@id/activity_select_purpose_checkbox_endurance"
+            app:layout_constraintEnd_toStartOf="@id/activity_select_purpose_checkbox_hypertrophy"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <CheckBox
+            android:id="@+id/activity_select_purpose_checkbox_hypertrophy"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/solid_button"
+            android:text="근비대"
+            app:layout_constraintBottom_toTopOf="@id/activity_select_purpose_checkbox_strength"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/activity_select_purpose_checkbox_lose_weight"
+            app:layout_constraintTop_toTopOf="parent" />
+        <CheckBox
+            android:id="@+id/activity_select_purpose_checkbox_endurance"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/solid_button"
+            android:text="근지구력 향상"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/activity_select_purpose_checkbox_strength"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/activity_select_purpose_checkbox_lose_weight" />
+        <CheckBox
+            android:id="@+id/activity_select_purpose_checkbox_strength"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/solid_button"
+            android:text="근력 향상"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/activity_select_purpose_checkbox_endurance"
+            app:layout_constraintTop_toBottomOf="@id/activity_select_purpose_checkbox_hypertrophy" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/activity_select_purpose_button"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_yes"
+        android:text="다음"
+        android:textAppearance="@style/text_button_yes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_select_purpose_layout_body" />
+</androidx.constraintlayout.widget.ConstraintLayout>
