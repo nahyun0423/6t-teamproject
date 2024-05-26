@@ -28,7 +28,7 @@ class RecommendationResultActivity : AppCompatActivity() {
 
     //AI 질문 및 답변 처리
     private fun getRecommendationFromAI(callback: (Routine?) -> Unit) {
-        val ww = String.format("1. %s 2. %s 부위를 선호해 3. 1RM은 상체 벤치프레스 %dkg, 하체 스쿼트 %dkg이야 4. %s 강화가 목적이야 5. %s에서 할 수 있었으면 좋겠어", userDTO.shape, "팔", userDTO.RM_bench, userDTO.RM_squat, "근력", "헬스장")
+        val ww = String.format("1. %s 2. %s 부위를 선호해 3. 1RM은 상체 벤치프레스 %dkg, 하체 스쿼트 %dkg이야 4. %s 강화가 목적이야 5. %s에서 할 수 있었으면 좋겠어", userDTO.shape, "팔", userDTO.rm_bench, userDTO.rm_squat, "근력", "헬스장")
         val query = "1. 비만형 2. 팔 부위를 선호해 3. 1RM은 상체 벤치프레스 40kg, 하체 스쿼트 90kg이야 4. 근력 강화가 목적이야 5. 헬스장에서 할 수 있었으면 좋겠어"
         RetrofitClient.clovaService.getResponse(query).enqueue(object : Callback<RoutineDTO> {
             override fun onResponse(call: Call<RoutineDTO>, response: Response<RoutineDTO>) {
@@ -74,7 +74,7 @@ class RecommendationResultActivity : AppCompatActivity() {
                 addToMyRoutineButton.setOnClickListener {
                     RetrofitClient.routineService.saveRoutine(
                         RoutineDTO(
-                            userDTO.userId, routineName, routineDTO.routineDetails
+                            null,userDTO.userId, routineName, routineDTO.routineDetails
                         )
                     ).enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {

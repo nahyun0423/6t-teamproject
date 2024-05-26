@@ -9,7 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.team6.routineapp.dto.UserDTO
-import com.team6.routineapp.fitness.UserInfo
 import com.team6.routineapp.service.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -82,8 +81,8 @@ class SettingActivity : AppCompatActivity() {
         fatMassValueTextView.text = userDTO.fatMass.toString()
         genderValueTextView.text = userDTO.gender.toString()
         shapeValueTextView.text = userDTO.shape.toString()
-        upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
-        lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
+        upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
+        lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
 
         //db에서 userid나 프로필 사진 받아 적용
 
@@ -192,8 +191,8 @@ class SettingActivity : AppCompatActivity() {
                 userDTO.weight = weight
                 userDTO.muscleMass = muscleMass
                 userDTO.fatMass = fatMass
-                userDTO.RM_bench = upperbodyRM
-                userDTO.RM_squat = lowerbodyRM
+                userDTO.rm_bench = upperbodyRM
+                userDTO.rm_squat = lowerbodyRM
                 userDTO.gender = gender
 
                 RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {
@@ -206,8 +205,8 @@ class SettingActivity : AppCompatActivity() {
                             fatMassValueTextView.text = userDTO.fatMass.toString()
                             genderValueTextView.text = userDTO.gender.toString()
                             shapeValueTextView.text = userDTO.shape.toString()
-                            upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
-                            lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
+                            upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
+                            lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
                             inputPhysicalInformationDialog.dismiss()
                         }
                     }

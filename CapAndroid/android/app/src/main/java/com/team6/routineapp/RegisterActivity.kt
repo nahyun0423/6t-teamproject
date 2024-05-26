@@ -10,7 +10,6 @@ import android.widget.EditText
 import android.widget.Toast
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
-import com.team6.routineapp.singletone.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -120,8 +119,8 @@ class RegisterActivity : AppCompatActivity() {
                 newUserDTO.weight = weight
                 newUserDTO.muscleMass = muscleMass
                 newUserDTO.fatMass = fatMass
-                newUserDTO.RM_bench = upperbodyRM
-                newUserDTO.RM_squat = lowerbodyRM
+                newUserDTO.rm_bench = upperbodyRM
+                newUserDTO.rm_squat = lowerbodyRM
                 newUserDTO.gender = gender
 
                 RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<String> {
