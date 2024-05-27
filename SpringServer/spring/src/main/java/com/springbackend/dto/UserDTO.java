@@ -8,6 +8,7 @@ import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor(force = true)
 @AllArgsConstructor
 public class UserDTO {

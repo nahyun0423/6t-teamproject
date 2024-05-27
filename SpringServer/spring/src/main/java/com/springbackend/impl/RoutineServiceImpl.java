@@ -56,8 +56,9 @@ public class RoutineServiceImpl implements RoutineService {
                             .weight(detailDto.getWeight())
                             .build();
                 }).collect(Collectors.toSet());
-        routineDTO.toEntity(user,routineDetails);
-        routineRepository.save(routineDTO.toEntity(user,routineDetails));
+
+        routine.setRoutineDetails(routineDetails);
+        routineRepository.save(routine);
     }
 
     @Override

@@ -98,7 +98,8 @@ class SelectExerciseActivity() : AppCompatActivity() {
 
             if (routineName == "") {
                 Toast.makeText(this, "루틴 이름을 지어주세요.", Toast.LENGTH_SHORT).show()
-            } else {
+            }
+            else {
                 var routineDetailDTOs: List<RoutineDetailDTO> = listOf()
                 for (training in trainings) {
                     routineDetailDTOs += when (training) {
@@ -107,7 +108,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
                     }
                 }
 
-                RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs))
+                RetrofitClient.routineService.saveRoutine(RoutineDTO(null,userDTO.userId, routineName, routineDetailDTOs))
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             inputRoutineNameDialog.dismiss()

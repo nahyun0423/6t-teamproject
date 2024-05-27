@@ -32,5 +32,4 @@ data class UserDTO(
 
     @SerializedName("rm_squat")
     var RM_squat: Int? = null
-
 )

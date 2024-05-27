@@ -7,6 +7,7 @@ import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @Table(name = "routineDetails")
 public class RoutineDetail {
@@ -16,7 +17,7 @@ public class RoutineDetail {
     private Integer routineDetailId;
 
     @ManyToOne
-    @JoinColumn(name = "RoutineName", referencedColumnName = "RoutineName")
+    @JoinColumn(name = "RoutineID", referencedColumnName = "RoutineID")
     private Routine routine;
 
     @ManyToOne
@@ -32,7 +33,6 @@ public class RoutineDetail {
     @Column(name = "Weight")
     private Integer weight;
 
-
     @Builder
     public RoutineDetail(Integer routineDetailId, Routine routine, Exercise exercise, Integer sets, Integer reps, Integer weight) {
         this.routineDetailId = routineDetailId;
@@ -40,6 +40,6 @@ public class RoutineDetail {
         this.exercise = exercise;
         this.sets = sets;
         this.reps = reps;
-        this.weight=weight;
+        this.weight = weight;
     }
 }
