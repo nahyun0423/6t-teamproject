@@ -135,24 +135,6 @@ class ConnectServerImpl : AppCompatActivity() {
                 }
             })
 
-        //회원가입
-        val userDTO = UserDTO(/*여기에 실제로 값 받아서 넣기*/"dbtls", "qwer", 172.3f, 77.2f, 30f, 60f, "남",null,40,35)
-        RetrofitClient.userService.signUp(userDTO).enqueue(object : Callback<String> {
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                if (response.isSuccessful && response.body() == "success") {
-                    /*수정*/
-                    //response.body()  =="success" 면 회원가입 성공(중복된 아이디 없음)
-                    println("회원가입 성공")
-                } else {
-                    //response.body()  =="failure"면 실패
-                    println("회원가입 실패")
-                }
-            }
-
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                println("Error: ${t.message}")
-            }
-        })
 
         //유저 정보 수정
         RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {

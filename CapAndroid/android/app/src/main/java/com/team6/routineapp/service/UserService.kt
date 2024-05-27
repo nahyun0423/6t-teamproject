@@ -9,7 +9,7 @@ import retrofit2.http.Path
 
 interface UserService {
     @POST("/signUp")
-    fun signUp(@Body userDTO: UserDTO): Call<String>
+    fun signUp(@Body userDTO: UserDTO): Call<UserDTO>
     @POST("/checkDup")
     fun checkDup(@Body userDTO: UserDTO): Call<String>
 

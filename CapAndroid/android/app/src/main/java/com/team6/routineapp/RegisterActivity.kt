@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.team6.routineapp.dto.RoutineDTO
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
 import com.team6.routineapp.singletone.User
@@ -124,18 +125,20 @@ class RegisterActivity : AppCompatActivity() {
                 newUserDTO.rm_squat = lowerbodyRM
                 newUserDTO.gender = gender
 
-                RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<String> {
-                    override fun onResponse(call: Call<String>, response: Response<String>) {
-                        if (response.isSuccessful) {
-                            userDTO = newUserDTO
+                RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<UserDTO> {
+                  
+
+                    override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
+                        if (response.isSuccessful && response.body() != null) {
+                            userDTO = response.body()!!
                             inputPhysicalInformationDialog.dismiss()
                             activityStack.pop().finish()
                             activityStack.pop().finish()
                             startActivity(intentToRoutineActivity)
-                        }
+                        } else Log.d("Server Access Error", "회원 가입 실패")
                     }
 
-                    override fun onFailure(call: Call<String>, t: Throwable) {
+                    override fun onFailure(call: Call<UserDTO>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
 
