@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -187,6 +188,8 @@ class SettingActivity : AppCompatActivity() {
                 upperbodyRM = upperbodyRMEditText.text.toString().toInt()
                 lowerbodyRM = lowerbodyRMEditText.text.toString().toInt()
 
+                Log.d("Test", upperbodyRM.toString())
+
                 userDTO.height = height
                 userDTO.weight = weight
                 userDTO.muscleMass = muscleMass
@@ -194,6 +197,8 @@ class SettingActivity : AppCompatActivity() {
                 userDTO.rm_bench = upperbodyRM
                 userDTO.rm_squat = lowerbodyRM
                 userDTO.gender = gender
+
+                Log.d("Test", userDTO.RM_bench.toString())
 
                 RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {
                     override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
@@ -205,8 +210,12 @@ class SettingActivity : AppCompatActivity() {
                             fatMassValueTextView.text = userDTO.fatMass.toString()
                             genderValueTextView.text = userDTO.gender.toString()
                             shapeValueTextView.text = userDTO.shape.toString()
-                            upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
-                            lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
+                            upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
+                            lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
+
+                            Log.d("Test", userDTO.RM_bench.toString())
+                            Log.d("Test", userDTO.height.toString())
+                            Log.d("Test", userDTO.shape.toString())
                             inputPhysicalInformationDialog.dismiss()
                         }
                     }

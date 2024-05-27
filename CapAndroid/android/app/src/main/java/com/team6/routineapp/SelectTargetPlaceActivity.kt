@@ -1,30 +1,28 @@
 package com.team6.routineapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.RectF
 import android.graphics.Region
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.Button
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.team6.routineapp.utility.convertFromDpToPx
 
-class CreateRoutineActivity : AppCompatActivity() {
-    @SuppressLint("ClickableViewAccessibility")
+class SelectTargetPlaceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_create_routine)
+        setContentView(R.layout.activity_select_target_place)
         activityStack.push(this)
 
-        val intentToSelectTargetPartActivity = Intent(this, SelectTargetPartActivity::class.java)
-        val intentToSelectExerciseActivity = Intent(this, SelectExerciseActivity::class.java)
-        val intentToSettingActivity = Intent(this, SettingActivity::class.java)
-        val buttonGetRecommendationFromAI = findViewById<Button>(R.id.activity_create_routine_button_get_recommendation_from_ai)
-        val buttonMakeMyOwnRoutine = findViewById<Button>(R.id.activity_create_routine_button_make_my_own_routine)
-        val buttonSetting :Button = findViewById(R.id.activity_create_routine_button_input_user_information)
+        val intentToRecommendationResultActivity = Intent(this, RecommendationResultActivity::class.java)
+        val gymButton: Button = findViewById(R.id.activity_select_target_place_gym)
+        val homeButton: Button = findViewById(R.id.activity_select_target_place_button_home)
 
-        buttonGetRecommendationFromAI.setOnTouchListener { view, event ->
+        gymButton.setOnTouchListener { view, event ->
             val path = android.graphics.Path()
             var rectF = RectF()
             var region = Region()
@@ -41,7 +39,10 @@ class CreateRoutineActivity : AppCompatActivity() {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     if (region.contains(event.x.toInt(), event.y.toInt())) {
-                        startActivity(intentToSelectTargetPartActivity)
+                        intentToRecommendationResultActivity.putExtra("part", intent.getStringExtra("part"))
+                        intentToRecommendationResultActivity.putExtra("purpose", intent.getStringExtra("purpose"))
+                        intentToRecommendationResultActivity.putExtra("place", "헬스장")
+                        startActivity(intentToRecommendationResultActivity)
                         true
                     }
                     false
@@ -51,7 +52,7 @@ class CreateRoutineActivity : AppCompatActivity() {
             false
         }
 
-        buttonMakeMyOwnRoutine.setOnTouchListener { view, event ->
+        homeButton.setOnTouchListener { view, event ->
             val path = android.graphics.Path()
             var rectF = RectF()
             var region = Region()
@@ -68,7 +69,8 @@ class CreateRoutineActivity : AppCompatActivity() {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     if (region.contains(event.x.toInt(), event.y.toInt())) {
-                        startActivity(intentToSelectExerciseActivity)
+                        intentToRecommendationResultActivity.putExtra("place", "집")
+                        startActivity(intentToRecommendationResultActivity)
                         true
                     }
                     false
@@ -76,10 +78,6 @@ class CreateRoutineActivity : AppCompatActivity() {
                 else -> false
             }
             false
-        }
-
-        buttonSetting.setOnClickListener {
-            startActivity(intentToSettingActivity)
         }
     }
 }

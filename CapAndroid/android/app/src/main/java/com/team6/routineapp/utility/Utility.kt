@@ -16,9 +16,10 @@ fun AppCompatActivity.convertFromDpToPx(value: Int): Int {
 /* Exercise마다 이미지 리소스를 지정하는 함수 */
 fun getImageResource(exercise: Exercise): Int {
     return when (exercise.name) {
-        "오버헤드 프레스" -> R.drawable.overhead_press
-        "행잉 레그 레이즈" -> R.drawable.hanging_leg_raise
-        else -> R.drawable.overhead_press
+        "덤벨 컬" -> R.drawable.dumbbell_curl
+        "오버헤드 프레스" -> R.drawable.overhead_press_icon
+        "행잉 레그 레이즈" -> R.drawable.hanging_leg_raise_icon
+        else -> R.drawable.overhead_press_icon
     }
 }
 

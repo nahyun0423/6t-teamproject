@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Routine App</string>
     <string name="activity_recommendation_result_title"><b>User</b>님께\n적합한 루틴을 찾았습니다!</string>
+    <string name="activity_select_target_part_head">운동하고 싶은 <b>부위</b>를 선택하세요.</string>
+    <string name="activity_select_target_place_head">운동할 <b>장소</b>를 선택하세요.</string>
+    <string name="activity_select_purpose_head">운동 <b>목적</b>을 선택하세요.</string>
     <string name="dialog_input_physical_information_title"><b>신체 정보</b>를 입력해 주세요.</string>
 </resources>

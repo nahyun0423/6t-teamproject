@@ -132,8 +132,6 @@ class RegisterActivity : AppCompatActivity() {
                             activityStack.pop().finish()
                             startActivity(intentToRoutineActivity)
                         }
-
-
                     }
 
                     override fun onFailure(call: Call<String>, t: Throwable) {

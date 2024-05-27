@@ -28,9 +28,8 @@ data class UserDTO(
     var shape: String? = null,
 
     @SerializedName("rm_bench")
-    var rm_bench: Int? = null,
+    var RM_bench: Int? = null,
 
     @SerializedName("rm_squat")
-    var rm_squat: Int? = null
-
+    var RM_squat: Int? = null
 )
