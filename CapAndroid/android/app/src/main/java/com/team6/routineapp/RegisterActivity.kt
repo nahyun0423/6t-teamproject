@@ -1,5 +1,6 @@
 package com.team6.routineapp
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,13 +10,15 @@ import android.widget.EditText
 import android.widget.Toast
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
-import com.team6.routineapp.singletone.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
+    private lateinit var newUserDTO: UserDTO
+
     private lateinit var intentToRoutineActivity: Intent
+    private lateinit var inputPhysicalInformationDialog: Dialog
     private lateinit var identifierEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var passwordCheckEditText: EditText
@@ -23,9 +26,10 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        activityStack.push(this)
 
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
-
+        inputPhysicalInformationDialog = generateDialog()
         button = findViewById(R.id.activity_register_button)
         identifierEditText = findViewById(R.id.activity_register_edittext_identifier)
         passwordEditText = findViewById(R.id.activity_register_edittext_password)
@@ -41,13 +45,11 @@ class RegisterActivity : AppCompatActivity() {
             } else if (password != passwordCheck) {
                 Toast.makeText(this, "비밀번호 확인 문자열이 틀립니다. 다시 확인해 주세요.", Toast.LENGTH_LONG).show()
             } else {
-                val newUserDTO = UserDTO(identifier, password)
+                newUserDTO = UserDTO(identifier, password)
                 RetrofitClient.userService.checkDup(newUserDTO).enqueue(object : Callback<String> {
                     override fun onResponse(call: Call<String>, response: Response<String>) {
                         if (response.isSuccessful && response.body() == "success") {
-                            Toast.makeText(this@RegisterActivity, "중복체크 성공.", Toast.LENGTH_LONG).show()
-                            userDTO = newUserDTO
-                            startActivity(intentToRoutineActivity)
+                            inputPhysicalInformationDialog.show()
                         } else {
                             Toast.makeText(this@RegisterActivity, "이미 사용 중인 아이디입니다.", Toast.LENGTH_LONG).show()
                         }
@@ -59,5 +61,87 @@ class RegisterActivity : AppCompatActivity() {
                 })
             }
         }
+    }
+
+    private fun generateDialog(): Dialog {
+        inputPhysicalInformationDialog = Dialog(this)
+        inputPhysicalInformationDialog.setContentView(R.layout.dialog_input_physical_information)
+
+        var height: Float
+        var weight: Float
+        var muscleMass: Float
+        var fatMass: Float
+        var gender = ""
+        var upperbodyRM: Int
+        var lowerbodyRM: Int
+
+
+        val heightEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_height)
+        val weightEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_weight)
+        val muscleMassEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_muscle_mass)
+        val fatMassEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_fat_mass)
+        val upperbodyRMEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_upperbody)
+        val lowerbodyRMEditText: EditText =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_edittext_rm_lowerbody)
+        val maleButton: Button =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_male)
+        val femaleButton: Button =
+            inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button_female)
+        val button: Button = inputPhysicalInformationDialog.findViewById(R.id.dialog_input_physical_information_button)
+
+        maleButton.setOnClickListener {
+            gender = "남"
+            it.setBackgroundResource(R.drawable.button_selected)
+            femaleButton.setBackgroundResource(R.drawable.button_unselected)
+        }
+
+        femaleButton.setOnClickListener {
+            gender = "여"
+            it.setBackgroundResource(R.drawable.button_selected)
+            maleButton.setBackgroundResource(R.drawable.button_unselected)
+        }
+
+        button.setOnClickListener {
+            if (gender != "" && heightEditText.text.isNotEmpty() && weightEditText.text.isNotEmpty() && muscleMassEditText.text.isNotEmpty() && fatMassEditText.text.isNotEmpty() && upperbodyRMEditText.text.isNotEmpty() && lowerbodyRMEditText.text.isNotEmpty()) {
+                height = heightEditText.text.toString().toFloat()
+                weight = weightEditText.text.toString().toFloat()
+                muscleMass = muscleMassEditText.text.toString().toFloat()
+                fatMass = fatMassEditText.text.toString().toFloat()
+                upperbodyRM = upperbodyRMEditText.text.toString().toInt()
+                lowerbodyRM = lowerbodyRMEditText.text.toString().toInt()
+
+                newUserDTO.height = height
+                newUserDTO.weight = weight
+                newUserDTO.muscleMass = muscleMass
+                newUserDTO.fatMass = fatMass
+                newUserDTO.rm_bench = upperbodyRM
+                newUserDTO.rm_squat = lowerbodyRM
+                newUserDTO.gender = gender
+
+                RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<String> {
+                    override fun onResponse(call: Call<String>, response: Response<String>) {
+                        if (response.isSuccessful) {
+                            userDTO = newUserDTO
+                            inputPhysicalInformationDialog.dismiss()
+                            activityStack.pop().finish()
+                            activityStack.pop().finish()
+                            startActivity(intentToRoutineActivity)
+                        }
+                    }
+
+                    override fun onFailure(call: Call<String>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+            }
+        }
+
+        return inputPhysicalInformationDialog
     }
 }

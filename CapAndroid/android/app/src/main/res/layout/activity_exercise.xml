@@ -11,21 +11,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="운동하기"
+        android:includeFontPadding="false"
         android:textAppearance="@style/text_title"
-        app:layout_constraintBottom_toTopOf="@id/activity_exercise_imageview"
+        app:layout_constraintBottom_toTopOf="@id/activity_exercise_scrollview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/activity_exercise_imageview"
+    <ScrollView
+        android:id="@+id/activity_exercise_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/benchpress_image"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toTopOf="@id/activity_exercise_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_exercise_textview" />
+        app:layout_constraintTop_toBottomOf="@id/activity_exercise_textview">
+
+        <LinearLayout
+            android:id="@+id/activity_exercise_layout_trainings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"/>
+    </ScrollView>
 
     <Button
         android:id="@+id/activity_exercise_button"
@@ -37,6 +45,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/activity_exercise_imageview" />
+        app:layout_constraintTop_toBottomOf="@id/activity_exercise_scrollview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

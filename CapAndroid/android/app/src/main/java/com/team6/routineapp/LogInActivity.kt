@@ -26,6 +26,7 @@ class LogInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_log_in)
+        activityStack.push(this)
 
         intentToRegisterActivity = Intent(this, RegisterActivity::class.java)
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
@@ -46,12 +47,9 @@ class LogInActivity : AppCompatActivity() {
                         User.saveUser(response.body()!!)
                         userDTO = response.body()!!
                         startActivity(intentToRoutineActivity)
-                    } else if (response.body()?.userId == null) {
-                        //로그인 실패
+                    } else if (response.body()?.userId == null) { // 로그인 실패
                         Toast.makeText(this@LogInActivity, "Login Failed", Toast.LENGTH_SHORT).show()
-
-                    } else {
-                        // 오류 처리
+                    } else { // 오류 처리
                         println("Error Code: ${response.code()}")
                         Toast.makeText(this@LogInActivity, "error", Toast.LENGTH_SHORT).show()
                     }
@@ -63,6 +61,7 @@ class LogInActivity : AppCompatActivity() {
                 }
             })
         }
+
         registerButton.setOnClickListener {
             startActivity(intentToRegisterActivity)
         }

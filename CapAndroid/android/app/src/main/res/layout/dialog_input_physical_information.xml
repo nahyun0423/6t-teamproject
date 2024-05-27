@@ -23,223 +23,364 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/dialog_input_physical_information_layout_content"
+    <ScrollView
+        android:id="@+id/dialog_input_physical_information_scrollview"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/dialog_input_user_information_button"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@id/dialog_input_physical_information_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dialog_input_physical_information_textview_title">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dialog_input_user_information_layout_height"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/dialog_input_physical_information_layout_weight"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/dialog_input_user_information_textView_height"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="키"
-                android:textAppearance="@style/text_input_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_input_user_information_edittext_height"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/dialog_input_user_information_edittext_height"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:text=""
-                android:textAppearance="@style/text_input_value"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/dialog_input_user_information_textview_height_unit"
-                app:layout_constraintStart_toEndOf="@+id/dialog_input_user_information_textView_height"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_height"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="키"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_height"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/dialog_input_user_information_textview_height_unit"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="cm"
-                android:textAppearance="@style/text_input_unit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/dialog_input_user_information_edittext_height"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_height"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789."
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_height_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_height"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dialog_input_physical_information_layout_weight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/dialog_input_physical_information_layout_muscle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dialog_input_user_information_layout_height">
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_height_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="cm"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_height"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/dialog_input_physical_information_textView_weight"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="몸무게"
-                android:textAppearance="@style/text_input_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_user_weight"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/dialog_input_physical_information_edittext_user_weight"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:text=""
-                android:textAppearance="@style/text_input_value"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_weight_unit"
-                app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_weight"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_weight"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="몸무게"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_weight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/dialog_input_physical_information_textview_weight_unit"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="kg"
-                android:textAppearance="@style/text_input_unit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_user_weight"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_weight"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:digits="0123456789."
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_weight_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_weight"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dialog_input_physical_information_layout_muscle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/dialog_input_physical_information_layout_fat"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dialog_input_physical_information_layout_weight">
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_weight_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="kg"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_weight"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/dialog_input_physical_information_textView_muscle"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="골격근량"
-                android:textAppearance="@style/text_input_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_user_muscle"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_muscle_mass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/dialog_input_physical_information_edittext_user_muscle"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:text=""
-                android:textAppearance="@style/text_input_value"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_muscle_unit"
-                app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_muscle"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_muscle_mass"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="골격근량"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_muscle_mass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/dialog_input_physical_information_textview_muscle_unit"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="kg"
-                android:textAppearance="@style/text_input_unit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_user_muscle"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_muscle_mass"
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:digits="0123456789."
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_musle_mass_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_muscle_mass"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/dialog_input_physical_information_layout_fat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dialog_input_physical_information_layout_muscle">
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_musle_mass_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="kg"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_muscle_mass"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/dialog_input_user_information_textView_fat"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="체지방량"
-                android:textAppearance="@style/text_input_name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/dialog_input_user_information_edittext_user_fat"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_fat_mass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <EditText
-                android:id="@+id/dialog_input_user_information_edittext_user_fat"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:digits="0123456789"
-                android:inputType="number"
-                android:text=""
-                android:textAppearance="@style/text_input_value"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/dialog_input_user_information_textview_fat_unit"
-                app:layout_constraintStart_toEndOf="@+id/dialog_input_user_information_textView_fat"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_fat_mass"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="체지방량"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_fat_mass"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/dialog_input_user_information_textview_fat_unit"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/notosans_bold"
-                android:gravity="center"
-                android:includeFontPadding="false"
-                android:text="kg"
-                android:textAppearance="@style/text_input_unit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/dialog_input_user_information_edittext_user_fat"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_fat_mass"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789."
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_fat_mass_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_fat_mass"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_fat_mass_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="kg"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_fat_mass"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_gender"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="성별"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_layout_gender_buttons"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/dialog_input_physical_information_layout_gender_buttons"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_textView_gender"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <Button
+                        android:id="@+id/dialog_input_physical_information_button_male"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        android:text="남성"
+                        android:layout_margin="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_button_female"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <Button
+                        android:id="@+id/dialog_input_physical_information_button_female"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_button"
+                        android:layout_margin="5dp"
+                        android:text="여성"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_button_male"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_rm_upperbody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_rm_upperbody"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="상체 RM"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_rm_upperbody"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_rm_upperbody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_rm_upperbody_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_rm_upperbody"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_rm_upperbody_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="kg"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_rm_upperbody"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/dialog_input_physical_information_layout_rm_lowerbody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textView_rm_lowerbody"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="하체 RM"
+                    android:textAppearance="@style/text_input_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/dialog_input_physical_information_edittext_rm_lowerbody"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/dialog_input_physical_information_edittext_rm_lowerbody"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:digits="0123456789"
+                    android:inputType="number"
+                    android:text=""
+                    android:textAppearance="@style/text_input_value"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dialog_input_physical_information_textview_rm_lowerbody_unit"
+                    app:layout_constraintStart_toEndOf="@+id/dialog_input_physical_information_textView_rm_lowerbody"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dialog_input_physical_information_textview_rm_lowerbody_unit"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/notosans_bold"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:text="kg"
+                    android:textAppearance="@style/text_input_unit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/dialog_input_physical_information_edittext_rm_lowerbody"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
     <Button
-        android:id="@+id/dialog_input_user_information_button"
+        android:id="@+id/dialog_input_physical_information_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/button_yes"
@@ -247,7 +388,6 @@
         android:textAppearance="@style/text_button_yes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dialog_input_physical_information_layout_content" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

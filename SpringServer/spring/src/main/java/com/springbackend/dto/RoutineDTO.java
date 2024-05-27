@@ -16,11 +16,13 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoutineDTO {
+    private Integer routineId;
     private String userId;
     private String routineName;
     private Set<RoutineDetailDTO> routineDetails;
 
     public RoutineDTO(Routine routine) {
+        this.routineId = routine.getRoutineId();
         this.userId = routine.getUser().getUserId();
         this.routineName = routine.getRoutineName();
         this.routineDetails = routine.getRoutineDetails().stream()
@@ -29,14 +31,14 @@ public class RoutineDTO {
     }
 
     public RoutineDTO(Routine routine, Set<RoutineDetail> routineDetails) {
+        this.routineId = routine.getRoutineId();
         this.userId = routine.getUser().getUserId();
         this.routineName = routine.getRoutineName();
         this.routineDetails = routineDetails.stream().map(RoutineDetailDTO::new)
                 .collect(Collectors.toSet());
-
     }
 
-    public Routine toEntity(User user, Set<RoutineDetail> routineDetails){
+    public Routine toEntity(User user, Set<RoutineDetail> routineDetails) {
         return Routine.builder()
                 .user(user)
                 .routineName(routineName)

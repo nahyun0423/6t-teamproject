@@ -13,15 +13,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RoutineDetailDTO {
+    private Integer routineDetailId;
     private String exerciseName;
-    private String routineName;
+    private Integer routineId;
     private Integer sets;
     private Integer reps;
     private Integer weight;
 
     public RoutineDetailDTO(RoutineDetail routineDetail) {
+        this.routineDetailId = routineDetail.getRoutineDetailId();
         this.exerciseName = routineDetail.getExercise().getExerciseName();
-        this.routineName = routineDetail.getRoutine().getRoutineName();
+        this.routineId = routineDetail.getRoutine().getRoutineId();
         this.sets = routineDetail.getSets();
         this.reps = routineDetail.getReps();
         this.weight = routineDetail.getWeight();

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectTargetPlaceActivity">
+
+    <TextView
+        android:id="@+id/activity_select_target_place_textview_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activity_select_target_place_head"
+        android:textAppearance="@style/text_title"
+        android:fontFamily="@font/notosans"
+        android:textSize="@dimen/text_extralarge"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/activity_select_target_place_layout_body"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activity_select_target_place_layout_body"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/activity_select_target_place_textview_head">
+
+        <Button
+            android:id="@+id/activity_select_target_place_gym"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:background="@drawable/button_left"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="start|top"
+            android:includeFontPadding="false"
+            android:padding="30dp"
+            android:text="헬스장"
+            android:textColor="@color/blue_gray"
+            android:textSize="@dimen/text_extralarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/activity_select_target_place_button_home"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:background="@drawable/button_right"
+            android:fontFamily="@font/notosans_bold"
+            android:gravity="bottom|end"
+            android:includeFontPadding="false"
+            android:padding="30dp"
+            android:text="집"
+            android:textColor="@color/dark_green"
+            android:textSize="@dimen/text_extralarge"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
