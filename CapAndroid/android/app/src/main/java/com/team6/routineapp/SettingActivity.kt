@@ -198,8 +198,6 @@ class SettingActivity : AppCompatActivity() {
                 userDTO.rm_squat = lowerbodyRM
                 userDTO.gender = gender
 
-                Log.d("Test", userDTO.RM_bench.toString())
-
                 RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {
                     override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
                         if (response.isSuccessful) {
@@ -210,10 +208,10 @@ class SettingActivity : AppCompatActivity() {
                             fatMassValueTextView.text = userDTO.fatMass.toString()
                             genderValueTextView.text = userDTO.gender.toString()
                             shapeValueTextView.text = userDTO.shape.toString()
-                            upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
-                            lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
+                            upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
+                            lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
 
-                            Log.d("Test", userDTO.RM_bench.toString())
+                            Log.d("Test", userDTO.rm_bench.toString())
                             Log.d("Test", userDTO.height.toString())
                             Log.d("Test", userDTO.shape.toString())
                             inputPhysicalInformationDialog.dismiss()

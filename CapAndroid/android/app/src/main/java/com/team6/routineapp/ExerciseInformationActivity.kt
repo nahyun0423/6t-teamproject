@@ -1,17 +1,10 @@
 package com.team6.routineapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.team6.routineapp.fitness.Exercise
-import com.team6.routineapp.fitness.Training
-import com.team6.routineapp.utility.convertFromDpToPx
 import com.team6.routineapp.utility.getClassExtra
 import com.team6.routineapp.utility.getImageResource
 
@@ -31,8 +24,8 @@ class ExerciseInformationActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.activity_exercise_information_imageview).setImageResource(getImageResource(exercise))
 
         if (exerciseDTO != null) {
-            findViewById<TextView>(R.id.textveiw_starting_posture_body).text = exerciseDTO.descriptions
-            findViewById<TextView>(R.id.textview_video_body).text = exerciseDTO.videoLink
+            findViewById<TextView>(R.id.activity_exercise_information_description_body).text = exerciseDTO.descriptions
+            findViewById<TextView>(R.id.activity_exercise_information_textview_video_body).text = exerciseDTO.videoLink
         }
     }
 }
