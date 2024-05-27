@@ -140,6 +140,7 @@ class RecommendationResultActivity : AppCompatActivity() {
 
     private fun generateInputRoutineNameDialog(): Dialog {
         val inputRoutineNameDialog = Dialog(this)
+        inputRoutineNameDialog.setContentView(R.layout.dialog_input_routine_name)
         val inputRoutineNameDialogEditText: EditText =
             inputRoutineNameDialog.findViewById(R.id.dialog_input_routine_name_edittext)
         val inputRoutineNameDialogButton: Button =
