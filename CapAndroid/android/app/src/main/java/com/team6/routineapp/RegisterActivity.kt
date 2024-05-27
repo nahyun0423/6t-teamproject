@@ -11,7 +11,6 @@ import android.widget.Toast
 import com.team6.routineapp.dto.RoutineDTO
 import com.team6.routineapp.dto.UserDTO
 import com.team6.routineapp.service.RetrofitClient
-import com.team6.routineapp.singletone.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

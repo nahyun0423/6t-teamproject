@@ -1,17 +1,10 @@
 package com.team6.routineapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.team6.routineapp.fitness.Exercise
-import com.team6.routineapp.fitness.Training
-import com.team6.routineapp.utility.convertFromDpToPx
 import com.team6.routineapp.utility.getClassExtra
 import com.team6.routineapp.utility.getImageResource
 
