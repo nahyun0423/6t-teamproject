@@ -83,8 +83,8 @@ class SettingActivity : AppCompatActivity() {
         fatMassValueTextView.text = userDTO.fatMass.toString()
         genderValueTextView.text = userDTO.gender.toString()
         shapeValueTextView.text = userDTO.shape.toString()
-        upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
-        lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
+        upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
+        lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
 
         //db에서 userid나 프로필 사진 받아 적용
 
@@ -195,11 +195,9 @@ class SettingActivity : AppCompatActivity() {
                 userDTO.weight = weight
                 userDTO.muscleMass = muscleMass
                 userDTO.fatMass = fatMass
-                userDTO.RM_bench = upperbodyRM
-                userDTO.RM_squat = lowerbodyRM
+                userDTO.rm_bench = upperbodyRM
+                userDTO.rm_squat = lowerbodyRM
                 userDTO.gender = gender
-
-                Log.d("Test", userDTO.RM_bench.toString())
 
                 RetrofitClient.userService.editUser(userDTO).enqueue(object : Callback<UserDTO> {
                     override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
@@ -211,12 +209,8 @@ class SettingActivity : AppCompatActivity() {
                             fatMassValueTextView.text = userDTO.fatMass.toString()
                             genderValueTextView.text = userDTO.gender.toString()
                             shapeValueTextView.text = userDTO.shape.toString()
-                            upperbodyRMValueTextView.text = userDTO.RM_bench.toString()
-                            lowerbodyRMValueTextView.text = userDTO.RM_squat.toString()
-
-                            Log.d("Test", userDTO.RM_bench.toString())
-                            Log.d("Test", userDTO.height.toString())
-                            Log.d("Test", userDTO.shape.toString())
+                            upperbodyRMValueTextView.text = userDTO.rm_bench.toString()
+                            lowerbodyRMValueTextView.text = userDTO.rm_squat.toString()
                             inputPhysicalInformationDialog.dismiss()
                         }
                     }
