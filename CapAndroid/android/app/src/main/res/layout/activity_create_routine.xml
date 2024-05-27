@@ -28,7 +28,7 @@
             android:id="@+id/activity_create_routine_layout_buttons_top"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@id/activity_create_routine_button_choose_among_created_routine"
+            app:layout_constraintBottom_toTopOf="@id/activity_create_routine_button_input_user_information"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -68,21 +68,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
-            android:id="@+id/activity_create_routine_button_choose_among_created_routine"
-            android:layout_width="300dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/notosans_bold"
-            android:text="만들어진 루틴 리스트 보기"
-            android:textColor="@color/blue"
-            android:textSize="@dimen/text_large"
-            app:layout_constraintBottom_toTopOf="@+id/activity_create_routine_button_input_user_information"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/activity_create_routine_layout_buttons_top" />
-
-        <Button
             android:id="@+id/activity_create_routine_button_input_user_information"
             android:layout_width="300dp"
             android:layout_height="100dp"
@@ -95,7 +80,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/activity_create_routine_button_choose_among_created_routine" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_create_routine_layout_buttons_top" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

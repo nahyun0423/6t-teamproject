@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface UserService {
     
-    UserDTO signUp(UserDTO userDTO);
+    void signUp(UserDTO userDTO);
     UserDTO login(String userId,String password);
     UserDTO edit(UserDTO userDTO);
     String checkDup(UserDTO userDTO);

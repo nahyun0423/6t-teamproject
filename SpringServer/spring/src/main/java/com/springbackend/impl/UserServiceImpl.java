@@ -31,12 +31,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO signUp(UserDTO userDTO) {
+    public void signUp(UserDTO userDTO) {
 
         setShape(userDTO);
         User user = userDTO.toEntity();
         userRepository.save(user);
-        return userDTO;
     }
 
 

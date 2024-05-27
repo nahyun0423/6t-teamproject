@@ -36,10 +36,13 @@ class RecommendationResultActivity : AppCompatActivity() {
         activityStack.push(this)
 
         val inputRoutineNameDialog = generateInputRoutineNameDialog()
+        val textView: TextView = findViewById(R.id.activity_recommendation_result_textview)
         val notNeededButton = findViewById<Button>(R.id.activity_recommendation_result_button_not_needed)
         val addToMyRoutineButton = findViewById<Button>(R.id.activity_recommendation_result_button_add_to_my_routine)
 
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
+
+        textView.text = String.format("%s님께 \n적합한 루틴을 찾았습니다!", userDTO.userId)
 
         getRecommendationFromAI { routine ->
             if (routine != null) {

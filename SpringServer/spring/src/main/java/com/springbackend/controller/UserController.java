@@ -19,8 +19,8 @@ public class UserController {
 
     //DB에 회원정보 저장(회원가입)
     @PostMapping("/signUp")
-    public UserDTO saveUser(@RequestBody UserDTO userDTO) {
-        return userService.signUp(userDTO);
+    public void saveUser(@RequestBody UserDTO userDTO) {
+        userService.signUp(userDTO);
     }
 
     @PostMapping("/checkDup")

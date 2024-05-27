@@ -125,20 +125,15 @@ class RegisterActivity : AppCompatActivity() {
                 newUserDTO.rm_squat = lowerbodyRM
                 newUserDTO.gender = gender
 
-                RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<UserDTO> {
-                  
-
-                    override fun onResponse(call: Call<UserDTO>, response: Response<UserDTO>) {
-                        if (response.isSuccessful && response.body() != null) {
-                            userDTO = response.body()!!
+                RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
                             inputPhysicalInformationDialog.dismiss()
                             activityStack.pop().finish()
-                            activityStack.pop().finish()
-                            startActivity(intentToRoutineActivity)
                         } else Log.d("Server Access Error", "회원 가입 실패")
                     }
 
-                    override fun onFailure(call: Call<UserDTO>, t: Throwable) {
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
                         TODO("Not yet implemented")
                     }
 
