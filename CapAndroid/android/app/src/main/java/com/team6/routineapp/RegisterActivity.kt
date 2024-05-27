@@ -120,8 +120,8 @@ class RegisterActivity : AppCompatActivity() {
                 newUserDTO.weight = weight
                 newUserDTO.muscleMass = muscleMass
                 newUserDTO.fatMass = fatMass
-                newUserDTO.RM_bench = upperbodyRM
-                newUserDTO.RM_squat = lowerbodyRM
+                newUserDTO.rm_bench = upperbodyRM
+                newUserDTO.rm_squat = lowerbodyRM
                 newUserDTO.gender = gender
 
                 RetrofitClient.userService.signUp(newUserDTO).enqueue(object : Callback<String> {
