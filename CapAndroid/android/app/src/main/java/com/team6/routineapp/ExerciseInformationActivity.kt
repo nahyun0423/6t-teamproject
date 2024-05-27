@@ -31,8 +31,8 @@ class ExerciseInformationActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.activity_exercise_information_imageview).setImageResource(getImageResource(exercise))
 
         if (exerciseDTO != null) {
-            findViewById<TextView>(R.id.textveiw_starting_posture_body).text = exerciseDTO.descriptions
-            findViewById<TextView>(R.id.textview_video_body).text = exerciseDTO.videoLink
+            findViewById<TextView>(R.id.activity_exercise_information_description_body).text = exerciseDTO.descriptions
+            findViewById<TextView>(R.id.activity_exercise_information_textview_video_body).text = exerciseDTO.videoLink
         }
     }
 }
