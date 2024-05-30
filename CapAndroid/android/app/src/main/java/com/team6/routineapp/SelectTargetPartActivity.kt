@@ -26,11 +26,11 @@ class SelectTargetPartActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             if (chestCheckBox.isChecked) stringJoiner.add("가슴")
-            else if (armCheckBox.isChecked) stringJoiner.add("팔")
-            else if (shoulderCheckBox.isChecked) stringJoiner.add("어깨")
-            else if (lowerbodyCheckBox.isChecked) stringJoiner.add("하체")
-            else if (coreCheckBox.isChecked) stringJoiner.add("복근")
-            else if (backCheckBox.isChecked) stringJoiner.add("등")
+            if (armCheckBox.isChecked) stringJoiner.add("팔")
+            if (shoulderCheckBox.isChecked) stringJoiner.add("어깨")
+            if (lowerbodyCheckBox.isChecked) stringJoiner.add("하체")
+            if (coreCheckBox.isChecked) stringJoiner.add("복근")
+            if (backCheckBox.isChecked) stringJoiner.add("등")
 
             intentToSelectPurposeActivity.putExtra("part", stringJoiner.toString())
             startActivity(intentToSelectPurposeActivity)
