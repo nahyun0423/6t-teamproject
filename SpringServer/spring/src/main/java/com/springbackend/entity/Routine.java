@@ -14,10 +14,6 @@ import java.util.Set;
 @Table(name = "routines")
 public class Routine {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RoutineID")
-    private Integer routineId;
-
     @Column(name = "RoutineName")
     private String routineName;
 

@@ -22,7 +22,6 @@ public class RoutineDTO {
     private Set<RoutineDetailDTO> routineDetails;
 
     public RoutineDTO(Routine routine) {
-        this.routineId = routine.getRoutineId();
         this.userId = routine.getUser().getUserId();
         this.routineName = routine.getRoutineName();
         this.routineDetails = routine.getRoutineDetails().stream()
@@ -31,7 +30,6 @@ public class RoutineDTO {
     }
 
     public RoutineDTO(Routine routine, Set<RoutineDetail> routineDetails) {
-        this.routineId = routine.getRoutineId();
         this.userId = routine.getUser().getUserId();
         this.routineName = routine.getRoutineName();
         this.routineDetails = routineDetails.stream().map(RoutineDetailDTO::new)

@@ -108,7 +108,7 @@ class SelectExerciseActivity() : AppCompatActivity() {
                     }
                 }
 
-                RetrofitClient.routineService.saveRoutine(RoutineDTO(null,userDTO.userId, routineName, routineDetailDTOs))
+                RetrofitClient.routineService.saveRoutine(RoutineDTO(userDTO.userId, routineName, routineDetailDTOs))
                     .enqueue(object : Callback<Void> {
                         override fun onResponse(call: Call<Void>, response: Response<Void>) {
                             inputRoutineNameDialog.dismiss()

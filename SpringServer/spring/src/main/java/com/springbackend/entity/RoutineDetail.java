@@ -17,7 +17,7 @@ public class RoutineDetail {
     private Integer routineDetailId;
 
     @ManyToOne
-    @JoinColumn(name = "RoutineID", referencedColumnName = "RoutineID")
+    @JoinColumn(name = "RoutineName", referencedColumnName = "RoutineName")
     private Routine routine;
 
     @ManyToOne
