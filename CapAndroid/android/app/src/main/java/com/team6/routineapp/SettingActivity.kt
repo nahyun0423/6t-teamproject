@@ -189,8 +189,6 @@ class SettingActivity : AppCompatActivity() {
                 upperbodyRM = upperbodyRMEditText.text.toString().toInt()
                 lowerbodyRM = lowerbodyRMEditText.text.toString().toInt()
 
-                Log.d("Test", upperbodyRM.toString())
-
                 userDTO.height = height
                 userDTO.weight = weight
                 userDTO.muscleMass = muscleMass
