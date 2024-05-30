@@ -35,6 +35,9 @@ class ExerciseActivity : AppCompatActivity() {
 
         val button: Button = findViewById(R.id.activity_exercise_button)
 
+        val routine = intent.getClassExtra("routine", Routine::class.java)
+        generateTrainingsView(routine!!.trainings)
+
         button.setOnClickListener {
             if (isRunning) {
                 stopTimer()
@@ -65,9 +68,6 @@ class ExerciseActivity : AppCompatActivity() {
     private fun stopTimer() {
         handler.removeCallbacks(runnable!!)
         isRunning = false
-        val routine = intent.getClassExtra("routine", Routine::class.java)
-
-        generateTrainingsView(routine!!.trainings)
     }
 
     /* Training에 대응되는 View 만듦 */
