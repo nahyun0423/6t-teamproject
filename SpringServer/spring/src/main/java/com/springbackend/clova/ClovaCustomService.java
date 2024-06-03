@@ -26,10 +26,10 @@ public class ClovaCustomService {
     //api 부분
     public Mono<String> getCompletion(String userQuery) {
         return webClient.post()
-                .uri("https://clovastudio.stream.ntruss.com/testapp/v1/tasks/00vgddr5/chat-completions")
+                .uri("https://clovastudio.stream.ntruss.com/testapp/v1/tasks/iqskrs23/chat-completions")
                 .header("X-NCP-CLOVASTUDIO-API-KEY", "NTA0MjU2MWZlZTcxNDJiY9gDVtcezKwC/+76yZeh1/v3/cpNkGD+PSxqVRvkJj2B")
                 .header("X-NCP-APIGW-API-KEY", "69l7F5sx9BJEUa36wKr2oZ2VfYy4UC1AEXHyEzYp")
-                .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "d02f21ae-260d-4e8f-97ea-cbcd2aa9dc35")
+                .header("X-NCP-CLOVASTUDIO-REQUEST-ID", "31026603-06b8-4d18-8a77-fcd48badc951")
                 .header("Content-Type","application/json")
                 .header("Accept","")
                 .bodyValue(buildRequestData(userQuery))
@@ -37,6 +37,7 @@ public class ClovaCustomService {
                 .bodyToMono(String.class)
                 .flatMap(this::formatResponse);
     }
+
     private Map<String, Object> buildRequestData(String userQuery) {
         return Map.of(
                 "topK", 0,
@@ -57,26 +58,24 @@ public class ClovaCustomService {
                                 "-사용자가 선호하는 부위에 해당하는 운동은 1개 이상 추천합니다.\r\n\r\n" +
                                 "-중량은 1RM에서 제공되는 무게의 65~80%로 추천합니다.\r\n" +
                                 "예시) 상체 벤치프레스가 50kg고 하체 스쿼트가 100kg라면, 상체는 32.5~40kg, 하체는 65~80kg로 추천합니다\r\n\r\n" +
-                                "- 목표는 체중 감소, 근비대, 근지구력, 근파워로 나뉩니다. \r\n" +
+                                "-목표는 체중 감소, 근비대, 근지구력, 근파워로 나뉩니다. \r\n" +
                                 "-일반적으로는 세트는 4~5, 1세트당 반복횟수는 15~20으로 추천합니다.\r\n" +
                                 "-목표가 근비대인 경우 세트는 3~6, 1세트당 반복횟수는 6~12로 추천합니다.\r\n\r\n" +
                                 "-환경은 헬스장과 집으로 나뉩니다. 각 환경에 맞는 운동을 추천해줍니다.\n\n" +
-                                "-운동은 다음 목록 안에 있는 것 중에서만 선택합니다.\n" +
-                                "###\n" +
-                                "- 등 부위\r\n" +
+                                "-운동은 반드시 아래 목록 안에 있는 것 중에서만 선택하여 추천합니다.\n" +
+                                "<등 부위>\r\n" +
                                 "랫 풀 다운, 시티드 로우, 데드리프트, 원 암 덤벨 로우, 풀업\r\n" +
-                                "- 가슴 부위\r\n" +
+                                "<가슴 부위>\r\n" +
                                 "벤치프레스, 덤벨 플라이, 케이블 크로스 오버, 체스트프레스, 팔굽혀펴기\r\n" +
-                                "-팔 부위\r\n" +
+                                "<팔 부위>\r\n" +
                                 "덤벨 컬, 트라이셉스 푸시 다운, 오버헤드 케이블 컬, 딥스, 벤치프레스\r\n" +
-                                "-어깨\r\n" +
+                                "<어깨 부위>\r\n" +
                                 "오버헤드 프레스, 스미스 머신 슈러그, 케틀벨 스트릭 프레스, 밴드 오버헤드 프레스, 파이크 푸쉬업\r\n" +
-                                "-하체\r\n" +
+                                "<하체 부위>\r\n" +
                                 "스쿼트, 런지, 힙 어브덕션, 레그 익스텐션, 레그 프레스\r\n" +
-                                "-복근\r\n" +
-                                "디클라인 크런치, 행잉 레그 레이즈, 시티드 니 업, 바이시클 크런치\r\n" +
-                                "###\n\n" +
-                                "- json 파일 형식에 대해 잘 알고있습니다.\r\n" +
+                                "<복근 부위>\r\n" +
+                                "디클라인 크런치, 행잉 레그 레이즈, 시티드 니 업, 바이시클 크런치\r\n\n" +
+                                "-json 파일 형식에 대해 잘 알고있습니다.\r\n" +
                                 "-출력 데이터는 아래 형식으로 출력합니다.\n" +
                                 "{\n" +
                                 "\"userId\": \"\"\n" +
