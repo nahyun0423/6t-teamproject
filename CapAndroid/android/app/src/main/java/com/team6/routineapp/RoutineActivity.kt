@@ -72,8 +72,7 @@ class RoutineActivity : AppCompatActivity() {
                 for (routineView in routinesLayout.children) routineView.visibility = View.GONE
                 for (routineView in routinesLayout.children) {
                     val routine = routineView.tag as Routine
-
-                    if (routine.name.contains(query)) {
+                    if (routine.name.contains(query, ignoreCase = true)) {
                         routineView.visibility = View.VISIBLE
                     }
                 }
@@ -81,6 +80,20 @@ class RoutineActivity : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.isNullOrBlank()) {
+                    for (routineView in routinesLayout.children) {
+                        routineView.visibility = View.VISIBLE
+                    }
+                } else {
+                    for (routineView in routinesLayout.children) {
+                        val routine = routineView.tag as Routine
+                        routineView.visibility = if (routine.name.contains(newText, ignoreCase = true)) {
+                            View.VISIBLE
+                        } else {
+                            View.GONE
+                        }
+                    }
+                }
                 return true
             }
         }) // 검색 기능
