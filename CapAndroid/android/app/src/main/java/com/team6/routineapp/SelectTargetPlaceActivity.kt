@@ -69,6 +69,8 @@ class SelectTargetPlaceActivity : AppCompatActivity() {
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
                     if (region.contains(event.x.toInt(), event.y.toInt())) {
+                        intentToRecommendationResultActivity.putExtra("part", intent.getStringExtra("part"))
+                        intentToRecommendationResultActivity.putExtra("purpose", intent.getStringExtra("purpose"))
                         intentToRecommendationResultActivity.putExtra("place", "집")
                         startActivity(intentToRecommendationResultActivity)
                         true

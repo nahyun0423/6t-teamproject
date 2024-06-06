@@ -62,6 +62,7 @@ public class ClovaCustomService {
                                 "-일반형은 운동 루틴에 점핑 잭, 버피테스트, 마운틴 클라이머, 암 워킹 중 1개가 포함해 추천합니다.\n" +
                                 "-중량은 1RM에서 제공되는 무게의 65~80%로 추천합니다. \n" +
                                 "예시) 상체 벤치프레스가 50kg고 하체 스쿼트가 100kg라면, 상체는 32.5~40kg, 하체는 65~80kg로 추천합니다 \n \n" +
+                                "-중량은 무조건 정수입니다. 소수점은 존재하지 않습니다 \n" +
                                 "-목표는 체중 감소, 근비대, 근지구력, 근파워로 나뉩니다.  \n" +
                                 "-일반적으로는 세트는 4~5, 1세트당 반복횟수는 15~20으로 추천합니다. \n" +
                                 "-목표가 근비대인 경우 세트는 3~6, 1세트당 반복횟수는 6~12로 추천합니다. \n \n" +
@@ -137,6 +138,78 @@ public class ClovaCustomService {
                                         "    },\n" +
                                         "    {\n" +
                                         "      \"exerciseName\": \"스쿼트\",\n" +
+                                        "      \"weight\": 50,\n" +
+                                        "      \"sets\": 4,\n" +
+                                        "      \"reps\": 20\n" +
+                                        "    }\n" +
+                                        "  ]\n" +
+                                        "}\n"),
+                        Map.of("role", "user", "content", "1. 일반형  2. 팔, 어깨 부위를 선호해 \n" +
+                                "3. 1RM은 상체 벤치프레스 40kg, 하체 스쿼트 70kg이야 4. 근비대가 목적이야 5. 헬스장에서 할 수 있었으면 좋겠어"),
+                        Map.of("role", "assistant", "content",
+                                "{\n" +
+                                        "  \"userId\": \"\",\n"+
+                                        "  \"routineName\": \"\",\n"+
+                                        "  \"routineDetails\": [\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"점핑 잭\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 4,\n" +
+                                        "      \"reps\": 20\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"덤벨 컬\",\n" +
+                                        "      \"weight\": 5,\n" +
+                                        "      \"sets\": 5,\n" +
+                                        "      \"reps\": 10\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"트라이셉스 푸시 다운\",\n" +
+                                        "      \"weight\": 25,\n" +
+                                        "      \"sets\": 4,\n" +
+                                        "      \"reps\": 10\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"오버헤드 프레스\",\n" +
+                                        "      \"weight\": 25,\n" +
+                                        "      \"sets\": 5,\n" +
+                                        "      \"reps\": 12\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"파이크 푸쉬업\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 6,\n" +
+                                        "      \"reps\": 12\n" +
+                                        "    }\n" +
+                                        "  ]\n" +
+                                        "}\n"),
+                        Map.of("role", "user", "content", "1. 비만형  2. 하체 부위를 선호해 \n" +
+                                "3. 1RM은 상체 벤치프레스 20kg, 하체 스쿼트 30kg이야 4. 체지방 감소가 목적이야 5. 집에서 할 수 있었으면 좋겠어"),
+                        Map.of("role", "assistant", "content",
+                                "{\n" +
+                                        "  \"userId\": \"\",\n"+
+                                        "  \"routineName\": \"\",\n"+
+                                        "  \"routineDetails\": [\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"버피테스트\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 4,\n" +
+                                        "      \"reps\": 15\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"점핑 잭\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 4,\n" +
+                                        "      \"reps\": 20\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"스쿼트\",\n" +
+                                        "      \"weight\": 0,\n" +
+                                        "      \"sets\": 5,\n" +
+                                        "      \"reps\": 20\n" +
+                                        "    },\n" +
+                                        "    {\n" +
+                                        "      \"exerciseName\": \"런지\",\n" +
                                         "      \"weight\": 50,\n" +
                                         "      \"sets\": 4,\n" +
                                         "      \"reps\": 20\n" +

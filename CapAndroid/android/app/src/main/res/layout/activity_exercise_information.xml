@@ -119,17 +119,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/activity_exercise_information_description_body" />
 
-            <TextView
-                android:id="@+id/activity_exercise_information_textview_video_body"
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtube_player_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:includeFontPadding="false"
-                android:text="link"
-                android:textAppearance="@style/text_guide_body"
+                android:layout_marginTop="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/activity_exercise_information_textview_video_head" />
+                app:layout_constraintTop_toBottomOf="@+id/activity_exercise_information_textview_video_head"
+                app:autoPlay="false" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

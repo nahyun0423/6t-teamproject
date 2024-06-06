@@ -25,7 +25,7 @@ class SelectPurposeActivity : AppCompatActivity() {
         val strengthCheckBox: CheckBox = findViewById(R.id.activity_select_purpose_checkbox_strength)
 
         button.setOnClickListener {
-            if (loseWeightCheckBox.isChecked) stringJoiner.add("체중 감소")
+            if (loseWeightCheckBox.isChecked) stringJoiner.add("체지방 감소")
             else if (hypertrophyCheckBox.isChecked) stringJoiner.add("근비대")
             else if (enduranceCheckBox.isChecked) stringJoiner.add("근지구력 강화")
             else if (strengthCheckBox.isChecked) stringJoiner.add("근력 강화")

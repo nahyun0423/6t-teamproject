@@ -2,8 +2,11 @@ package com.team6.routineapp
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -35,6 +38,11 @@ class RecommendationResultActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recommendation_result)
         activityStack.push(this)
 
+        val loadingDialog = Dialog(this)
+        loadingDialog.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        loadingDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        loadingDialog.setContentView(R.layout.dialog_loading);
+
         val inputRoutineNameDialog = generateInputRoutineNameDialog()
         val textView: TextView = findViewById(R.id.activity_recommendation_result_textview)
         val notNeededButton = findViewById<Button>(R.id.activity_recommendation_result_button_not_needed)
@@ -42,11 +50,12 @@ class RecommendationResultActivity : AppCompatActivity() {
 
         intentToRoutineActivity = Intent(this, RoutineActivity::class.java)
 
-        textView.text = String.format("%s님께 \n적합한 루틴을 찾았습니다!", userDTO.userId)
+        loadingDialog.show()
 
         getRecommendationFromAI { routine ->
             if (routine != null) {
-
+               loadingDialog.dismiss()
+                textView.text = String.format("%s님께 \n적합한 루틴을 찾았습니다!", userDTO.userId)
 
                 notNeededButton.setOnClickListener {
                     activityStack.pop().finish()
@@ -60,7 +69,6 @@ class RecommendationResultActivity : AppCompatActivity() {
                 addToMyRoutineButton.setOnClickListener {
                     inputRoutineNameDialog.show()
                 }
-
                 generateTrainingsView(routine.trainings)
             } else {
                 //예외 처리?

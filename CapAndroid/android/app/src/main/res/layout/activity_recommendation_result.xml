@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:gravity="start|bottom"
             android:includeFontPadding="false"
-            android:text="@string/activity_recommendation_result_title"
+            android:text=""
             android:fontFamily="@font/notosans"
             android:textSize="@dimen/text_large"
             android:textColor="@color/blue"

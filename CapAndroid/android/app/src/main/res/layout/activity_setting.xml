@@ -314,7 +314,7 @@
                             android:id="@+id/activity_setting_textview_shape_unit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="형"
+                            android:text=""
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@id/activity_setting_textview_shape_value"
